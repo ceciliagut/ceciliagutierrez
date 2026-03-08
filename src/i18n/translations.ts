@@ -71,7 +71,7 @@ export const translations = {
       headingAccent: "de mi parte",
       p1: `Soy Cecilia — uruguaya, viviendo en Barcelona. Trabajo en`,
       p1Company: "N26",
-      p1End: `desde 2022, creciendo hasta mi rol actual como Senior Web Engineer. Diseño y construyo cosas para la web — código limpio, sistemas pensados, el tipo de trabajo que desaparece cuando está bien hecho.`,
+      p1End: `desde 2022, creciendo hasta mi rol actual como Senior Web Engineer. Pinto. Escribo. Dibujo.`,
       p2: `Pero no puedo limitarme a un solo modo de expresión. Dibujo. Pinto — óleos, acrílicos, lo que tenga a mano. Hago arte digital. Escribo. No es un proyecto paralelo ni un hobby. Es la otra mitad.`,
       p3: `Este sitio es donde viven las dos mitades — la persona que depura sistemas distribuidos y la que se mancha las uñas de pintura. Son la misma persona. Siempre lo fueron.`,
     },
