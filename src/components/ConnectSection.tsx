@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import sunflower1 from "@/assets/sunflower-1.jpg";
-import sunflower2 from "@/assets/sunflower-2.jpg";
+import sunflower from "@/assets/sunflower-1.jpg";
 
 const links = [
   {
