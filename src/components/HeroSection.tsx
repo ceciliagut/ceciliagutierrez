@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import heroPhoto from "@/assets/hero-photo-bw.jpg";
 import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <>
       {/* White header bar */}
@@ -21,17 +25,17 @@ const HeroSection = () => {
           transition={{ delay: 0.5, duration: 1 }}
           className="flex items-center gap-10 font-body text-[11px] tracking-[0.25em] uppercase text-muted-foreground"
         >
-          <a href="#about" className="hover:text-foreground transition-colors duration-300 hidden md:block">About</a>
-          <a href="#work" className="hover:text-foreground transition-colors duration-300 hidden md:block">Work</a>
-          <a href="#writing" className="hover:text-foreground transition-colors duration-300 hidden md:block">Writing</a>
-          <a href="#connect" className="hover:text-foreground transition-colors duration-300 hidden md:block">Connect</a>
+          <a href="#about" className="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.about}</a>
+          <a href="#work" className="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.work}</a>
+          <a href="#writing" className="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.writing}</a>
+          <a href="#connect" className="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.connect}</a>
+          <LanguageSwitcher />
           <ThemeToggle />
         </motion.div>
       </nav>
 
       {/* Hero image section */}
       <section className="relative h-[70vh] max-h-[700px] md:max-h-[800px] flex flex-col">
-        {/* Full-width background image */}
         <div className="absolute inset-0 z-0">
           <img
             src={heroPhoto}
@@ -42,7 +46,6 @@ const HeroSection = () => {
           />
         </div>
 
-        {/* Hero content — name overlaid on photo */}
         <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -50,7 +53,7 @@ const HeroSection = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="font-body text-[11px] tracking-[0.4em] uppercase text-white/60 mb-10"
           >
-            Based in Barcelona — from Uruguay
+            {t.hero.location}
           </motion.p>
 
           <motion.h1
@@ -70,13 +73,12 @@ const HeroSection = () => {
             transition={{ delay: 1.2, duration: 0.8 }}
             className="font-body text-base md:text-lg text-white/70 max-w-md leading-relaxed mt-10"
           >
-            I build systems by day and make art by night.
+            {t.hero.tagline}
             <br />
-            <span className="italic">Sometimes both at once.</span>
+            <span className="italic">{t.hero.taglineItalic}</span>
           </motion.p>
         </div>
 
-        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -84,7 +86,7 @@ const HeroSection = () => {
           className="relative z-10 flex flex-col items-center gap-3 pb-12"
         >
           <span className="font-body text-[10px] tracking-[0.4em] uppercase text-white/50">
-            scroll
+            {t.hero.scroll}
           </span>
           <motion.div
             animate={{ y: [0, 6, 0] }}

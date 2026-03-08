@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const links = [
   {
@@ -15,6 +16,8 @@ const links = [
 ];
 
 const ConnectSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="connect" className="relative py-32 md:py-44 px-8 md:px-16">
       <div className="max-w-3xl mx-auto">
@@ -26,13 +29,13 @@ const ConnectSection = () => {
           className="text-center mb-20"
         >
           <span className="font-body text-[11px] tracking-[0.4em] uppercase text-muted-foreground mb-6 block">
-            Connect
+            {t.connect.label}
           </span>
           <h2 className="font-display text-4xl md:text-6xl font-medium mb-6">
-            Say <span className="italic">hello</span>
+            {t.connect.heading} <span className="italic">{t.connect.headingAccent}</span>
           </h2>
           <p className="font-body text-muted-foreground text-base md:text-lg max-w-md mx-auto leading-relaxed">
-            Whether it's about code, art, or something in between — I'd love to hear from you.
+            {t.connect.description}
           </p>
         </motion.div>
 
@@ -77,7 +80,7 @@ const ConnectSection = () => {
           className="mt-32 text-center"
         >
           <p className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-            © {new Date().getFullYear()} Cecilia Gutierrez
+            {t.connect.footer.replace("{year}", String(new Date().getFullYear()))}
           </p>
         </motion.footer>
       </div>

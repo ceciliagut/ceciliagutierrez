@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const AboutSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="relative py-32 md:py-44 px-8 md:px-16">
       <div className="max-w-3xl mx-auto">
@@ -12,11 +15,11 @@ const AboutSection = () => {
           className="text-center mb-16"
         >
           <span className="font-body text-[11px] tracking-[0.4em] uppercase text-muted-foreground mb-6 block">
-            About
+            {t.about.label}
           </span>
           <h2 className="font-display text-4xl md:text-6xl font-medium leading-tight">
-            A note,{" "}
-            <span className="italic text-primary">from me</span>
+            {t.about.heading}{" "}
+            <span className="italic text-primary">{t.about.headingAccent}</span>
           </h2>
         </motion.div>
 
@@ -27,11 +30,8 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            I'm Cecilia — born in Uruguay, living in Barcelona. I've been at{" "}
-            <span className="text-foreground font-medium">N26</span> since 2022, growing
-            into my current role as Senior Web Engineer. I architect and build things for the
-            web — clean code, thoughtful systems, the kind of work that disappears when
-            it's done well.
+            {t.about.p1}{" "}
+            <span className="text-foreground font-medium">{t.about.p1Company}</span> {t.about.p1End}
           </motion.p>
 
           <motion.p
@@ -40,9 +40,7 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            But I can't contain myself to just one mode of expression. I draw. I paint —
-            oils, acrylics, whatever's nearby. I make digital art. I write. It's not a side
-            project or a hobby. It's the other half.
+            {t.about.p2}
           </motion.p>
 
           <motion.p
@@ -52,8 +50,7 @@ const AboutSection = () => {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="italic text-foreground/60"
           >
-            This site is where both halves live — the person who debugs distributed systems
-            and the one who gets paint under her nails. They're the same person. Always have been.
+            {t.about.p3}
           </motion.p>
         </div>
 
