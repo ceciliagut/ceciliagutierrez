@@ -12,31 +12,31 @@ import video2 from "@/assets/artwork/video-2.mp4";
 import digitalTigers from "@/assets/artwork/digital-tigers.png";
 import digitalHendrix from "@/assets/artwork/digital-hendrix.png";
 
-type ArtworkCategory = "all" | "paintings" | "drawings" | "digital";
+type ArtworkCategory = "all" | "charcoal" | "pastel" | "digital";
 
 interface Artwork {
   src: string;
   alt: string;
-  category: ArtworkCategory;
+  category: Exclude<ArtworkCategory, "all">;
   title: string;
   span?: string;
   videoSrc?: string;
 }
 
 const artworks: Artwork[] = [
-  { src: drawing4, alt: "Charcoal still life of a jug on easel", category: "drawings", title: "Estudio de Jarra" },
+  { src: drawing4, alt: "Charcoal still life of a jug on easel", category: "charcoal", title: "Estudio de Jarra" },
   { src: digitalTigers, alt: "Expressive digital painting of tigers", category: "digital", title: "Me Chama de Gato", videoSrc: video1 },
-  { src: drawing5, alt: "Classical bust portrait in charcoal", category: "drawings", title: "Busto Clásico", span: "md:row-span-2" },
-  { src: drawing6, alt: "Charcoal studies of facial features — eye, nose, lips", category: "drawings", title: "Estudios Anatómicos" },
-  { src: painting4, alt: "Pastel portrait study after old master", category: "paintings", title: "Estudio de Retrato" },
+  { src: drawing5, alt: "Classical bust portrait in charcoal", category: "charcoal", title: "Busto Clásico", span: "md:row-span-2" },
+  { src: drawing6, alt: "Charcoal studies of facial features — eye, nose, lips", category: "charcoal", title: "Estudios Anatómicos" },
+  { src: painting4, alt: "Pastel portrait study after old master", category: "pastel", title: "Estudio de Retrato" },
   { src: digitalHendrix, alt: "Digital portrait of Jimi Hendrix", category: "digital", title: "Lover Man", videoSrc: video2 },
-  { src: drawing7, alt: "Charcoal hand study with plaster cast", category: "drawings", title: "Estudio de Mano" },
+  { src: drawing7, alt: "Charcoal hand study with plaster cast", category: "charcoal", title: "Estudio de Mano" },
 ];
 
 const categories: { key: ArtworkCategory; label: string }[] = [
   { key: "all", label: "Everything" },
-  { key: "paintings", label: "Paintings" },
-  { key: "drawings", label: "Drawings" },
+  { key: "charcoal", label: "Charcoal" },
+  { key: "pastel", label: "Pastel" },
   { key: "digital", label: "Digital" },
 ];
 
