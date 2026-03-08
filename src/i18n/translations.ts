@@ -99,7 +99,7 @@ export const translations = {
       label: "Contacto",
       heading: "Decí",
       headingAccent: "hola",
-      description: "Ya sea sobre código, arte, o algo entre ambos — me encantaría saber de vos.",
+      description: "",
       footer: "© {year} Cecilia Gutierrez",
     },
   },
