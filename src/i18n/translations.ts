@@ -42,7 +42,6 @@ export const translations = {
       heading: "Words,",
       headingAccent: "too",
       medium: "Long-form thoughts on engineering, building for the web, and the space where technology meets creativity.",
-      substack: "More personal writing — essays, reflections, and the kind of thinking that doesn't fit in a code review.",
     },
     connect: {
       label: "Connect",
@@ -93,7 +92,6 @@ export const translations = {
       heading: "Palabras,",
       headingAccent: "también",
       medium: "Reflexiones largas sobre ingeniería, construir para la web, y el espacio donde la tecnología se encuentra con la creatividad.",
-      substack: "Escritura más personal — ensayos, reflexiones, y el tipo de pensamiento que no cabe en un code review.",
     },
     connect: {
       label: "Contacto",
@@ -111,6 +109,6 @@ export type Translations = {
   hero: { location: string; tagline: string; taglineItalic: string; scroll: string };
   about: { label: string; heading: string; headingAccent: string; p1: string; p1Company: string; p1End: string; p2: string; p3: string };
   gallery: { label: string; heading: string; headingAccent: string; categories: { all: string; charcoal: string; pastel: string; digital: string }; viewArtwork: string; watchProcess: string };
-  writing: { label: string; heading: string; headingAccent: string; medium: string; substack: string };
+  writing: { label: string; heading: string; headingAccent: string; medium: string };
   connect: { label: string; heading: string; headingAccent: string; description: string; footer: string };
 };
