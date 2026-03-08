@@ -54,7 +54,7 @@ export const translations = {
       heading: "Words,",
       headingAccent: "too",
       medium: "An archive of writings on engineering and life that I was thinking about at the time.",
-      substack: "New writings.",
+      substack: "New writings. Only in Spanish.",
     },
     connect: {
       label: "Connect",
@@ -117,7 +117,7 @@ export const translations = {
       heading: "Palabras,",
       headingAccent: "también",
       medium: "Un archivo de escritos sobre ingeniería y vida en los que estaba pensando en ese momento.",
-      substack: "Nuevos escritos.",
+      substack: "Nuevos escritos. Solo en español.",
     },
     connect: {
       label: "Contacto",
