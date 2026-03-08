@@ -113,12 +113,23 @@ const GallerySection = () => {
                 className={`group cursor-pointer relative overflow-hidden ${artwork.span || ""}`}
                 onClick={() => setLightboxImage(artwork)}
               >
-                <img
-                  src={artwork.src}
-                  alt={artwork.alt}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                />
+                {artwork.type === "video" ? (
+                  <video
+                    src={artwork.src}
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                ) : (
+                  <img
+                    src={artwork.src}
+                    alt={artwork.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                )}
                 <div className="absolute inset-0 bg-background/0 group-hover:bg-background/70 transition-all duration-500 flex items-end p-6">
                   <div className="translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                     <p className="font-display text-xl text-foreground">{artwork.title}</p>
