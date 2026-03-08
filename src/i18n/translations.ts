@@ -42,7 +42,7 @@ export const translations = {
       heading: "Words,",
       headingAccent: "too",
       medium: "An archive of past writings on engineering, building for the web, and the space where technology meets creativity.",
-      substack: "New writings — starting with how I built this website in 8 minutes.",
+      substack: "New writings — starting with how I built this website in less than 24 hours.",
     },
     connect: {
       label: "Connect",
