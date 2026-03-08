@@ -117,6 +117,7 @@ export const translations = {
         velo: "Busto con Velo",
         mano: "Estudio de Mano",
         rubel: "Rubel",
+        retratoCarbon: "Estudio de Retrato",
       },
     },
     writing: {
