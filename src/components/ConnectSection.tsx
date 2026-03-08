@@ -20,7 +20,7 @@ const ConnectSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="connect" className="relative h-[70vh] max-h-[700px] md:max-h-[800px] px-4 md:px-16 overflow-hidden flex items-center">
+    <section id="connect" className="relative h-[70vh] max-h-[700px] md:max-h-[800px] px-4 md:px-16 overflow-hidden flex items-center justify-center">
       {/* Sunflower background */}
       <img
         src={sunflower}
@@ -35,7 +35,7 @@ const ConnectSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-10"
         >
           <span className="font-body text-[11px] tracking-[0.4em] uppercase text-background/60 mb-6 block">
             {t.connect.label}
@@ -83,7 +83,7 @@ const ConnectSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="mt-32 text-center"
+          className="mt-16 text-center"
         >
           <p className="font-body text-[10px] tracking-[0.3em] uppercase text-background/40">
             {t.connect.footer.replace("{year}", String(new Date().getFullYear()))}
