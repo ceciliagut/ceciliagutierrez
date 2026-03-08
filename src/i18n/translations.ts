@@ -92,7 +92,6 @@ export const translations = {
       heading: "Palabras,",
       headingAccent: "también",
       medium: "Reflexiones largas sobre ingeniería, construir para la web, y el espacio donde la tecnología se encuentra con la creatividad.",
-      substack: "Escritura más personal — ensayos, reflexiones, y el tipo de pensamiento que no cabe en un code review.",
     },
     connect: {
       label: "Contacto",
