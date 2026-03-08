@@ -21,21 +21,21 @@ interface Artwork {
   src: string;
   alt: string;
   category: Exclude<ArtworkCategory, "all">;
-  title: string;
+  titleKey: string;
   span?: string;
   videoSrc?: string;
 }
 
 const artworks: Artwork[] = [
-  { src: drawing4, alt: "Charcoal still life of a jug on easel", category: "charcoal", title: "Estudio de Jarra" },
-  { src: digitalTigers, alt: "Expressive digital painting of tigers", category: "digital", title: "Me Chama de Gato", videoSrc: video1 },
-  { src: drawing5, alt: "Classical bust portrait in charcoal", category: "charcoal", title: "Busto Clásico", span: "md:row-span-2" },
-  { src: pastel1, alt: "Pastel portrait of a woman", category: "pastel", title: "Retrato en Pastel" },
-  { src: drawing6, alt: "Charcoal studies of facial features — eye, nose, lips", category: "charcoal", title: "Estudios Anatómicos" },
-  { src: painting4, alt: "Pastel portrait study after old master", category: "pastel", title: "Estudio de Retrato" },
-  { src: digitalHendrix, alt: "Digital portrait of Jimi Hendrix", category: "digital", title: "Lover Man", videoSrc: video2 },
-  { src: charcoal1, alt: "Charcoal study of a veiled bust", category: "charcoal", title: "Busto con Velo", span: "md:row-span-2" },
-  { src: drawing7, alt: "Charcoal hand study with plaster cast", category: "charcoal", title: "Estudio de Mano" },
+  { src: drawing4, alt: "Charcoal still life of a jug on easel", category: "charcoal", titleKey: "jarra" },
+  { src: digitalTigers, alt: "Expressive digital painting of tigers", category: "digital", titleKey: "tigers", videoSrc: video1 },
+  { src: drawing5, alt: "Classical bust portrait in charcoal", category: "charcoal", titleKey: "busto", span: "md:row-span-2" },
+  { src: pastel1, alt: "Pastel portrait of a woman", category: "pastel", titleKey: "pastelRetrato" },
+  { src: drawing6, alt: "Charcoal studies of facial features — eye, nose, lips", category: "charcoal", titleKey: "anatomicos" },
+  { src: painting4, alt: "Pastel portrait study after old master", category: "pastel", titleKey: "estudioRetrato" },
+  { src: digitalHendrix, alt: "Digital portrait of Jimi Hendrix", category: "digital", titleKey: "hendrix", videoSrc: video2 },
+  { src: charcoal1, alt: "Charcoal study of a veiled bust", category: "charcoal", titleKey: "velo", span: "md:row-span-2" },
+  { src: drawing7, alt: "Charcoal hand study with plaster cast", category: "charcoal", titleKey: "mano" },
 ];
 
 const categoryKeys: ArtworkCategory[] = ["all", "charcoal", "pastel", "digital"];
@@ -106,7 +106,7 @@ const GallerySection = () => {
           <AnimatePresence mode="popLayout">
             {filtered.map((artwork) => (
               <motion.div
-                key={artwork.title}
+                key={artwork.titleKey}
                 layout
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -128,7 +128,7 @@ const GallerySection = () => {
                 )}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-500 flex items-end p-6">
                   <div className="translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                    <p className="font-display text-xl text-white">{artwork.title}</p>
+                    <p className="font-display text-xl text-white">{t.gallery.titles[artwork.titleKey]}</p>
                     <p className="font-body text-[10px] tracking-[0.3em] uppercase text-white/70 mt-1">
                       {t.gallery.categories[artwork.category]}
                     </p>
@@ -181,7 +181,7 @@ const GallerySection = () => {
                 />
               )}
               <div className="mt-6 text-center">
-                <p className="font-display text-2xl text-foreground">{lightboxImage.title}</p>
+                <p className="font-display text-2xl text-foreground">{t.gallery.titles[lightboxImage.titleKey]}</p>
                 <p className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-2">
                   {t.gallery.categories[lightboxImage.category]}
                 </p>

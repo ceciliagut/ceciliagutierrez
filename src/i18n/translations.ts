@@ -37,6 +37,17 @@ export const translations = {
       },
       viewArtwork: "View artwork",
       watchProcess: "Watch process",
+      titles: {
+        jarra: "Jug Study",
+        tigers: "Call Me Cat",
+        busto: "Classical Bust",
+        pastelRetrato: "Pastel Portrait",
+        anatomicos: "Anatomical Studies",
+        estudioRetrato: "Portrait Study",
+        hendrix: "Lover Man",
+        velo: "Veiled Bust",
+        mano: "Hand Study",
+      },
     },
     writing: {
       label: "Writing",
@@ -89,6 +100,17 @@ export const translations = {
       },
       viewArtwork: "Ver obra",
       watchProcess: "Ver proceso",
+      titles: {
+        jarra: "Estudio de Jarra",
+        tigers: "Me Chama de Gato",
+        busto: "Busto Clásico",
+        pastelRetrato: "Retrato en Pastel",
+        anatomicos: "Estudios Anatómicos",
+        estudioRetrato: "Estudio de Retrato",
+        hendrix: "Lover Man",
+        velo: "Busto con Velo",
+        mano: "Estudio de Mano",
+      },
     },
     writing: {
       label: "Escritos",
@@ -112,7 +134,7 @@ export type Translations = {
   nav: { about: string; work: string; writing: string; connect: string };
   hero: { location: string; greeting: string; tagline: string; taglineItalic: string; scroll: string };
   about: { label: string; heading: string; headingAccent: string; p1: string; p1Company: string; p1End: string; p2: string; p3: string };
-  gallery: { label: string; heading: string; headingAccent: string; categories: { all: string; charcoal: string; pastel: string; digital: string }; viewArtwork: string; watchProcess: string };
+  gallery: { label: string; heading: string; headingAccent: string; categories: { all: string; charcoal: string; pastel: string; digital: string }; viewArtwork: string; watchProcess: string; titles: Record<string, string> };
   writing: { label: string; heading: string; headingAccent: string; medium: string; substack: string };
   connect: { label: string; heading: string; headingAccent: string; description: string; footer: string };
 };
