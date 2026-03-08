@@ -12,10 +12,7 @@ import { useEffect } from "react";
 const queryClient = new QueryClient();
 
 const LocaleRedirect = () => {
-  const saved = localStorage.getItem("locale") as Locale | null;
-  const browserLang = navigator.language.startsWith("es") ? "es" : "en";
-  const locale = saved || browserLang;
-  return <Navigate to={`/${locale}`} replace />;
+  return <Navigate to="/en" replace />;
 };
 
 const LocalePage = ({ locale }: { locale: Locale }) => {
