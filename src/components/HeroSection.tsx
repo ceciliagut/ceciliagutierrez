@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroTexture from "@/assets/hero-texture.jpg";
+import heroPhoto from "@/assets/hero-photo.jpg";
 import ThemeToggle from "./ThemeToggle";
 
 const HeroSection = () => {
