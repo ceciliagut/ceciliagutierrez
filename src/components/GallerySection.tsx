@@ -21,21 +21,21 @@ interface Artwork {
   src: string;
   alt: string;
   category: Exclude<ArtworkCategory, "all">;
-  title: string;
+  titleKey: string;
   span?: string;
   videoSrc?: string;
 }
 
 const artworks: Artwork[] = [
-  { src: drawing4, alt: "Charcoal still life of a jug on easel", category: "charcoal", title: "Estudio de Jarra" },
-  { src: digitalTigers, alt: "Expressive digital painting of tigers", category: "digital", title: "Me Chama de Gato", videoSrc: video1 },
-  { src: drawing5, alt: "Classical bust portrait in charcoal", category: "charcoal", title: "Busto Clásico", span: "md:row-span-2" },
-  { src: pastel1, alt: "Pastel portrait of a woman", category: "pastel", title: "Retrato en Pastel" },
-  { src: drawing6, alt: "Charcoal studies of facial features — eye, nose, lips", category: "charcoal", title: "Estudios Anatómicos" },
-  { src: painting4, alt: "Pastel portrait study after old master", category: "pastel", title: "Estudio de Retrato" },
-  { src: digitalHendrix, alt: "Digital portrait of Jimi Hendrix", category: "digital", title: "Lover Man", videoSrc: video2 },
-  { src: charcoal1, alt: "Charcoal study of a veiled bust", category: "charcoal", title: "Busto con Velo", span: "md:row-span-2" },
-  { src: drawing7, alt: "Charcoal hand study with plaster cast", category: "charcoal", title: "Estudio de Mano" },
+  { src: drawing4, alt: "Charcoal still life of a jug on easel", category: "charcoal", titleKey: "jarra" },
+  { src: digitalTigers, alt: "Expressive digital painting of tigers", category: "digital", titleKey: "tigers", videoSrc: video1 },
+  { src: drawing5, alt: "Classical bust portrait in charcoal", category: "charcoal", titleKey: "busto", span: "md:row-span-2" },
+  { src: pastel1, alt: "Pastel portrait of a woman", category: "pastel", titleKey: "pastelRetrato" },
+  { src: drawing6, alt: "Charcoal studies of facial features — eye, nose, lips", category: "charcoal", titleKey: "anatomicos" },
+  { src: painting4, alt: "Pastel portrait study after old master", category: "pastel", titleKey: "estudioRetrato" },
+  { src: digitalHendrix, alt: "Digital portrait of Jimi Hendrix", category: "digital", titleKey: "hendrix", videoSrc: video2 },
+  { src: charcoal1, alt: "Charcoal study of a veiled bust", category: "charcoal", titleKey: "velo", span: "md:row-span-2" },
+  { src: drawing7, alt: "Charcoal hand study with plaster cast", category: "charcoal", titleKey: "mano" },
 ];
 
 const categoryKeys: ArtworkCategory[] = ["all", "charcoal", "pastel", "digital"];
