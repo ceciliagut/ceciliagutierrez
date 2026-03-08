@@ -56,8 +56,8 @@ const ConnectSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="group flex items-center justify-between py-8 border-b border-background/20
-                         hover:border-background/50 transition-colors duration-300"
+              className="group flex items-center justify-between py-8 border-b border-white/20
+                         hover:border-white/50 transition-colors duration-300"
             >
               <div>
                 <span className="font-body text-[10px] tracking-[0.4em] uppercase text-background/50 block mb-2">
