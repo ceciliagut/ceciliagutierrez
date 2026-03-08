@@ -45,7 +45,7 @@ const artworks: Artwork[] = [
   { src: oilFallenAngel, alt: "Oil painting study on easel in art studio", category: "oil", titleKey: "nome" },
 ];
 
-const categoryKeys: ArtworkCategory[] = ["all", "oil", "digital", "charcoal", "pastel"];
+
 
 const GallerySection = () => {
   const { t } = useLanguage();
