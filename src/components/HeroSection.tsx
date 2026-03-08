@@ -39,6 +39,7 @@ const HeroSection = () => {
             className="w-full h-full object-cover"
             style={{ objectPosition: '50% 100%' }}
           />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
 
         <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6">
@@ -47,7 +48,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="font-body text-[11px] tracking-[0.4em] uppercase text-white/60 mb-10"
+              className="font-body text-[11px] tracking-[0.4em] uppercase text-white/80 mb-10"
             >
               {t.hero.location}
             </motion.p>
@@ -57,7 +58,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="font-body text-sm md:text-base tracking-wide text-white/60 mb-3"
+            className="font-body text-sm md:text-base tracking-wide text-white/80 mb-3"
           >
             {t.hero.greeting}
           </motion.p>
@@ -78,7 +79,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
-              className="font-body text-base md:text-lg text-white/70 max-w-md leading-relaxed mt-10"
+              className="font-body text-base md:text-lg text-white/90 max-w-md leading-relaxed mt-10"
             >
               {t.hero.tagline}
               {t.hero.taglineItalic && <><br /><span className="italic">{t.hero.taglineItalic}</span></>}
