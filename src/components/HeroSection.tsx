@@ -4,7 +4,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex flex-col">
+    <section className="relative h-screen max-h-[800px] md:max-h-[900px] flex flex-col">
       {/* Full-width background image */}
       <div className="absolute inset-0 z-0">
         <img
