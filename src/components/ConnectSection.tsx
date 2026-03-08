@@ -43,9 +43,6 @@ const ConnectSection = () => {
           <h2 className="font-display text-4xl md:text-6xl font-medium mb-6 text-background">
             {t.connect.heading} <span className="italic">{t.connect.headingAccent}</span>
           </h2>
-          <p className="font-body text-background/70 text-base md:text-lg max-w-md mx-auto leading-relaxed">
-            {t.connect.description}
-          </p>
         </motion.div>
 
         <div className="space-y-0 max-w-lg mx-auto">
