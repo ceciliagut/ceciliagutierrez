@@ -48,7 +48,7 @@ const HeroSection = () => {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="font-body text-[11px] tracking-[0.4em] uppercase text-muted-foreground mb-10"
         >
-          Barcelona — from Montevideo
+          Barcelona — from Uruguay
         </motion.p>
 
         <motion.h1
