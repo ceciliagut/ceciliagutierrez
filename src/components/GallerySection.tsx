@@ -42,7 +42,7 @@ const artworks: Artwork[] = [
   { src: charcoal2, alt: "Charcoal portrait study in art studio", category: "charcoal", titleKey: "retratoCarbon" },
 ];
 
-const categoryKeys: ArtworkCategory[] = ["all", "charcoal", "pastel", "digital"];
+const categoryKeys: ArtworkCategory[] = ["all", "charcoal", "pastel", "digital", "oil"];
 
 const GallerySection = () => {
   const { t } = useLanguage();
