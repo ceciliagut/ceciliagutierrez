@@ -10,6 +10,7 @@ export const translations = {
     },
     hero: {
       location: "Based in Barcelona — from Uruguay",
+      greeting: "Hey, I'm",
       tagline: "",
       taglineItalic: "",
       scroll: "scroll",
