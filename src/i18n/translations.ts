@@ -29,7 +29,7 @@ export const translations = {
       heading: "",
       headingAccent: "Studies",
       categories: {
-        all: "Everything",
+        all: "All",
         charcoal: "Charcoal",
         pastel: "Pastel",
         digital: "Digital",
