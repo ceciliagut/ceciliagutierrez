@@ -169,11 +169,21 @@ const GallerySection = () => {
               className="max-w-4xl max-h-[85vh] relative"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={lightboxImage.src}
-                alt={lightboxImage.alt}
-                className="max-w-full max-h-[80vh] object-contain"
-              />
+              {lightboxImage.type === "video" ? (
+                <video
+                  src={lightboxImage.src}
+                  controls
+                  autoPlay
+                  playsInline
+                  className="max-w-full max-h-[80vh] object-contain"
+                />
+              ) : (
+                <img
+                  src={lightboxImage.src}
+                  alt={lightboxImage.alt}
+                  className="max-w-full max-h-[80vh] object-contain"
+                />
+              )}
               <div className="mt-6 text-center">
                 <p className="font-display text-2xl text-foreground">{lightboxImage.title}</p>
                 <p className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-2">
