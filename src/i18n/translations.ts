@@ -69,7 +69,7 @@ export const translations = {
       label: "Sobre mí",
       heading: "Una nota,",
       headingAccent: "de mi parte",
-      p1: `Soy Cecilia — nacida en Uruguay, viviendo en Barcelona. Trabajo en`,
+      p1: `Soy Cecilia — uruguaya, viviendo en Barcelona. Trabajo en`,
       p1Company: "N26",
       p1End: `desde 2022, creciendo hasta mi rol actual como Senior Web Engineer. Diseño y construyo cosas para la web — código limpio, sistemas pensados, el tipo de trabajo que desaparece cuando está bien hecho.`,
       p2: `Pero no puedo limitarme a un solo modo de expresión. Dibujo. Pinto — óleos, acrílicos, lo que tenga a mano. Hago arte digital. Escribo. No es un proyecto paralelo ni un hobby. Es la otra mitad.`,
