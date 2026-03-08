@@ -2,22 +2,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
-import painting1 from "@/assets/artwork/painting-1.jpg";
-import painting2 from "@/assets/artwork/painting-2.jpg";
-import painting3 from "@/assets/artwork/painting-3.jpg";
-import drawing1 from "@/assets/artwork/drawing-1.jpg";
-import drawing2 from "@/assets/artwork/drawing-2.jpg";
-import drawing3 from "@/assets/artwork/drawing-3.jpg";
-import digital1 from "@/assets/artwork/digital-1.jpg";
-import digital2 from "@/assets/artwork/digital-2.jpg";
-import digital3 from "@/assets/artwork/digital-3.jpg";
-import video1 from "@/assets/artwork/video-1.mp4";
-import video2 from "@/assets/artwork/video-2.mp4";
 import drawing4 from "@/assets/artwork/drawing-4.png";
 import drawing5 from "@/assets/artwork/drawing-5.png";
 import drawing6 from "@/assets/artwork/drawing-6.png";
 import painting4 from "@/assets/artwork/painting-4.png";
 import drawing7 from "@/assets/artwork/drawing-7.png";
+import video1 from "@/assets/artwork/video-1.mp4";
+import video2 from "@/assets/artwork/video-2.mp4";
 
 type ArtworkCategory = "all" | "paintings" | "drawings" | "digital" | "video";
 
@@ -31,22 +22,13 @@ interface Artwork {
 }
 
 const artworks: Artwork[] = [
-  { src: painting1, alt: "Abstract landscape in warm earth tones", category: "paintings", title: "Tierra Adentro", span: "md:row-span-2" },
-  { src: digital1, alt: "Glitch art composition with amber accents", category: "digital", title: "Signal / Noise" },
-  { src: drawing1, alt: "Botanical ink illustration", category: "drawings", title: "Herbarium I" },
   { src: drawing4, alt: "Charcoal still life of a jug on easel", category: "drawings", title: "Estudio de Jarra" },
-  { src: video1, alt: "Ilustración sin título", category: "video", title: "Ilustración sin título", type: "video" },
-  { src: painting2, alt: "Expressive portrait in golden tones", category: "paintings", title: "Retrato con Luz" },
   { src: drawing5, alt: "Classical bust portrait in charcoal", category: "drawings", title: "Busto Clásico", span: "md:row-span-2" },
-  { src: digital2, alt: "Mixed media digital collage", category: "digital", title: "Fragmentos" },
-  { src: painting4, alt: "Pastel portrait study after old master", category: "paintings", title: "Estudio de Retrato" },
-  { src: video2, alt: "Lover Man - Jimi Hendrix", category: "video", title: "Lover Man", type: "video" },
   { src: drawing6, alt: "Charcoal studies of facial features — eye, nose, lips", category: "drawings", title: "Estudios Anatómicos" },
-  { src: painting3, alt: "Abstract composition in navy and amber", category: "paintings", title: "Nocturno" },
-  { src: drawing2, alt: "Gestural charcoal figure drawing", category: "drawings", title: "Estudio en Carbón" },
+  { src: painting4, alt: "Pastel portrait study after old master", category: "paintings", title: "Estudio de Retrato" },
   { src: drawing7, alt: "Charcoal hand study with plaster cast", category: "drawings", title: "Estudio de Mano" },
-  { src: drawing3, alt: "Surreal pen and ink illustration", category: "drawings", title: "El Bosque Interior" },
-  { src: digital3, alt: "Abstract geometric digital art", category: "digital", title: "Geometría Orgánica" },
+  { src: video1, alt: "Ilustración sin título", category: "video", title: "Ilustración sin título", type: "video" },
+  { src: video2, alt: "Lover Man - Jimi Hendrix", category: "video", title: "Lover Man", type: "video" },
 ];
 
 const categories: { key: ArtworkCategory; label: string }[] = [
