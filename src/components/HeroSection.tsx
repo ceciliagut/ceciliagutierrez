@@ -1,22 +1,11 @@
 import { motion } from "framer-motion";
-import heroPhoto from "@/assets/hero-photo.jpg";
+import heroPhoto from "@/assets/hero-photo-bw.jpg";
 import ThemeToggle from "./ThemeToggle";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden">
-      {/* Background texture — full bleed, atmospheric */}
-      <div className="absolute inset-0">
-        <img
-          src={heroPhoto}
-          alt=""
-          className="w-full h-full object-cover opacity-30 dark:opacity-20"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-background/50 dark:bg-background/70" />
-      </div>
-
-      {/* Navigation — centered, all-caps, wide tracking */}
+    <section className="relative min-h-screen flex flex-col bg-background">
+      {/* Navigation */}
       <nav className="relative z-10 flex justify-between items-center px-8 md:px-16 py-10">
         <motion.span
           initial={{ opacity: 0 }}
@@ -40,7 +29,7 @@ const HeroSection = () => {
         </motion.div>
       </nav>
 
-      {/* Hero content — centered, dramatic */}
+      {/* Hero content — name overlaid on photo */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -51,22 +40,40 @@ const HeroSection = () => {
           Based in Barcelona — from Uruguay
         </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="font-display text-6xl md:text-8xl lg:text-9xl font-medium leading-[0.9] tracking-tight mb-8"
-        >
-          Cecilia
-          <br />
-          <span className="italic text-primary">Gutierrez</span>
-        </motion.h1>
+        {/* Name + photo composite */}
+        <div className="relative w-full max-w-4xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="font-display text-6xl md:text-8xl lg:text-9xl font-medium leading-[0.9] tracking-tight relative z-20"
+          >
+            Cecilia
+            <br />
+            <span className="italic text-primary">Gutierrez</span>
+          </motion.h1>
+
+          {/* B&W photo behind/overlapping the text */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="relative z-10 -mt-12 md:-mt-20 mx-auto max-w-2xl overflow-hidden"
+          >
+            <img
+              src={heroPhoto}
+              alt="Cecilia Gutierrez smiling at a train station"
+              loading="eager"
+              className="w-full h-[300px] md:h-[400px] object-cover object-top grayscale"
+            />
+          </motion.div>
+        </div>
 
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="font-body text-base md:text-lg text-muted-foreground max-w-md leading-relaxed"
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="font-body text-base md:text-lg text-muted-foreground max-w-md leading-relaxed mt-10"
         >
           I build systems by day and make art by night.
           <br />
@@ -74,7 +81,7 @@ const HeroSection = () => {
         </motion.p>
       </div>
 
-      {/* Scroll indicator — centered bottom */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
