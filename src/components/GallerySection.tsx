@@ -93,7 +93,7 @@ const GallerySection = () => {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="flex justify-center gap-8 mb-16 font-body text-[11px] tracking-[0.2em] uppercase"
         >
-          {categoryKeys.map((key) => (
+          {CATEGORIES.map((key) => (
             <button
               key={key}
               onClick={() => setActiveCategory(key)}
