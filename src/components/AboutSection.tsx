@@ -17,10 +17,6 @@ const AboutSection = () => {
           <span className="font-body text-[11px] tracking-[0.4em] uppercase text-muted-foreground mb-6 block">
             {t.about.label}
           </span>
-          <h2 className="font-display text-4xl md:text-6xl font-medium leading-tight">
-            {t.about.heading}{" "}
-            <span className="italic text-primary">{t.about.headingAccent}</span>
-          </h2>
         </motion.div>
 
         <div className="space-y-8 font-body text-base md:text-lg leading-[1.8] text-muted-foreground text-center max-w-2xl mx-auto">
