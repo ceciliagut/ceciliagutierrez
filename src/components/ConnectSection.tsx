@@ -83,7 +83,7 @@ const ConnectSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="mt-32 text-center"
+          className="mt-16 text-center"
         >
           <p className="font-body text-[10px] tracking-[0.3em] uppercase text-background/40">
             {t.connect.footer.replace("{year}", String(new Date().getFullYear()))}
