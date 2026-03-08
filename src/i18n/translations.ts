@@ -42,7 +42,6 @@ export const translations = {
       heading: "Words,",
       headingAccent: "too",
       medium: "Long-form thoughts on engineering, building for the web, and the space where technology meets creativity.",
-      substack: "More personal writing — essays, reflections, and the kind of thinking that doesn't fit in a code review.",
     },
     connect: {
       label: "Connect",
