@@ -21,7 +21,9 @@ export const translations = {
       headingAccent: "from me",
       p1: `Uruguayan, living in Barcelona. I've been at`,
       p1Company: "N26",
-      p1End: `since 2022, now as a Senior Web Engineer. Software Engineer graduated from UdelaR, Montevideo, Uruguay. I paint. I write. I draw.`,
+      p1End: `since 2022, now as a Senior Web Engineer. Software Engineer graduated from`,
+      p1University: "UdelaR",
+      p1End2: `, Montevideo, Uruguay. I paint. I write. I draw.`,
       p2: ``,
       p3: ``,
     },
@@ -84,7 +86,9 @@ export const translations = {
       headingAccent: "de mi parte",
       p1: `Uruguaya, viviendo en Barcelona. Trabajo en`,
       p1Company: "N26",
-      p1End: `desde 2022, ahora como Senior Web Engineer. Ingeniera de Software graduada de UdelaR, Montevideo, Uruguay. Pinto. Escribo. Dibujo.`,
+      p1End: `desde 2022, ahora como Senior Web Engineer. Ingeniera de Software graduada de`,
+      p1University: "UdelaR",
+      p1End2: `, Montevideo, Uruguay. Pinto. Escribo. Dibujo.`,
       p2: ``,
       p3: ``,
     },
@@ -133,7 +137,7 @@ export const translations = {
 export type Translations = {
   nav: { about: string; work: string; writing: string; connect: string };
   hero: { location: string; greeting: string; tagline: string; taglineItalic: string; scroll: string };
-  about: { label: string; heading: string; headingAccent: string; p1: string; p1Company: string; p1End: string; p2: string; p3: string };
+  about: { label: string; heading: string; headingAccent: string; p1: string; p1Company: string; p1End: string; p1University: string; p1End2: string; p2: string; p3: string };
   gallery: { label: string; heading: string; headingAccent: string; categories: { all: string; charcoal: string; pastel: string; digital: string }; viewArtwork: string; watchProcess: string; titles: Record<string, string> };
   writing: { label: string; heading: string; headingAccent: string; medium: string; substack: string };
   connect: { label: string; heading: string; headingAccent: string; description: string; footer: string };
