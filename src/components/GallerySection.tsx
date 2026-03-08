@@ -14,6 +14,7 @@ import digitalTigers from "@/assets/artwork/digital-tigers.png";
 import digitalHendrix from "@/assets/artwork/digital-hendrix.png";
 import pastel1 from "@/assets/artwork/pastel-1.png";
 import charcoal1 from "@/assets/artwork/charcoal-1.png";
+import painting5 from "@/assets/artwork/painting-5.png";
 
 type ArtworkCategory = "all" | "charcoal" | "pastel" | "digital";
 
@@ -36,6 +37,7 @@ const artworks: Artwork[] = [
   { src: digitalHendrix, alt: "Digital portrait of Jimi Hendrix", category: "digital", titleKey: "hendrix", videoSrc: video2 },
   { src: charcoal1, alt: "Charcoal study of a veiled bust", category: "charcoal", titleKey: "velo", span: "md:row-span-2" },
   { src: drawing7, alt: "Charcoal hand study with plaster cast", category: "charcoal", titleKey: "mano" },
+  { src: painting5, alt: "Digital painting of a man with a dog and blue figure", category: "digital", titleKey: "rubel" },
 ];
 
 const categoryKeys: ArtworkCategory[] = ["all", "charcoal", "pastel", "digital"];

@@ -49,6 +49,7 @@ export const translations = {
         hendrix: "Lover Man",
         velo: "Veiled Bust",
         mano: "Hand Study",
+        rubel: "Rubel",
       },
     },
     writing: {
@@ -114,6 +115,7 @@ export const translations = {
         hendrix: "Lover Man",
         velo: "Busto con Velo",
         mano: "Estudio de Mano",
+        rubel: "Rubel",
       },
     },
     writing: {
