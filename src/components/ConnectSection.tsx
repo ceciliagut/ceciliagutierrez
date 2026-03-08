@@ -35,7 +35,7 @@ const ConnectSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-10"
         >
           <span className="font-body text-[11px] tracking-[0.4em] uppercase text-background/60 mb-6 block">
             {t.connect.label}
