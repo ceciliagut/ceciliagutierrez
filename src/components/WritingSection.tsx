@@ -36,7 +36,7 @@ const WritingSection = () => {
           </h2>
         </motion.div>
 
-        <div className="flex justify-center">
+        <div className="grid md:grid-cols-2 gap-8">
           {writings.map((item, i) => (
             <motion.a
               key={item.title}
