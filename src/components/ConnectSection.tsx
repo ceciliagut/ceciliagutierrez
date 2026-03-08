@@ -37,10 +37,10 @@ const ConnectSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-10"
         >
-          <span className="font-body text-[11px] tracking-[0.4em] uppercase text-background/60 mb-6 block">
+          <span className="font-body text-[11px] tracking-[0.4em] uppercase text-white/60 mb-6 block">
             {t.connect.label}
           </span>
-          <h2 className="font-display text-4xl md:text-6xl font-medium mb-6 text-background">
+          <h2 className="font-display text-4xl md:text-6xl font-medium mb-6 text-white">
             {t.connect.heading} <span className="italic">{t.connect.headingAccent}</span>
           </h2>
         </motion.div>
@@ -56,20 +56,20 @@ const ConnectSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="group flex items-center justify-between py-8 border-b border-background/20
-                         hover:border-background/50 transition-colors duration-300"
+              className="group flex items-center justify-between py-8 border-b border-white/20
+                         hover:border-white/50 transition-colors duration-300"
             >
               <div>
-                <span className="font-body text-[10px] tracking-[0.4em] uppercase text-background/50 block mb-2">
+                <span className="font-body text-[10px] tracking-[0.4em] uppercase text-white/50 block mb-2">
                   {link.label}
                 </span>
-                <span className="font-body text-base md:text-lg text-background group-hover:text-primary-foreground transition-colors duration-300">
+                <span className="font-body text-base md:text-lg text-white hover:text-white transition-colors duration-300">
                   {link.display}
                 </span>
               </div>
               <ArrowUpRight
                 size={16}
-                className="text-background/50 group-hover:text-background 
+                className="text-white/50 group-hover:text-white 
                          group-hover:translate-x-0.5 group-hover:-translate-y-0.5 
                          transition-all duration-300"
               />
