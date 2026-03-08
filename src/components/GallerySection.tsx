@@ -1,69 +1,20 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, Play, Image } from "lucide-react";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
-
-import charcoalJugStudy from "@/assets/artwork/charcoal-jug-study.png";
-import charcoalClassicalBust from "@/assets/artwork/charcoal-classical-bust.png";
-import charcoalAnatomicalStudies from "@/assets/artwork/charcoal-anatomical-studies.png";
-import charcoalHandStudy from "@/assets/artwork/charcoal-hand-study.png";
-import charcoalVeiledBust from "@/assets/artwork/charcoal-veiled-bust.png";
-import charcoalPortraitStudy from "@/assets/artwork/charcoal-portrait-study.png";
-import pastelPortraitStudy from "@/assets/artwork/pastel-portrait-study.png";
-import pastelPortrait from "@/assets/artwork/pastel-portrait.png";
-import digitalTigers from "@/assets/artwork/digital-tigers.png";
-import digitalHendrix from "@/assets/artwork/digital-hendrix.png";
-import digitalRubel from "@/assets/artwork/digital-rubel.png";
-import oilFallenAngel from "@/assets/artwork/oil-fallen-angel.jpg";
-import videoTigersProcess from "@/assets/artwork/video-tigers-process.mp4";
-import videoHendrixProcess from "@/assets/artwork/video-hendrix-process.mp4";
-
-const CATEGORIES = ["all", "oil", "digital", "charcoal", "pastel"] as const;
-type ArtworkCategory = (typeof CATEGORIES)[number];
-
-interface Artwork {
-  src: string;
-  alt: string;
-  category: Exclude<ArtworkCategory, "all">;
-  titleKey: string;
-  span?: string;
-  videoSrc?: string;
-}
-
-const artworks: Artwork[] = [
-  { src: charcoalJugStudy, alt: "Charcoal still life of a jug on easel", category: "charcoal", titleKey: "jarra" },
-  { src: digitalTigers, alt: "Expressive digital painting of tigers", category: "digital", titleKey: "tigers", videoSrc: videoTigersProcess },
-  { src: charcoalClassicalBust, alt: "Classical bust portrait in charcoal", category: "charcoal", titleKey: "busto", span: "md:row-span-2" },
-  { src: pastelPortrait, alt: "Pastel portrait of a woman", category: "pastel", titleKey: "pastelRetrato" },
-  { src: charcoalAnatomicalStudies, alt: "Charcoal studies of facial features — eye, nose, lips", category: "charcoal", titleKey: "anatomicos" },
-  { src: pastelPortraitStudy, alt: "Pastel portrait study after old master", category: "pastel", titleKey: "estudioRetrato" },
-  { src: digitalHendrix, alt: "Digital portrait of Jimi Hendrix", category: "digital", titleKey: "hendrix", videoSrc: videoHendrixProcess },
-  { src: charcoalVeiledBust, alt: "Charcoal study of a veiled bust", category: "charcoal", titleKey: "velo", span: "md:row-span-2" },
-  { src: charcoalHandStudy, alt: "Charcoal hand study with plaster cast", category: "charcoal", titleKey: "mano" },
-  { src: digitalRubel, alt: "Digital painting of a man with a dog and blue figure", category: "digital", titleKey: "rubel" },
-  { src: charcoalPortraitStudy, alt: "Charcoal portrait study in art studio", category: "charcoal", titleKey: "retratoCarbon" },
-  { src: oilFallenAngel, alt: "Oil painting study on easel in art studio", category: "oil", titleKey: "nome" },
-];
+import type { Artwork, ArtworkCategory } from "./gallery/types";
+import { artworks } from "./gallery/artworks";
+import CategoryFilters from "./gallery/CategoryFilters";
+import ArtworkGrid from "./gallery/ArtworkGrid";
+import Lightbox from "./gallery/Lightbox";
 
 const GallerySection = () => {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<ArtworkCategory>("all");
   const [lightboxImage, setLightboxImage] = useState<Artwork | null>(null);
-  const [showVideo, setShowVideo] = useState(false);
 
   const filtered = activeCategory === "all"
     ? artworks
     : artworks.filter((a) => a.category === activeCategory);
-
-  const openLightbox = (artwork: Artwork) => {
-    setLightboxImage(artwork);
-    setShowVideo(false);
-  };
-
-  const closeLightbox = () => {
-    setLightboxImage(null);
-    setShowVideo(false);
-  };
 
   return (
     <section id="work" className="relative py-10 md:py-16 px-8 md:px-16">
@@ -83,136 +34,11 @@ const GallerySection = () => {
           </h2>
         </motion.div>
 
-        {/* Category filters */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="flex justify-center gap-8 mb-16 font-body text-[11px] tracking-[0.2em] uppercase"
-        >
-          {CATEGORIES.map((key) => (
-            <button
-              key={key}
-              onClick={() => setActiveCategory(key)}
-              className={`transition-colors duration-300 pb-2 border-b ${
-                activeCategory === key
-                  ? "text-foreground border-foreground"
-                  : "text-muted-foreground border-transparent hover:text-foreground"
-              }`}
-            >
-              {t.gallery.categories[key]}
-            </button>
-          ))}
-        </motion.div>
-
-        {/* Masonry grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((artwork) => (
-              <motion.div
-                key={artwork.titleKey}
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-                className={`group cursor-pointer relative overflow-hidden ${artwork.span || ""}`}
-                onClick={() => openLightbox(artwork)}
-              >
-                <img
-                  src={artwork.src}
-                  alt={artwork.alt}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-                {artwork.videoSrc && (
-                  <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <Play size={14} className="text-foreground" />
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-500 flex items-end p-6">
-                  <div className="translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                    <p className="font-display text-xl text-white">{t.gallery.titles[artwork.titleKey]}</p>
-                    <p className="font-body text-[10px] tracking-[0.3em] uppercase text-white/70 mt-1">
-                      {t.gallery.categories[artwork.category]}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        <CategoryFilters active={activeCategory} onChange={setActiveCategory} />
+        <ArtworkGrid artworks={filtered} onSelect={setLightboxImage} />
       </div>
 
-      {/* Lightbox */}
-      <AnimatePresence>
-        {lightboxImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm flex items-center justify-center p-8"
-            onClick={closeLightbox}
-          >
-            <button
-              className="absolute top-8 right-8 text-muted-foreground hover:text-foreground transition-colors"
-              onClick={closeLightbox}
-              aria-label="Close lightbox"
-            >
-              <X size={20} />
-            </button>
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="max-w-4xl max-h-[85vh] relative"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {showVideo && lightboxImage.videoSrc ? (
-                <video
-                  src={lightboxImage.videoSrc}
-                  controls
-                  autoPlay
-                  playsInline
-                  className="max-w-full max-h-[80vh] object-contain"
-                />
-              ) : (
-                <img
-                  src={lightboxImage.src}
-                  alt={lightboxImage.alt}
-                  className="max-w-full max-h-[80vh] object-contain"
-                />
-              )}
-              <div className="mt-6 text-center">
-                <p className="font-display text-2xl text-foreground">{t.gallery.titles[lightboxImage.titleKey]}</p>
-                <p className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-2">
-                  {t.gallery.categories[lightboxImage.category]}
-                </p>
-                {lightboxImage.videoSrc && (
-                  <button
-                    onClick={() => setShowVideo(!showVideo)}
-                    className="mt-4 inline-flex items-center gap-2 font-body text-[10px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors border-b border-muted-foreground/30 hover:border-foreground pb-1"
-                  >
-                    {showVideo ? (
-                      <>
-                        <Image size={12} />
-                        {t.gallery.viewArtwork}
-                      </>
-                    ) : (
-                      <>
-                        <Play size={12} />
-                        {t.gallery.watchProcess}
-                      </>
-                    )}
-                  </button>
-                )}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <Lightbox artwork={lightboxImage} onClose={() => setLightboxImage(null)} />
     </section>
   );
 };
