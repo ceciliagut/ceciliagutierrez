@@ -37,7 +37,7 @@ const ConnectSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-10"
         >
-          <span className="font-body text-[11px] tracking-[0.4em] uppercase text-background/60 mb-6 block">
+          <span className="font-body text-[11px] tracking-[0.4em] uppercase text-white/60 mb-6 block">
             {t.connect.label}
           </span>
           <h2 className="font-display text-4xl md:text-6xl font-medium mb-6 text-background">
