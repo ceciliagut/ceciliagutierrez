@@ -1,6 +1,9 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import sunflower1 from "@/assets/sunflower-1.jpg";
+import sunflower2 from "@/assets/sunflower-2.jpg";
 
 const links = [
   {
@@ -15,12 +18,37 @@ const links = [
   },
 ];
 
+const sunflowers = [sunflower1, sunflower2];
+
 const ConnectSection = () => {
   const { t } = useLanguage();
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % sunflowers.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section id="connect" className="relative py-32 md:py-44 px-8 md:px-16">
-      <div className="max-w-3xl mx-auto">
+    <section id="connect" className="relative py-32 md:py-44 px-8 md:px-16 overflow-hidden">
+      {/* Sunflower background with crossfade */}
+      <AnimatePresence mode="popLayout">
+        <motion.img
+          key={currentImage}
+          src={sunflowers[currentImage]}
+          alt="Sunflower photograph"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 2 }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </AnimatePresence>
+      <div className="absolute inset-0 bg-foreground/70" />
+
+      <div className="relative z-10 max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,13 +56,13 @@ const ConnectSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <span className="font-body text-[11px] tracking-[0.4em] uppercase text-muted-foreground mb-6 block">
+          <span className="font-body text-[11px] tracking-[0.4em] uppercase text-background/60 mb-6 block">
             {t.connect.label}
           </span>
-          <h2 className="font-display text-4xl md:text-6xl font-medium mb-6">
+          <h2 className="font-display text-4xl md:text-6xl font-medium mb-6 text-background">
             {t.connect.heading} <span className="italic">{t.connect.headingAccent}</span>
           </h2>
-          <p className="font-body text-muted-foreground text-base md:text-lg max-w-md mx-auto leading-relaxed">
+          <p className="font-body text-background/70 text-base md:text-lg max-w-md mx-auto leading-relaxed">
             {t.connect.description}
           </p>
         </motion.div>
@@ -50,20 +78,20 @@ const ConnectSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="group flex items-center justify-between py-8 border-b border-border
-                         hover:border-foreground/30 transition-colors duration-300"
+              className="group flex items-center justify-between py-8 border-b border-background/20
+                         hover:border-background/50 transition-colors duration-300"
             >
               <div>
-                <span className="font-body text-[10px] tracking-[0.4em] uppercase text-muted-foreground block mb-2">
+                <span className="font-body text-[10px] tracking-[0.4em] uppercase text-background/50 block mb-2">
                   {link.label}
                 </span>
-                <span className="font-body text-base md:text-lg text-foreground group-hover:text-primary transition-colors duration-300">
+                <span className="font-body text-base md:text-lg text-background group-hover:text-primary-foreground transition-colors duration-300">
                   {link.display}
                 </span>
               </div>
               <ArrowUpRight
                 size={16}
-                className="text-muted-foreground group-hover:text-foreground 
+                className="text-background/50 group-hover:text-background 
                          group-hover:translate-x-0.5 group-hover:-translate-y-0.5 
                          transition-all duration-300"
               />
@@ -79,7 +107,7 @@ const ConnectSection = () => {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="mt-32 text-center"
         >
-          <p className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+          <p className="font-body text-[10px] tracking-[0.3em] uppercase text-background/40">
             {t.connect.footer.replace("{year}", String(new Date().getFullYear()))}
           </p>
         </motion.footer>
