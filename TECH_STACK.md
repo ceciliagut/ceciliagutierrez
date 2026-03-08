@@ -50,10 +50,9 @@ Currently hosted via Lovable preview. For production:
 
 ### Medium-term
 - [ ] CMS integration for artwork (avoid hardcoding gallery items)
-- [ ] Analytics (privacy-friendly: Plausible, Fathom, or Umami)
+- [ ] Analytics (Google Analytics)
 
 ### Long-term (may trigger Next.js migration)
-- [ ] Dynamic blog with MDX
 - [ ] E-commerce for prints/commissions
 - [ ] Multi-page architecture with individual artwork pages
 
