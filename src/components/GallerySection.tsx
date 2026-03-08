@@ -84,7 +84,7 @@ const GallerySection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="flex justify-center gap-8 mb-16 font-body text-[11px] tracking-[0.2em] lowercase"
+          className="flex justify-center gap-8 mb-16 font-body text-[11px] tracking-[0.2em] uppercase"
         >
           {categoryKeys.map((key) => (
             <button
