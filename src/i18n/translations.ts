@@ -25,9 +25,9 @@ export const translations = {
       p3: `This site is where both halves live — the person who debugs distributed systems and the one who gets paint under her nails. They're the same person. Always have been.`,
     },
     gallery: {
-      label: "Work",
-      heading: "The other",
-      headingAccent: "language",
+      label: "Art",
+      heading: "",
+      headingAccent: "Studies",
       categories: {
         all: "Everything",
         charcoal: "Charcoal",
