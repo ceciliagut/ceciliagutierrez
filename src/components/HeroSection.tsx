@@ -8,7 +8,7 @@ const HeroSection = () => {
       {/* Background texture — full bleed, atmospheric */}
       <div className="absolute inset-0">
         <img
-          src={heroTexture}
+          src={heroPhoto}
           alt=""
           className="w-full h-full object-cover opacity-30 dark:opacity-20"
           loading="eager"
