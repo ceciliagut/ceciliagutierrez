@@ -62,6 +62,7 @@ export const translations = {
     },
     hero: {
       location: "Viviendo en Barcelona — desde Uruguay",
+      greeting: "Hey, soy",
       tagline: "",
       taglineItalic: "",
       scroll: "scroll",
