@@ -121,7 +121,7 @@ export const translations = {
         mano: "Estudio de Mano",
         rubel: "Rubel",
         retratoCarbon: "Estudio de Retrato",
-        nome: "Nome",
+        nome: "El Ángel Caído",
       },
     },
     writing: {
