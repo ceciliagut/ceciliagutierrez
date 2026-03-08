@@ -52,6 +52,7 @@ export const translations = {
         mano: "Hand Study",
         rubel: "Rubel",
         retratoCarbon: "Portrait Study",
+        nome: "Nome",
       },
     },
     writing: {
@@ -120,6 +121,7 @@ export const translations = {
         mano: "Estudio de Mano",
         rubel: "Rubel",
         retratoCarbon: "Estudio de Retrato",
+        nome: "Nome",
       },
     },
     writing: {
