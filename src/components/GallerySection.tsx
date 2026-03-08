@@ -14,6 +14,7 @@ import digitalTigers from "@/assets/artwork/digital-tigers.png";
 import digitalHendrix from "@/assets/artwork/digital-hendrix.png";
 import pastel1 from "@/assets/artwork/pastel-1.png";
 import charcoal1 from "@/assets/artwork/charcoal-1.png";
+import painting5 from "@/assets/artwork/painting-5.png";
 
 type ArtworkCategory = "all" | "charcoal" | "pastel" | "digital";
 
