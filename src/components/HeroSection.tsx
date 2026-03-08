@@ -11,7 +11,8 @@ const HeroSection = () => {
           src={heroPhoto}
           alt="Cecilia Gutierrez smiling at a train station"
           loading="eager"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
+          style={{ objectPosition: '50% 30%' }}
         />
       </div>
 
