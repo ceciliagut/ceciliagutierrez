@@ -27,11 +27,11 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            I'm Cecilia — born in Uruguay, living in Barcelona. Since October 2022, I've been
-            a Senior Web Engineer at{" "}
-            <span className="text-foreground font-medium">N26</span>, where I architect
-            and build things for the web. Clean code, thoughtful systems, the kind of work
-            that disappears when it's done well.
+            I'm Cecilia — born in Uruguay, living in Barcelona. I've been at{" "}
+            <span className="text-foreground font-medium">N26</span> since 2022, growing
+            into my current role as Senior Web Engineer. I architect and build things for the
+            web — clean code, thoughtful systems, the kind of work that disappears when
+            it's done well.
           </motion.p>
 
           <motion.p
