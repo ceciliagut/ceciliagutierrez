@@ -50,6 +50,7 @@ export const translations = {
         velo: "Veiled Bust",
         mano: "Hand Study",
         rubel: "Rubel",
+        retratoCarbon: "Portrait Study",
       },
     },
     writing: {
@@ -116,6 +117,7 @@ export const translations = {
         velo: "Busto con Velo",
         mano: "Estudio de Mano",
         rubel: "Rubel",
+        retratoCarbon: "Estudio de Retrato",
       },
     },
     writing: {
