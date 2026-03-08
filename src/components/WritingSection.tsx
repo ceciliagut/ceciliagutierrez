@@ -1,22 +1,23 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-
-const writings = [
-  {
-    title: "Medium",
-    url: "https://medium.com/@gutierrez-cecilia",
-    description:
-      "Long-form thoughts on engineering, building for the web, and the space where technology meets creativity.",
-  },
-  {
-    title: "Substack",
-    url: "https://substack.com/@ceciliagutierrez",
-    description:
-      "More personal writing — essays, reflections, and the kind of thinking that doesn't fit in a code review.",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const WritingSection = () => {
+  const { t } = useLanguage();
+
+  const writings = [
+    {
+      title: "Medium",
+      url: "https://medium.com/@gutierrez-cecilia",
+      description: t.writing.medium,
+    },
+    {
+      title: "Substack",
+      url: "https://substack.com/@ceciliagutierrez",
+      description: t.writing.substack,
+    },
+  ];
+
   return (
     <section id="writing" className="relative py-32 md:py-44 px-8 md:px-16">
       <div className="max-w-3xl mx-auto">
@@ -28,10 +29,10 @@ const WritingSection = () => {
           className="text-center mb-20"
         >
           <span className="font-body text-[11px] tracking-[0.4em] uppercase text-muted-foreground mb-6 block">
-            Writing
+            {t.writing.label}
           </span>
           <h2 className="font-display text-4xl md:text-6xl font-medium">
-            Words, <span className="italic">too</span>
+            {t.writing.heading} <span className="italic">{t.writing.headingAccent}</span>
           </h2>
         </motion.div>
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Play, Image } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 import drawing4 from "@/assets/artwork/drawing-4.png";
 import drawing5 from "@/assets/artwork/drawing-5.png";
@@ -37,14 +38,10 @@ const artworks: Artwork[] = [
   { src: drawing7, alt: "Charcoal hand study with plaster cast", category: "charcoal", title: "Estudio de Mano" },
 ];
 
-const categories: { key: ArtworkCategory; label: string }[] = [
-  { key: "all", label: "Everything" },
-  { key: "charcoal", label: "Charcoal" },
-  { key: "pastel", label: "Pastel" },
-  { key: "digital", label: "Digital" },
-];
+const categoryKeys: ArtworkCategory[] = ["all", "charcoal", "pastel", "digital"];
 
 const GallerySection = () => {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<ArtworkCategory>("all");
   const [lightboxImage, setLightboxImage] = useState<Artwork | null>(null);
   const [showVideo, setShowVideo] = useState(false);
@@ -74,10 +71,10 @@ const GallerySection = () => {
           className="text-center mb-16"
         >
           <span className="font-body text-[11px] tracking-[0.4em] uppercase text-muted-foreground mb-6 block">
-            Work
+            {t.gallery.label}
           </span>
           <h2 className="font-display text-4xl md:text-6xl font-medium">
-            The other <span className="italic">language</span>
+            {t.gallery.heading} <span className="italic">{t.gallery.headingAccent}</span>
           </h2>
         </motion.div>
 
@@ -89,26 +86,23 @@ const GallerySection = () => {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="flex justify-center gap-8 mb-16 font-body text-[11px] tracking-[0.2em] uppercase"
         >
-          {categories.map((cat) => (
+          {categoryKeys.map((key) => (
             <button
-              key={cat.key}
-              onClick={() => setActiveCategory(cat.key)}
+              key={key}
+              onClick={() => setActiveCategory(key)}
               className={`transition-colors duration-300 pb-2 border-b ${
-                activeCategory === cat.key
+                activeCategory === key
                   ? "text-foreground border-foreground"
                   : "text-muted-foreground border-transparent hover:text-foreground"
               }`}
             >
-              {cat.label}
+              {t.gallery.categories[key]}
             </button>
           ))}
         </motion.div>
 
         {/* Masonry grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-3 gap-3"
-        >
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-3 gap-3">
           <AnimatePresence mode="popLayout">
             {filtered.map((artwork) => (
               <motion.div
@@ -127,7 +121,6 @@ const GallerySection = () => {
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
-                {/* Play badge for items with video */}
                 {artwork.videoSrc && (
                   <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <Play size={14} className="text-foreground" />
@@ -137,7 +130,7 @@ const GallerySection = () => {
                   <div className="translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                     <p className="font-display text-xl text-foreground">{artwork.title}</p>
                     <p className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
-                      {artwork.category}
+                      {t.gallery.categories[artwork.category]}
                     </p>
                   </div>
                 </div>
@@ -190,9 +183,8 @@ const GallerySection = () => {
               <div className="mt-6 text-center">
                 <p className="font-display text-2xl text-foreground">{lightboxImage.title}</p>
                 <p className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-2">
-                  {lightboxImage.category}
+                  {t.gallery.categories[lightboxImage.category]}
                 </p>
-                {/* Toggle between image and video */}
                 {lightboxImage.videoSrc && (
                   <button
                     onClick={() => setShowVideo(!showVideo)}
@@ -201,12 +193,12 @@ const GallerySection = () => {
                     {showVideo ? (
                       <>
                         <Image size={12} />
-                        View artwork
+                        {t.gallery.viewArtwork}
                       </>
                     ) : (
                       <>
                         <Play size={12} />
-                        Watch process
+                        {t.gallery.watchProcess}
                       </>
                     )}
                   </button>
