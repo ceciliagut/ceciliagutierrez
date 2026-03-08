@@ -39,6 +39,7 @@ const HeroSection = () => {
             className="w-full h-full object-cover"
             style={{ objectPosition: '50% 100%' }}
           />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
 
         <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6">
