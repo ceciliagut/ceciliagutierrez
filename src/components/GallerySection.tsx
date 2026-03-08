@@ -41,6 +41,7 @@ const artworks: Artwork[] = [
   { src: drawing7, alt: "Charcoal hand study with plaster cast", category: "charcoal", titleKey: "mano" },
   { src: painting5, alt: "Digital painting of a man with a dog and blue figure", category: "digital", titleKey: "rubel" },
   { src: charcoal2, alt: "Charcoal portrait study in art studio", category: "charcoal", titleKey: "retratoCarbon" },
+  { src: oil1, alt: "Oil painting study on easel in art studio", category: "oil", titleKey: "nome" },
 ];
 
 const categoryKeys: ArtworkCategory[] = ["all", "oil", "digital", "charcoal", "pastel"];
