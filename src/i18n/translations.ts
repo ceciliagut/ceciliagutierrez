@@ -36,6 +36,7 @@ export const translations = {
         charcoal: "Charcoal",
         pastel: "Pastel",
         digital: "Digital",
+        oil: "Oil",
       },
       viewArtwork: "View artwork",
       watchProcess: "Watch process",
@@ -103,6 +104,7 @@ export const translations = {
         charcoal: "Carboncillo",
         pastel: "Pastel",
         digital: "Digital",
+        oil: "Óleo",
       },
       viewArtwork: "Ver obra",
       watchProcess: "Ver proceso",
@@ -142,7 +144,7 @@ export type Translations = {
   nav: { about: string; work: string; writing: string; connect: string };
   hero: { location: string; greeting: string; tagline: string; taglineItalic: string; scroll: string };
   about: { label: string; heading: string; headingAccent: string; p1: string; p1Company: string; p1End: string; p1University: string; p1End2: string; p2: string; p3: string };
-  gallery: { label: string; heading: string; headingAccent: string; categories: { all: string; charcoal: string; pastel: string; digital: string }; viewArtwork: string; watchProcess: string; titles: Record<string, string> };
+  gallery: { label: string; heading: string; headingAccent: string; categories: { all: string; charcoal: string; pastel: string; digital: string; oil: string }; viewArtwork: string; watchProcess: string; titles: Record<string, string> };
   writing: { label: string; heading: string; headingAccent: string; medium: string; substack: string };
   connect: { label: string; heading: string; headingAccent: string; description: string; footer: string };
 };

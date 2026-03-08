@@ -17,7 +17,7 @@ import charcoal1 from "@/assets/artwork/charcoal-1.png";
 import painting5 from "@/assets/artwork/painting-5.png";
 import charcoal2 from "@/assets/artwork/charcoal-2.png";
 
-type ArtworkCategory = "all" | "charcoal" | "pastel" | "digital";
+type ArtworkCategory = "all" | "charcoal" | "pastel" | "digital" | "oil";
 
 interface Artwork {
   src: string;
@@ -42,7 +42,7 @@ const artworks: Artwork[] = [
   { src: charcoal2, alt: "Charcoal portrait study in art studio", category: "charcoal", titleKey: "retratoCarbon" },
 ];
 
-const categoryKeys: ArtworkCategory[] = ["all", "charcoal", "pastel", "digital"];
+const categoryKeys: ArtworkCategory[] = ["all", "charcoal", "pastel", "digital", "oil"];
 
 const GallerySection = () => {
   const { t } = useLanguage();
