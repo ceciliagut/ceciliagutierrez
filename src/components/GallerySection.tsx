@@ -92,8 +92,8 @@ const GallerySection = () => {
               onClick={() => setActiveCategory(key)}
               className={`transition-colors duration-300 pb-2 border-b ${
                 activeCategory === key
-                  ? "text-foreground border-foreground"
-                  : "text-muted-foreground border-transparent hover:text-foreground"
+                  ? "text-accent-foreground border-accent-foreground"
+                  : "text-accent-foreground/50 border-transparent hover:text-accent-foreground"
               }`}
             >
               {t.gallery.categories[key]}
