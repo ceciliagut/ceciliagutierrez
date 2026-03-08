@@ -22,7 +22,7 @@ export const translations = {
       p1: `Hey, I'm Cecilia — Uruguayan, living in Barcelona. I've been at`,
       p1Company: "N26",
       p1End: `since 2022, growing into my current role as Senior Web Engineer. Software Engineer graduated from UdelaR, Montevideo, Uruguay. I paint. I write. I draw.`,
-      p2: `But I can't contain myself to just one mode of expression. I draw. I paint — oils, acrylics, whatever's nearby. I make digital art. I write. It's not a side project or a hobby. It's the other half.`,
+      p2: ``,
       p3: `This site is where both halves live — the person who debugs distributed systems and the one who gets paint under her nails. They're the same person. Always have been.`,
     },
     gallery: {
@@ -74,7 +74,7 @@ export const translations = {
       p1: `Hey, soy Cecilia — uruguaya, viviendo en Barcelona. Trabajo en`,
       p1Company: "N26",
       p1End: `desde 2022, creciendo hasta mi rol actual como Senior Web Engineer. Ingeniera de Software graduada de UdelaR, Montevideo, Uruguay. Pinto. Escribo. Dibujo.`,
-      p2: `Pero no puedo limitarme a un solo modo de expresión. Dibujo. Pinto — óleos, acrílicos, lo que tenga a mano. Hago arte digital. Escribo. No es un proyecto paralelo ni un hobby. Es la otra mitad.`,
+      p2: ``,
       p3: `Este sitio es donde viven las dos mitades — la persona que depura sistemas distribuidos y la que se mancha las uñas de pintura. Son la misma persona. Siempre lo fueron.`,
     },
     gallery: {

@@ -30,14 +30,16 @@ const AboutSection = () => {
             <a href="https://n26.com/" target="_blank" rel="noopener noreferrer" className="text-foreground font-medium underline underline-offset-4 hover:text-primary transition-colors duration-300">{t.about.p1Company}</a> {t.about.p1End}
           </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            {t.about.p2}
-          </motion.p>
+          {t.about.p2 && (
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              {t.about.p2}
+            </motion.p>
+          )}
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
