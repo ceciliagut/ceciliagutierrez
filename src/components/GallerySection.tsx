@@ -9,6 +9,8 @@ import painting4 from "@/assets/artwork/painting-4.png";
 import drawing7 from "@/assets/artwork/drawing-7.png";
 import video1 from "@/assets/artwork/video-1.mp4";
 import video2 from "@/assets/artwork/video-2.mp4";
+import digitalTigers from "@/assets/artwork/digital-tigers.png";
+import digitalHendrix from "@/assets/artwork/digital-hendrix.png";
 
 type ArtworkCategory = "all" | "paintings" | "drawings" | "digital" | "video";
 
@@ -23,12 +25,14 @@ interface Artwork {
 
 const artworks: Artwork[] = [
   { src: drawing4, alt: "Charcoal still life of a jug on easel", category: "drawings", title: "Estudio de Jarra" },
+  { src: digitalTigers, alt: "Expressive digital painting of tigers", category: "digital", title: "Me Chama de Gato" },
   { src: drawing5, alt: "Classical bust portrait in charcoal", category: "drawings", title: "Busto Clásico", span: "md:row-span-2" },
   { src: drawing6, alt: "Charcoal studies of facial features — eye, nose, lips", category: "drawings", title: "Estudios Anatómicos" },
   { src: painting4, alt: "Pastel portrait study after old master", category: "paintings", title: "Estudio de Retrato" },
+  { src: digitalHendrix, alt: "Digital portrait of Jimi Hendrix", category: "digital", title: "Lover Man" },
   { src: drawing7, alt: "Charcoal hand study with plaster cast", category: "drawings", title: "Estudio de Mano" },
-  { src: video1, alt: "Ilustración sin título", category: "video", title: "Ilustración sin título", type: "video" },
-  { src: video2, alt: "Lover Man - Jimi Hendrix", category: "video", title: "Lover Man", type: "video" },
+  { src: video1, alt: "Ilustración sin título — process video", category: "video", title: "Ilustración sin título", type: "video" },
+  { src: video2, alt: "Lover Man — process video", category: "video", title: "Lover Man (Process)", type: "video" },
 ];
 
 const categories: { key: ArtworkCategory; label: string }[] = [
