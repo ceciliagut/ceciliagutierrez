@@ -181,7 +181,7 @@ const GallerySection = () => {
                 />
               )}
               <div className="mt-6 text-center">
-                <p className="font-display text-2xl text-foreground">{lightboxImage.title}</p>
+                <p className="font-display text-2xl text-foreground">{t.gallery.titles[lightboxImage.titleKey]}</p>
                 <p className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-2">
                   {t.gallery.categories[lightboxImage.category]}
                 </p>
