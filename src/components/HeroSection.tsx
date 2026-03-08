@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import heroPhoto from "@/assets/hero-photo-bw.jpg";
-import ThemeToggle from "./ThemeToggle";
+
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "@/i18n/LanguageContext";
 
