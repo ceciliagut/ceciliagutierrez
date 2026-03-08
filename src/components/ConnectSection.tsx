@@ -16,34 +16,17 @@ const links = [
   },
 ];
 
-const sunflowers = [sunflower1, sunflower2];
-
 const ConnectSection = () => {
   const { t } = useLanguage();
-  const [currentImage, setCurrentImage] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % sunflowers.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section id="connect" className="relative py-32 md:py-44 px-8 md:px-16 overflow-hidden">
-      {/* Sunflower background with crossfade */}
-      <AnimatePresence mode="popLayout">
-        <motion.img
-          key={currentImage}
-          src={sunflowers[currentImage]}
-          alt="Sunflower photograph"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 2 }}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      </AnimatePresence>
+      {/* Sunflower background */}
+      <img
+        src={sunflower}
+        alt="Sunflower photograph"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
       <div className="absolute inset-0 bg-foreground/70" />
 
       <div className="relative z-10 max-w-3xl mx-auto">
