@@ -54,7 +54,7 @@ export const translations = {
       heading: "Words,",
       headingAccent: "too",
       medium: "An archive of writings on engineering and life that I was thinking about at the time.",
-      substack: "New writings.",
+      substack: "New writings. Only in Spanish.",
     },
     connect: {
       label: "Connect",
