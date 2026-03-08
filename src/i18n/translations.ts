@@ -9,7 +9,7 @@ export const translations = {
       connect: "Connect",
     },
     hero: {
-      location: "Based in Barcelona — from Uruguay",
+      location: "Software Engineer · UdelaR, Montevideo — Based in Barcelona",
       greeting: "Hey, I'm",
       tagline: "",
       taglineItalic: "",
@@ -61,7 +61,7 @@ export const translations = {
       connect: "Contacto",
     },
     hero: {
-      location: "Viviendo en Barcelona — desde Uruguay",
+      location: "Ingeniera de Software · UdelaR, Montevideo — Viviendo en Barcelona",
       greeting: "Hey, soy",
       tagline: "",
       taglineItalic: "",
