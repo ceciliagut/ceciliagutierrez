@@ -47,14 +47,16 @@ const HeroSection = () => {
         </div>
 
         <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="font-body text-[11px] tracking-[0.4em] uppercase text-white/60 mb-10"
-          >
-            {t.hero.location}
-          </motion.p>
+          {t.hero.location && (
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="font-body text-[11px] tracking-[0.4em] uppercase text-white/60 mb-10"
+            >
+              {t.hero.location}
+            </motion.p>
+          )}
 
           <motion.p
             initial={{ opacity: 0, y: 10 }}
