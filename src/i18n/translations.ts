@@ -21,7 +21,7 @@ export const translations = {
       headingAccent: "from me",
       p1: `Uruguayan, living in Barcelona. I've been at`,
       p1Company: "N26",
-      p1End: `since 2022, growing into my current role as Senior Web Engineer. Software Engineer graduated from UdelaR, Montevideo, Uruguay. I paint. I write. I draw.`,
+      p1End: `since 2022 as a Senior Web Engineer. Software Engineer graduated from UdelaR, Montevideo, Uruguay. I paint. I write. I draw.`,
       p2: ``,
       p3: `This site is where both halves live.`,
     },
