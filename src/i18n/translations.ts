@@ -37,6 +37,17 @@ export const translations = {
       },
       viewArtwork: "View artwork",
       watchProcess: "Watch process",
+      titles: {
+        jarra: "Jug Study",
+        tigers: "Call Me Cat",
+        busto: "Classical Bust",
+        pastelRetrato: "Pastel Portrait",
+        anatomicos: "Anatomical Studies",
+        estudioRetrato: "Portrait Study",
+        hendrix: "Lover Man",
+        velo: "Veiled Bust",
+        mano: "Hand Study",
+      },
     },
     writing: {
       label: "Writing",
