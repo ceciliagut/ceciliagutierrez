@@ -60,7 +60,7 @@ const ConnectSection = () => {
                          hover:border-white/50 transition-colors duration-300"
             >
               <div>
-                <span className="font-body text-[10px] tracking-[0.4em] uppercase text-background/50 block mb-2">
+                <span className="font-body text-[10px] tracking-[0.4em] uppercase text-white/50 block mb-2">
                   {link.label}
                 </span>
                 <span className="font-body text-base md:text-lg text-background group-hover:text-primary-foreground transition-colors duration-300">
