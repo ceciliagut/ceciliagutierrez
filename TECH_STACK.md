@@ -15,6 +15,7 @@
 | **i18n** | Custom context + translations file | Lightweight EN/ES switching without heavy libraries. Type-safe keys. |
 | **Theme** | next-themes | Dark/light mode toggle with system preference detection. |
 | **Icons** | Lucide React | Clean, consistent icon set. |
+| **Backend (planned)** | Supabase (via Lovable Cloud) | Auth, database, storage, and edge functions. Not yet integrated — will be added when we need contact forms, a CMS for artwork, or user auth. |
 
 ## Why Not Next.js?
 
