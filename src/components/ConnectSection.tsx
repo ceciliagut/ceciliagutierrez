@@ -69,7 +69,7 @@ const ConnectSection = () => {
               </div>
               <ArrowUpRight
                 size={16}
-                className="text-background/50 group-hover:text-background 
+                className="text-white/50 group-hover:text-white 
                          group-hover:translate-x-0.5 group-hover:-translate-y-0.5 
                          transition-all duration-300"
               />
