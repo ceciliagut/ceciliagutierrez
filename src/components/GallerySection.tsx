@@ -11,8 +11,10 @@ import drawing3 from "@/assets/artwork/drawing-3.jpg";
 import digital1 from "@/assets/artwork/digital-1.jpg";
 import digital2 from "@/assets/artwork/digital-2.jpg";
 import digital3 from "@/assets/artwork/digital-3.jpg";
+import video1 from "@/assets/artwork/video-1.mp4";
+import video2 from "@/assets/artwork/video-2.mp4";
 
-type ArtworkCategory = "all" | "paintings" | "drawings" | "digital";
+type ArtworkCategory = "all" | "paintings" | "drawings" | "digital" | "video";
 
 interface Artwork {
   src: string;
@@ -20,15 +22,18 @@ interface Artwork {
   category: ArtworkCategory;
   title: string;
   span?: string;
+  type?: "image" | "video";
 }
 
 const artworks: Artwork[] = [
   { src: painting1, alt: "Abstract landscape in warm earth tones", category: "paintings", title: "Tierra Adentro", span: "md:row-span-2" },
   { src: digital1, alt: "Glitch art composition with amber accents", category: "digital", title: "Signal / Noise" },
   { src: drawing1, alt: "Botanical ink illustration", category: "drawings", title: "Herbarium I" },
+  { src: video1, alt: "Ilustración sin título", category: "video", title: "Ilustración sin título", type: "video" },
   { src: painting2, alt: "Expressive portrait in golden tones", category: "paintings", title: "Retrato con Luz" },
   { src: drawing2, alt: "Gestural charcoal figure drawing", category: "drawings", title: "Estudio en Carbón", span: "md:row-span-2" },
   { src: digital2, alt: "Mixed media digital collage", category: "digital", title: "Fragmentos" },
+  { src: video2, alt: "Lover Man - Jimi Hendrix", category: "video", title: "Lover Man", type: "video" },
   { src: painting3, alt: "Abstract composition in navy and amber", category: "paintings", title: "Nocturno" },
   { src: drawing3, alt: "Surreal pen and ink illustration", category: "drawings", title: "El Bosque Interior" },
   { src: digital3, alt: "Abstract geometric digital art", category: "digital", title: "Geometría Orgánica" },
@@ -39,6 +44,7 @@ const categories: { key: ArtworkCategory; label: string }[] = [
   { key: "paintings", label: "Paintings" },
   { key: "drawings", label: "Drawings" },
   { key: "digital", label: "Digital" },
+  { key: "video", label: "Video" },
 ];
 
 const GallerySection = () => {
@@ -107,12 +113,23 @@ const GallerySection = () => {
                 className={`group cursor-pointer relative overflow-hidden ${artwork.span || ""}`}
                 onClick={() => setLightboxImage(artwork)}
               >
-                <img
-                  src={artwork.src}
-                  alt={artwork.alt}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                />
+                {artwork.type === "video" ? (
+                  <video
+                    src={artwork.src}
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                ) : (
+                  <img
+                    src={artwork.src}
+                    alt={artwork.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                )}
                 <div className="absolute inset-0 bg-background/0 group-hover:bg-background/70 transition-all duration-500 flex items-end p-6">
                   <div className="translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                     <p className="font-display text-xl text-foreground">{artwork.title}</p>
@@ -152,11 +169,21 @@ const GallerySection = () => {
               className="max-w-4xl max-h-[85vh] relative"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={lightboxImage.src}
-                alt={lightboxImage.alt}
-                className="max-w-full max-h-[80vh] object-contain"
-              />
+              {lightboxImage.type === "video" ? (
+                <video
+                  src={lightboxImage.src}
+                  controls
+                  autoPlay
+                  playsInline
+                  className="max-w-full max-h-[80vh] object-contain"
+                />
+              ) : (
+                <img
+                  src={lightboxImage.src}
+                  alt={lightboxImage.alt}
+                  className="max-w-full max-h-[80vh] object-contain"
+                />
+              )}
               <div className="mt-6 text-center">
                 <p className="font-display text-2xl text-foreground">{lightboxImage.title}</p>
                 <p className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-2">
