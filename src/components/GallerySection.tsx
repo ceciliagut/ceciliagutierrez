@@ -126,10 +126,10 @@ const GallerySection = () => {
                     <Play size={14} className="text-foreground" />
                   </div>
                 )}
-                <div className="absolute inset-0 bg-secondary/0 group-hover:bg-secondary/80 transition-all duration-500 flex items-end p-6">
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-500 flex items-end p-6">
                   <div className="translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                    <p className="font-display text-xl text-secondary-foreground">{artwork.title}</p>
-                    <p className="font-body text-[10px] tracking-[0.3em] uppercase text-secondary-foreground/70 mt-1">
+                    <p className="font-display text-xl text-white">{artwork.title}</p>
+                    <p className="font-body text-[10px] tracking-[0.3em] uppercase text-white/70 mt-1">
                       {t.gallery.categories[artwork.category]}
                     </p>
                   </div>
