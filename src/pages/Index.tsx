@@ -10,6 +10,7 @@ const Index = () => {
       <HeroSection />
       <AboutSection />
       <GallerySection />
+      <div className="max-w-3xl mx-auto px-8 md:px-16"><hr className="border-border" /></div>
       <WritingSection />
       <ConnectSection />
     </main>
