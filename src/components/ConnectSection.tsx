@@ -20,7 +20,7 @@ const ConnectSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="connect" className="relative h-[70vh] max-h-[700px] md:max-h-[800px] px-8 md:px-16 overflow-hidden flex items-center">
+    <section id="connect" className="relative h-[70vh] max-h-[700px] md:max-h-[800px] px-4 md:px-16 overflow-hidden flex items-center">
       {/* Sunflower background */}
       <img
         src={sunflower}
