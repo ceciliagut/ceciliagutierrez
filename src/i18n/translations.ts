@@ -100,6 +100,17 @@ export const translations = {
       },
       viewArtwork: "Ver obra",
       watchProcess: "Ver proceso",
+      titles: {
+        jarra: "Estudio de Jarra",
+        tigers: "Me Chama de Gato",
+        busto: "Busto Clásico",
+        pastelRetrato: "Retrato en Pastel",
+        anatomicos: "Estudios Anatómicos",
+        estudioRetrato: "Estudio de Retrato",
+        hendrix: "Lover Man",
+        velo: "Busto con Velo",
+        mano: "Estudio de Mano",
+      },
     },
     writing: {
       label: "Escritos",
