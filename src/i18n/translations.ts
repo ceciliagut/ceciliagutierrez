@@ -48,7 +48,7 @@ export const translations = {
       label: "Connect",
       heading: "Say",
       headingAccent: "hello",
-      description: "Whether it's about code, art, or something in between — I'd love to hear from you.",
+      description: "",
       footer: "© {year} Cecilia Gutierrez",
     },
   },
