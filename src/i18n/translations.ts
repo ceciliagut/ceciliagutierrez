@@ -49,6 +49,7 @@ export const translations = {
         hendrix: "Lover Man",
         velo: "Veiled Bust",
         mano: "Hand Study",
+        rubel: "Rubel",
       },
     },
     writing: {
