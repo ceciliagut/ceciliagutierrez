@@ -39,7 +39,7 @@ export const translations = {
       watchProcess: "Watch process",
       titles: {
         jarra: "Jug Study",
-        tigers: "Call Me Cat",
+        tigers: "Me Chama de Gato",
         busto: "Classical Bust",
         pastelRetrato: "Pastel Portrait",
         anatomicos: "Anatomical Studies",
