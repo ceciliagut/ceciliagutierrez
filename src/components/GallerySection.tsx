@@ -17,7 +17,7 @@ import charcoal1 from "@/assets/artwork/charcoal-1.png";
 import painting5 from "@/assets/artwork/painting-5.png";
 import charcoal2 from "@/assets/artwork/charcoal-2.png";
 
-type ArtworkCategory = "all" | "charcoal" | "pastel" | "digital";
+type ArtworkCategory = "all" | "charcoal" | "pastel" | "digital" | "oil";
 
 interface Artwork {
   src: string;
