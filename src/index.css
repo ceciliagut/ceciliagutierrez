@@ -122,6 +122,11 @@
     background: hsl(38 70% 60% / 0.3);
     color: hsl(25 40% 15%);
   }
+
+  .dark ::selection {
+    background: hsl(38 50% 50% / 0.2);
+    color: hsl(0 0% 100%);
+  }
 }
 
 @layer utilities {
