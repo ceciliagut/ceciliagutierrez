@@ -6,7 +6,7 @@ import ConnectSection from "@/components/ConnectSection";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background grain-overlay">
+    <main className="min-h-screen bg-background">
       <HeroSection />
       <AboutSection />
       <GallerySection />
