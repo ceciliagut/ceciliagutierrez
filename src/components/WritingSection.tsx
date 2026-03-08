@@ -7,6 +7,11 @@ const WritingSection = () => {
 
   const writings = [
     {
+      title: "Substack",
+      url: "https://substack.com/@gutierrezcecilia",
+      description: t.writing.substack,
+    },
+    {
       title: "Medium",
       url: "https://medium.com/@gutierrez-cecilia",
       description: t.writing.medium,
