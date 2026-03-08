@@ -30,12 +30,13 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 1 }}
-          className="flex gap-8 font-mono text-xs tracking-wider text-muted-foreground"
+          className="flex items-center gap-8 font-mono text-xs tracking-wider text-muted-foreground"
         >
           <a href="#about" className="hover:text-primary transition-colors duration-300">About</a>
           <a href="#work" className="hover:text-primary transition-colors duration-300">Work</a>
           <a href="#writing" className="hover:text-primary transition-colors duration-300">Writing</a>
           <a href="#connect" className="hover:text-primary transition-colors duration-300">Connect</a>
+          <ThemeToggle />
         </motion.div>
       </nav>
 
