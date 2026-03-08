@@ -75,7 +75,7 @@ export const translations = {
       p1Company: "N26",
       p1End: `desde 2022, creciendo hasta mi rol actual como Senior Web Engineer. Ingeniera de Software graduada de UdelaR, Montevideo, Uruguay. Pinto. Escribo. Dibujo.`,
       p2: ``,
-      p3: `Este sitio es donde viven las dos mitades — la persona que depura sistemas distribuidos y la que se mancha las uñas de pintura. Son la misma persona. Siempre lo fueron.`,
+      p3: `Este sitio es donde viven las dos mitades.`,
     },
     gallery: {
       label: "Arte",

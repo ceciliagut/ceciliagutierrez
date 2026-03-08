@@ -11,14 +11,7 @@ const HeroSection = () => {
     <>
       {/* White header bar */}
       <nav className="bg-background flex justify-between items-center px-8 md:px-16 py-8">
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 1 }}
-          className="font-display text-xl font-semibold text-foreground"
-        >
-          Cecilia
-        </motion.span>
+        <div />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
