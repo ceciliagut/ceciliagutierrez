@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import heroPhoto from "@/assets/hero-photo-bw.jpg";
 
 import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeToggle from "./ThemeToggle";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
@@ -23,6 +24,7 @@ const HeroSection = () => {
           <a href="#writing" className="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.writing}</a>
           <a href="#connect" className="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.connect}</a>
           <LanguageSwitcher />
+          <ThemeToggle />
           
         </motion.div>
       </nav>
