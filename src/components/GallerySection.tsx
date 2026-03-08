@@ -18,7 +18,8 @@ import oilFallenAngel from "@/assets/artwork/oil-fallen-angel.jpg";
 import videoTigersProcess from "@/assets/artwork/video-tigers-process.mp4";
 import videoHendrixProcess from "@/assets/artwork/video-hendrix-process.mp4";
 
-type ArtworkCategory = "all" | "charcoal" | "pastel" | "digital" | "oil";
+const CATEGORIES = ["all", "oil", "digital", "charcoal", "pastel"] as const;
+type ArtworkCategory = (typeof CATEGORIES)[number];
 
 interface Artwork {
   src: string;
