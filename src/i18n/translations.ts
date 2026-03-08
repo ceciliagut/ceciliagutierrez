@@ -52,7 +52,7 @@ export const translations = {
         mano: "Hand Study",
         rubel: "Rubel",
         retratoCarbon: "Portrait Study",
-        nome: "Nome",
+        nome: "The Fallen Angel",
       },
     },
     writing: {
@@ -121,7 +121,7 @@ export const translations = {
         mano: "Estudio de Mano",
         rubel: "Rubel",
         retratoCarbon: "Estudio de Retrato",
-        nome: "Nome",
+        nome: "El Ángel Caído",
       },
     },
     writing: {
