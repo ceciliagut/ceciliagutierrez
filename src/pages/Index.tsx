@@ -1,8 +1,8 @@
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import GallerySection from "@/components/GallerySection";
-import WritingSection from "@/components/WritingSection";
-import ConnectSection from "@/components/ConnectSection";
+import HeroSection from "@/components/sections/Hero";
+import AboutSection from "@/components/sections/About";
+import GallerySection from "@/components/sections/Gallery";
+import WritingSection from "@/components/sections/Writing";
+import ConnectSection from "@/components/sections/Connect";
 
 const Index = () => {
   return (
