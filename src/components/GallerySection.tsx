@@ -30,18 +30,18 @@ interface Artwork {
 }
 
 const artworks: Artwork[] = [
-  { src: drawing4, alt: "Charcoal still life of a jug on easel", category: "charcoal", titleKey: "jarra" },
-  { src: digitalTigers, alt: "Expressive digital painting of tigers", category: "digital", titleKey: "tigers", videoSrc: video1 },
-  { src: drawing5, alt: "Classical bust portrait in charcoal", category: "charcoal", titleKey: "busto", span: "md:row-span-2" },
-  { src: pastel1, alt: "Pastel portrait of a woman", category: "pastel", titleKey: "pastelRetrato" },
-  { src: drawing6, alt: "Charcoal studies of facial features — eye, nose, lips", category: "charcoal", titleKey: "anatomicos" },
-  { src: painting4, alt: "Pastel portrait study after old master", category: "pastel", titleKey: "estudioRetrato" },
-  { src: digitalHendrix, alt: "Digital portrait of Jimi Hendrix", category: "digital", titleKey: "hendrix", videoSrc: video2 },
-  { src: charcoal1, alt: "Charcoal study of a veiled bust", category: "charcoal", titleKey: "velo", span: "md:row-span-2" },
-  { src: drawing7, alt: "Charcoal hand study with plaster cast", category: "charcoal", titleKey: "mano" },
-  { src: painting5, alt: "Digital painting of a man with a dog and blue figure", category: "digital", titleKey: "rubel" },
-  { src: charcoal2, alt: "Charcoal portrait study in art studio", category: "charcoal", titleKey: "retratoCarbon" },
-  { src: oil1, alt: "Oil painting study on easel in art studio", category: "oil", titleKey: "nome" },
+  { src: charcoalJugStudy, alt: "Charcoal still life of a jug on easel", category: "charcoal", titleKey: "jarra" },
+  { src: digitalTigers, alt: "Expressive digital painting of tigers", category: "digital", titleKey: "tigers", videoSrc: videoTigersProcess },
+  { src: charcoalClassicalBust, alt: "Classical bust portrait in charcoal", category: "charcoal", titleKey: "busto", span: "md:row-span-2" },
+  { src: pastelPortrait, alt: "Pastel portrait of a woman", category: "pastel", titleKey: "pastelRetrato" },
+  { src: charcoalAnatomicalStudies, alt: "Charcoal studies of facial features — eye, nose, lips", category: "charcoal", titleKey: "anatomicos" },
+  { src: pastelPortraitStudy, alt: "Pastel portrait study after old master", category: "pastel", titleKey: "estudioRetrato" },
+  { src: digitalHendrix, alt: "Digital portrait of Jimi Hendrix", category: "digital", titleKey: "hendrix", videoSrc: videoHendrixProcess },
+  { src: charcoalVeiledBust, alt: "Charcoal study of a veiled bust", category: "charcoal", titleKey: "velo", span: "md:row-span-2" },
+  { src: charcoalHandStudy, alt: "Charcoal hand study with plaster cast", category: "charcoal", titleKey: "mano" },
+  { src: digitalRubel, alt: "Digital painting of a man with a dog and blue figure", category: "digital", titleKey: "rubel" },
+  { src: charcoalPortraitStudy, alt: "Charcoal portrait study in art studio", category: "charcoal", titleKey: "retratoCarbon" },
+  { src: oilFallenAngel, alt: "Oil painting study on easel in art studio", category: "oil", titleKey: "nome" },
 ];
 
 const categoryKeys: ArtworkCategory[] = ["all", "oil", "digital", "charcoal", "pastel"];
