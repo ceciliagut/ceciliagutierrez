@@ -3,20 +3,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Play, Image } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-import drawing4 from "@/assets/artwork/drawing-4.png";
-import drawing5 from "@/assets/artwork/drawing-5.png";
-import drawing6 from "@/assets/artwork/drawing-6.png";
-import painting4 from "@/assets/artwork/painting-4.png";
-import drawing7 from "@/assets/artwork/drawing-7.png";
-import video1 from "@/assets/artwork/video-1.mp4";
-import video2 from "@/assets/artwork/video-2.mp4";
+import charcoalJugStudy from "@/assets/artwork/charcoal-jug-study.png";
+import charcoalClassicalBust from "@/assets/artwork/charcoal-classical-bust.png";
+import charcoalAnatomicalStudies from "@/assets/artwork/charcoal-anatomical-studies.png";
+import charcoalHandStudy from "@/assets/artwork/charcoal-hand-study.png";
+import charcoalVeiledBust from "@/assets/artwork/charcoal-veiled-bust.png";
+import charcoalPortraitStudy from "@/assets/artwork/charcoal-portrait-study.png";
+import pastelPortraitStudy from "@/assets/artwork/pastel-portrait-study.png";
+import pastelPortrait from "@/assets/artwork/pastel-portrait.png";
 import digitalTigers from "@/assets/artwork/digital-tigers.png";
 import digitalHendrix from "@/assets/artwork/digital-hendrix.png";
-import pastel1 from "@/assets/artwork/pastel-1.png";
-import charcoal1 from "@/assets/artwork/charcoal-1.png";
-import painting5 from "@/assets/artwork/painting-5.png";
-import charcoal2 from "@/assets/artwork/charcoal-2.png";
-import oil1 from "@/assets/artwork/oil-1.jpg";
+import digitalRubel from "@/assets/artwork/digital-rubel.png";
+import oilFallenAngel from "@/assets/artwork/oil-fallen-angel.jpg";
+import videoTigersProcess from "@/assets/artwork/video-tigers-process.mp4";
+import videoHendrixProcess from "@/assets/artwork/video-hendrix-process.mp4";
 
 type ArtworkCategory = "all" | "charcoal" | "pastel" | "digital" | "oil";
 
