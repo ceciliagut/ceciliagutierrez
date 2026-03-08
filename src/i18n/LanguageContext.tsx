@@ -18,7 +18,7 @@ const LanguageContext = createContext<LanguageContextType>({
 export const LanguageProvider = ({ locale, children }: { locale: Locale; children: ReactNode }) => {
   const t = translations[locale];
   const otherLocale = locale === "en" ? "es" : "en";
-  const otherLocalePath = `/${otherLocale}`;
+  const otherLocalePath = otherLocale === "en" ? "/" : `/${otherLocale}`;
 
   return (
     <LanguageContext.Provider value={{ locale, t, otherLocale, otherLocalePath }}>
