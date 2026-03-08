@@ -10,8 +10,8 @@ export const translations = {
     },
     hero: {
       location: "Based in Barcelona — from Uruguay",
-      tagline: "I build systems by day and make art by night.",
-      taglineItalic: "Sometimes both at once.",
+      tagline: "",
+      taglineItalic: "",
       scroll: "scroll",
     },
     about: {
@@ -61,8 +61,8 @@ export const translations = {
     },
     hero: {
       location: "Viviendo en Barcelona — desde Uruguay",
-      tagline: "Construyo sistemas de día y hago arte de noche.",
-      taglineItalic: "A veces, las dos cosas a la vez.",
+      tagline: "",
+      taglineItalic: "",
       scroll: "scroll",
     },
     about: {
