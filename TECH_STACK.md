@@ -52,9 +52,10 @@ Currently hosted via Lovable preview. For production:
 - [ ] CMS integration for artwork (avoid hardcoding gallery items)
 - [ ] Analytics (Google Analytics)
 
-### Long-term (may trigger Next.js migration)
+### Long-term (may trigger migration)
 - [ ] E-commerce for prints/commissions
 - [ ] Multi-page architecture with individual artwork pages
+- [ ] Evaluate [Framer](https://www.framer.com/) as primary site builder — offers visual design, animations, CMS, hosting, and SEO out of the box. Could replace the current Vite/React setup for a no-code workflow with pro-level design control.
 
 ## Dependencies to Watch
 
