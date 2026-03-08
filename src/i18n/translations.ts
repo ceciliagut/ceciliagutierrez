@@ -21,7 +21,7 @@ export const translations = {
       headingAccent: "from me",
       p1: `Hey, I'm Cecilia — Uruguayan, living in Barcelona. I've been at`,
       p1Company: "N26",
-      p1End: `since 2022, growing into my current role as Senior Web Engineer. I paint. I write. I draw.`,
+      p1End: `since 2022, growing into my current role as Senior Web Engineer. Software Engineer graduated from UdelaR, Montevideo, Uruguay. I paint. I write. I draw.`,
       p2: `But I can't contain myself to just one mode of expression. I draw. I paint — oils, acrylics, whatever's nearby. I make digital art. I write. It's not a side project or a hobby. It's the other half.`,
       p3: `This site is where both halves live — the person who debugs distributed systems and the one who gets paint under her nails. They're the same person. Always have been.`,
     },
