@@ -71,7 +71,7 @@ export const translations = {
       label: "Sobre mí",
       heading: "Una nota,",
       headingAccent: "de mi parte",
-      p1: `Hey, soy Cecilia — uruguaya, viviendo en Barcelona. Trabajo en`,
+      p1: `Uruguaya, viviendo en Barcelona. Trabajo en`,
       p1Company: "N26",
       p1End: `desde 2022, creciendo hasta mi rol actual como Senior Web Engineer. Ingeniera de Software graduada de UdelaR, Montevideo, Uruguay. Pinto. Escribo. Dibujo.`,
       p2: ``,
