@@ -75,7 +75,7 @@ const HeroSection = () => {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ delay: 1.3, duration: 1, ease: "easeOut" }}
-          className="mt-12 h-px bg-gradient-to-r from-primary/60 to-transparent origin-left max-w-xs"
+          className="mt-12 h-px bg-primary/40 origin-left max-w-xs"
         />
       </div>
 
