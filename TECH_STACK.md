@@ -20,10 +20,10 @@
 
 We discussed this — here's the reasoning:
 
-1. **No server-side needs (yet)** — This is a static portfolio. There's no database, no auth, no API routes. Vite builds a fast static bundle that can be deployed anywhere.
-2. **Simpler mental model** — No file-based routing, no server/client component boundaries, no hydration gotchas. Just React.
-3. **Faster dev experience** — Vite's HMR is near-instant. Next.js adds overhead we don't need.
-4. **Lovable compatibility** — The platform runs on Vite/React. Staying in this ecosystem means smoother iteration.
+1. **Lovable compatibility** — The platform runs on Vite/React. Staying in this ecosystem means smoother iteration.
+2. **No server-side needs (yet)** — This is a static portfolio. There's no database, no auth, no API routes. Vite builds a fast static bundle that can be deployed anywhere.
+3. **Simpler mental model** — No file-based routing, no server/client component boundaries, no hydration gotchas. Just React.
+4. **Faster dev experience** — Vite's HMR is near-instant. Next.js adds overhead we don't need.
 
 ### When to reconsider Next.js
 - If we add a **blog with dynamic content** (MDX, CMS integration)
