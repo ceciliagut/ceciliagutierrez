@@ -4,7 +4,7 @@ export const translations = {
   en: {
     nav: {
       about: "About",
-      work: "Work",
+      work: "Art",
       writing: "Writing",
       connect: "Connect",
     },
