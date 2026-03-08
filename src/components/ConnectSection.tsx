@@ -27,7 +27,7 @@ const ConnectSection = () => {
         alt="Sunflower photograph"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      
+      <div className="absolute inset-0 bg-black/50" />
 
       <div className="relative z-10 max-w-3xl mx-auto">
         <motion.div
