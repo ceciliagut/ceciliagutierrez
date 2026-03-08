@@ -16,6 +16,7 @@ import pastel1 from "@/assets/artwork/pastel-1.png";
 import charcoal1 from "@/assets/artwork/charcoal-1.png";
 import painting5 from "@/assets/artwork/painting-5.png";
 import charcoal2 from "@/assets/artwork/charcoal-2.png";
+import oil1 from "@/assets/artwork/oil-1.jpg";
 
 type ArtworkCategory = "all" | "charcoal" | "pastel" | "digital" | "oil";
 
