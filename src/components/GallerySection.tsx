@@ -106,7 +106,7 @@ const GallerySection = () => {
           <AnimatePresence mode="popLayout">
             {filtered.map((artwork) => (
               <motion.div
-                key={artwork.title}
+                key={artwork.titleKey}
                 layout
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
