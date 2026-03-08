@@ -19,7 +19,7 @@ const WritingSection = () => {
   ];
 
   return (
-    <section id="writing" className="relative py-32 md:py-44 px-8 md:px-16">
+    <section id="writing" className="relative py-16 md:py-24 px-8 md:px-16">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
