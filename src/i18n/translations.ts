@@ -10,8 +10,8 @@ export const translations = {
     },
     hero: {
       location: "Based in Barcelona — from Uruguay",
-      tagline: "I build systems by day and make art by night.",
-      taglineItalic: "Sometimes both at once.",
+      tagline: "",
+      taglineItalic: "",
       scroll: "scroll",
     },
     about: {
