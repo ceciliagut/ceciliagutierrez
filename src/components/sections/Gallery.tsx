@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
-import type { Artwork, ArtworkCategory } from "./gallery/types";
-import { artworks } from "./gallery/artworks";
-import CategoryFilters from "./gallery/CategoryFilters";
-import ArtworkGrid from "./gallery/ArtworkGrid";
-import Lightbox from "./gallery/Lightbox";
+import type { Artwork, ArtworkCategory } from "@/components/gallery/types";
+import { artworks } from "@/components/gallery/artworks";
+import CategoryFilters from "@/components/gallery/CategoryFilters";
+import ArtworkGrid from "@/components/gallery/ArtworkGrid";
+import Lightbox from "@/components/gallery/Lightbox";
 
 const GallerySection = () => {
   const { t } = useLanguage();

@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import heroPhoto from "@/assets/hero-photo-bw.jpg";
 
-import LanguageSwitcher from "./LanguageSwitcher";
-import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import ThemeToggle from "@/components/ThemeToggle";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
