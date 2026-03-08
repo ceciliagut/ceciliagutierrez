@@ -42,7 +42,7 @@ const HeroSection = () => {
             alt="Cecilia Gutierrez smiling at a train station"
             loading="eager"
             className="w-full h-full object-cover"
-            style={{ objectPosition: '50% 30%' }}
+            style={{ objectPosition: '50% 100%' }}
           />
         </div>
 
