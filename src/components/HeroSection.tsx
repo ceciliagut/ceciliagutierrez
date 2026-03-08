@@ -56,6 +56,15 @@ const HeroSection = () => {
             {t.hero.location}
           </motion.p>
 
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="font-body text-sm md:text-base tracking-wide text-white/60 mb-3"
+          >
+            {t.hero.greeting}
+          </motion.p>
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

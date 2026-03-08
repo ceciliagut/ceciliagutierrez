@@ -10,6 +10,7 @@ export const translations = {
     },
     hero: {
       location: "Based in Barcelona — from Uruguay",
+      greeting: "Hey, I'm",
       tagline: "",
       taglineItalic: "",
       scroll: "scroll",
@@ -61,6 +62,7 @@ export const translations = {
     },
     hero: {
       location: "Viviendo en Barcelona — desde Uruguay",
+      greeting: "Hey, soy",
       tagline: "",
       taglineItalic: "",
       scroll: "scroll",
@@ -108,7 +110,7 @@ export const translations = {
 // Use a structural type so both locales are assignable
 export type Translations = {
   nav: { about: string; work: string; writing: string; connect: string };
-  hero: { location: string; tagline: string; taglineItalic: string; scroll: string };
+  hero: { location: string; greeting: string; tagline: string; taglineItalic: string; scroll: string };
   about: { label: string; heading: string; headingAccent: string; p1: string; p1Company: string; p1End: string; p2: string; p3: string };
   gallery: { label: string; heading: string; headingAccent: string; categories: { all: string; charcoal: string; pastel: string; digital: string }; viewArtwork: string; watchProcess: string };
   writing: { label: string; heading: string; headingAccent: string; medium: string; substack: string };
