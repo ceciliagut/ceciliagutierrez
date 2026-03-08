@@ -11,11 +11,6 @@ const WritingSection = () => {
       url: "https://medium.com/@gutierrez-cecilia",
       description: t.writing.medium,
     },
-    {
-      title: "Substack",
-      url: "https://substack.com/@ceciliagutierrez",
-      description: t.writing.substack,
-    },
   ];
 
   return (
