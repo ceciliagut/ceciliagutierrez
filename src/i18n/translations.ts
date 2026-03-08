@@ -76,9 +76,9 @@ export const translations = {
       p3: `Este sitio es donde viven las dos mitades — la persona que depura sistemas distribuidos y la que se mancha las uñas de pintura. Son la misma persona. Siempre lo fueron.`,
     },
     gallery: {
-      label: "Obra",
-      heading: "El otro",
-      headingAccent: "lenguaje",
+      label: "Arte",
+      heading: "",
+      headingAccent: "Estudios",
       categories: {
         all: "Todo",
         charcoal: "Carboncillo",
