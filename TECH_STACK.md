@@ -49,7 +49,6 @@ Currently hosted via Lovable preview. For production:
 - [ ] Add a contact form (would need Lovable Cloud or external service)
 
 ### Medium-term
-- [ ] Blog/writing section with actual content (currently just links)
 - [ ] CMS integration for artwork (avoid hardcoding gallery items)
 - [ ] Analytics (privacy-friendly: Plausible, Fathom, or Umami)
 
