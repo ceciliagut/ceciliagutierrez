@@ -40,7 +40,7 @@ const ConnectSection = () => {
           <span className="font-body text-[11px] tracking-[0.4em] uppercase text-white/60 mb-6 block">
             {t.connect.label}
           </span>
-          <h2 className="font-display text-4xl md:text-6xl font-medium mb-6 text-background">
+          <h2 className="font-display text-4xl md:text-6xl font-medium mb-6 text-white">
             {t.connect.heading} <span className="italic">{t.connect.headingAccent}</span>
           </h2>
         </motion.div>
