@@ -92,7 +92,7 @@ export const translations = {
       label: "Escritos",
       heading: "Palabras,",
       headingAccent: "también",
-      medium: "Un archivo de escritos anteriores sobre ingeniería, construir para la web, y el espacio donde la tecnología se encuentra con la creatividad.",
+      medium: "Un archivo de reflexiones sobre tecnología y vida en las que estaba pensando en ese momento.",
       substack: "Nuevos escritos — empezando por cómo hice este sitio en menos de 24 horas.",
     },
     connect: {
