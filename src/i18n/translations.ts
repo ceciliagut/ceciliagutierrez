@@ -74,7 +74,7 @@ export const translations = {
       p1: `Hey, soy Cecilia — uruguaya, viviendo en Barcelona. Trabajo en`,
       p1Company: "N26",
       p1End: `desde 2022, creciendo hasta mi rol actual como Senior Web Engineer. Ingeniera de Software graduada de UdelaR, Montevideo, Uruguay. Pinto. Escribo. Dibujo.`,
-      p2: `Pero no puedo limitarme a un solo modo de expresión. Dibujo. Pinto — óleos, acrílicos, lo que tenga a mano. Hago arte digital. Escribo. No es un proyecto paralelo ni un hobby. Es la otra mitad.`,
+      p2: ``,
       p3: `Este sitio es donde viven las dos mitades — la persona que depura sistemas distribuidos y la que se mancha las uñas de pintura. Son la misma persona. Siempre lo fueron.`,
     },
     gallery: {
