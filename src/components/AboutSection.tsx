@@ -31,7 +31,7 @@ const AboutSection = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             {t.about.p1}{" "}
-            <span className="text-foreground font-medium">{t.about.p1Company}</span> {t.about.p1End}
+            <a href="https://n26.com/" target="_blank" rel="noopener noreferrer" className="text-foreground font-medium underline underline-offset-4 hover:text-primary transition-colors duration-300">{t.about.p1Company}</a> {t.about.p1End}
           </motion.p>
 
           <motion.p
