@@ -42,7 +42,7 @@ export const translations = {
       heading: "Words,",
       headingAccent: "too",
       medium: "An archive of writings on engineering and life that I was thinking about at the time.",
-      substack: "New writings — starting with how I built this website in less than 24 hours.",
+      substack: "New writings.",
     },
     connect: {
       label: "Connect",
@@ -93,7 +93,7 @@ export const translations = {
       heading: "Palabras,",
       headingAccent: "también",
       medium: "Un archivo de escritos sobre ingeniería y vida en los que estaba pensando en ese momento.",
-      substack: "Nuevos escritos — empezando por cómo hice este sitio en menos de 24 horas.",
+      substack: "Nuevos escritos.",
     },
     connect: {
       label: "Contacto",
