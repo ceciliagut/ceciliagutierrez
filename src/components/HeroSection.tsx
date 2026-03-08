@@ -79,7 +79,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
-              className="font-body text-base md:text-lg text-white/70 max-w-md leading-relaxed mt-10"
+              className="font-body text-base md:text-lg text-white/90 max-w-md leading-relaxed mt-10"
             >
               {t.hero.tagline}
               {t.hero.taglineItalic && <><br /><span className="italic">{t.hero.taglineItalic}</span></>}
