@@ -9,7 +9,7 @@ export const translations = {
       connect: "Connect",
     },
     hero: {
-      location: "Based in Barcelona — from Uruguay",
+      location: "",
       greeting: "Hey, I'm",
       tagline: "",
       taglineItalic: "",
