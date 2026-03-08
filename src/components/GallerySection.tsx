@@ -61,7 +61,7 @@ const GallerySection = () => {
   };
 
   return (
-    <section id="work" className="relative py-32 md:py-44 px-8 md:px-16 bg-accent">
+    <section id="work" className="relative py-32 md:py-44 px-8 md:px-16 bg-card">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -70,10 +70,10 @@ const GallerySection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <span className="font-body text-[11px] tracking-[0.4em] uppercase text-accent-foreground/70 mb-6 block">
+          <span className="font-body text-[11px] tracking-[0.4em] uppercase text-muted-foreground mb-6 block">
             {t.gallery.label}
           </span>
-          <h2 className="font-display text-4xl md:text-6xl font-medium text-accent-foreground">
+          <h2 className="font-display text-4xl md:text-6xl font-medium text-card-foreground">
             {t.gallery.heading} <span className="italic">{t.gallery.headingAccent}</span>
           </h2>
         </motion.div>
@@ -92,8 +92,8 @@ const GallerySection = () => {
               onClick={() => setActiveCategory(key)}
               className={`transition-colors duration-300 pb-2 border-b ${
                 activeCategory === key
-                  ? "text-accent-foreground border-accent-foreground"
-                  : "text-accent-foreground/50 border-transparent hover:text-accent-foreground"
+                  ? "text-foreground border-foreground"
+                  : "text-muted-foreground border-transparent hover:text-foreground"
               }`}
             >
               {t.gallery.categories[key]}
