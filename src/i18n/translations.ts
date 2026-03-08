@@ -19,7 +19,7 @@ export const translations = {
       label: "About",
       heading: "A note,",
       headingAccent: "from me",
-      p1: `Hey, I'm Cecilia — Uruguayan, living in Barcelona. I've been at`,
+      p1: `Uruguayan, living in Barcelona. I've been at`,
       p1Company: "N26",
       p1End: `since 2022, growing into my current role as Senior Web Engineer. Software Engineer graduated from UdelaR, Montevideo, Uruguay. I paint. I write. I draw.`,
       p2: ``,
