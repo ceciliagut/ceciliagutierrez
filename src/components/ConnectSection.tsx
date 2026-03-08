@@ -78,9 +78,6 @@ const ConnectSection = () => {
           <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
             © {new Date().getFullYear()} Cecilia Gutierrez
           </p>
-          <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
-            Made with code & paint
-          </p>
         </motion.footer>
       </div>
     </section>
