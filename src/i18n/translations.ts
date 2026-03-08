@@ -55,7 +55,7 @@ export const translations = {
   es: {
     nav: {
       about: "Sobre mí",
-      work: "Obra",
+      work: "Arte",
       writing: "Escritos",
       connect: "Contacto",
     },
