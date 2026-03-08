@@ -61,8 +61,8 @@ export const translations = {
     },
     hero: {
       location: "Viviendo en Barcelona — desde Uruguay",
-      tagline: "Construyo sistemas de día y hago arte de noche.",
-      taglineItalic: "A veces, las dos cosas a la vez.",
+      tagline: "",
+      taglineItalic: "",
       scroll: "scroll",
     },
     about: {
