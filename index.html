@@ -15,7 +15,15 @@
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
   </head>
 
-  <body>
+  <body style="opacity:0">
+    <script>
+      // Resolve language from URL before React boots — minimizes flash
+      (function(){
+        var lang = location.pathname.split('/')[1];
+        if (lang === 'es') document.documentElement.lang = 'es';
+        else document.documentElement.lang = 'en';
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -11,15 +11,12 @@ import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
-const LocaleRedirect = () => {
-  const saved = localStorage.getItem("locale") as Locale | null;
-  return <Navigate to={`/${saved || "en"}`} replace />;
-};
-
 const LocalePage = ({ locale }: { locale: Locale }) => {
   useEffect(() => {
-    localStorage.setItem("locale", locale);
     document.documentElement.lang = locale;
+    // Reveal body once React has rendered content
+    document.body.style.opacity = "1";
+    document.body.style.transition = "opacity 0.15s ease-in";
   }, [locale]);
 
   return (
@@ -36,8 +33,9 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LocaleRedirect />} />
-          <Route path="/en" element={<LocalePage locale="en" />} />
+          {/* Default: English at root — no redirect, no flash */}
+          <Route path="/" element={<LocalePage locale="en" />} />
+          <Route path="/en" element={<Navigate to="/" replace />} />
           <Route path="/es" element={<LocalePage locale="es" />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
