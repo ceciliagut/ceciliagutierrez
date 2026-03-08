@@ -105,4 +105,12 @@ export const translations = {
   },
 } as const;
 
-export type Translations = (typeof translations)["en" | "es"];
+// Use a structural type so both locales are assignable
+export type Translations = {
+  nav: { about: string; work: string; writing: string; connect: string };
+  hero: { location: string; tagline: string; taglineItalic: string; scroll: string };
+  about: { label: string; heading: string; headingAccent: string; p1: string; p1Company: string; p1End: string; p2: string; p3: string };
+  gallery: { label: string; heading: string; headingAccent: string; categories: { all: string; charcoal: string; pastel: string; digital: string }; viewArtwork: string; watchProcess: string };
+  writing: { label: string; heading: string; headingAccent: string; medium: string; substack: string };
+  connect: { label: string; heading: string; headingAccent: string; description: string; footer: string };
+};
