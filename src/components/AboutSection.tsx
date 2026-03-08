@@ -46,7 +46,7 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="italic text-foreground/60"
+            className="text-foreground/60"
           >
             {t.about.p3}
           </motion.p>
