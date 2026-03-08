@@ -104,6 +104,7 @@ export const translations = {
         charcoal: "Carboncillo",
         pastel: "Pastel",
         digital: "Digital",
+        oil: "Óleo",
       },
       viewArtwork: "Ver obra",
       watchProcess: "Ver proceso",
