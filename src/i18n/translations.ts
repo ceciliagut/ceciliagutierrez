@@ -23,7 +23,7 @@ export const translations = {
       p1Company: "N26",
       p1End: `since 2022, growing into my current role as Senior Web Engineer. Software Engineer graduated from UdelaR, Montevideo, Uruguay. I paint. I write. I draw.`,
       p2: ``,
-      p3: `This site is where both halves live — the person who debugs distributed systems and the one who gets paint under her nails. They're the same person. Always have been.`,
+      p3: `This site is where both halves live.`,
     },
     gallery: {
       label: "Art",
@@ -75,7 +75,7 @@ export const translations = {
       p1Company: "N26",
       p1End: `desde 2022, creciendo hasta mi rol actual como Senior Web Engineer. Ingeniera de Software graduada de UdelaR, Montevideo, Uruguay. Pinto. Escribo. Dibujo.`,
       p2: ``,
-      p3: `Este sitio es donde viven las dos mitades — la persona que depura sistemas distribuidos y la que se mancha las uñas de pintura. Son la misma persona. Siempre lo fueron.`,
+      p3: `Este sitio es donde viven las dos mitades.`,
     },
     gallery: {
       label: "Arte",
