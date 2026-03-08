@@ -61,7 +61,7 @@ export const translations = {
       connect: "Contacto",
     },
     hero: {
-      location: "Viviendo en Barcelona — desde Uruguay",
+      location: "",
       greeting: "Hey, soy",
       tagline: "",
       taglineItalic: "",
