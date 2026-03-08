@@ -42,6 +42,7 @@ export const translations = {
       heading: "Words,",
       headingAccent: "too",
       medium: "An archive of past writings on engineering, building for the web, and the space where technology meets creativity.",
+      substack: "New writings — starting with how I built this website in 8 minutes.",
     },
     connect: {
       label: "Connect",
@@ -92,6 +93,7 @@ export const translations = {
       heading: "Palabras,",
       headingAccent: "también",
       medium: "Un archivo de escritos anteriores sobre ingeniería, construir para la web, y el espacio donde la tecnología se encuentra con la creatividad.",
+      substack: "Nuevos escritos — empezando por cómo hice este sitio en 8 minutos.",
     },
     connect: {
       label: "Contacto",
@@ -109,6 +111,6 @@ export type Translations = {
   hero: { location: string; tagline: string; taglineItalic: string; scroll: string };
   about: { label: string; heading: string; headingAccent: string; p1: string; p1Company: string; p1End: string; p2: string; p3: string };
   gallery: { label: string; heading: string; headingAccent: string; categories: { all: string; charcoal: string; pastel: string; digital: string }; viewArtwork: string; watchProcess: string };
-  writing: { label: string; heading: string; headingAccent: string; medium: string };
+  writing: { label: string; heading: string; headingAccent: string; medium: string; substack: string };
   connect: { label: string; heading: string; headingAccent: string; description: string; footer: string };
 };

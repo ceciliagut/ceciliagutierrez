@@ -7,6 +7,11 @@ const WritingSection = () => {
 
   const writings = [
     {
+      title: "Substack",
+      url: "https://substack.com/@gutierrezcecilia",
+      description: t.writing.substack,
+    },
+    {
       title: "Medium",
       url: "https://medium.com/@gutierrez-cecilia",
       description: t.writing.medium,
@@ -31,7 +36,7 @@ const WritingSection = () => {
           </h2>
         </motion.div>
 
-        <div className="flex justify-center">
+        <div className="grid md:grid-cols-2 gap-8">
           {writings.map((item, i) => (
             <motion.a
               key={item.title}
