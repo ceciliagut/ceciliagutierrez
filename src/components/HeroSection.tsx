@@ -88,11 +88,8 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
-          className="relative z-10 flex flex-col items-center gap-3 pb-12"
+          className="relative z-10 flex flex-col items-center pb-12"
         >
-          <span className="font-body text-[10px] tracking-[0.4em] uppercase text-white/50">
-            {t.hero.scroll}
-          </span>
           <motion.div
             animate={{ y: [0, 6, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
