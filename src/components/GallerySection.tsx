@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, Play, Image } from "lucide-react";
 
 import drawing4 from "@/assets/artwork/drawing-4.png";
 import drawing5 from "@/assets/artwork/drawing-5.png";
@@ -12,7 +12,7 @@ import video2 from "@/assets/artwork/video-2.mp4";
 import digitalTigers from "@/assets/artwork/digital-tigers.png";
 import digitalHendrix from "@/assets/artwork/digital-hendrix.png";
 
-type ArtworkCategory = "all" | "paintings" | "drawings" | "digital" | "video";
+type ArtworkCategory = "all" | "paintings" | "drawings" | "digital";
 
 interface Artwork {
   src: string;
@@ -20,19 +20,17 @@ interface Artwork {
   category: ArtworkCategory;
   title: string;
   span?: string;
-  type?: "image" | "video";
+  videoSrc?: string;
 }
 
 const artworks: Artwork[] = [
   { src: drawing4, alt: "Charcoal still life of a jug on easel", category: "drawings", title: "Estudio de Jarra" },
-  { src: digitalTigers, alt: "Expressive digital painting of tigers", category: "digital", title: "Me Chama de Gato" },
+  { src: digitalTigers, alt: "Expressive digital painting of tigers", category: "digital", title: "Me Chama de Gato", videoSrc: video1 },
   { src: drawing5, alt: "Classical bust portrait in charcoal", category: "drawings", title: "Busto Clásico", span: "md:row-span-2" },
   { src: drawing6, alt: "Charcoal studies of facial features — eye, nose, lips", category: "drawings", title: "Estudios Anatómicos" },
   { src: painting4, alt: "Pastel portrait study after old master", category: "paintings", title: "Estudio de Retrato" },
-  { src: digitalHendrix, alt: "Digital portrait of Jimi Hendrix", category: "digital", title: "Lover Man" },
+  { src: digitalHendrix, alt: "Digital portrait of Jimi Hendrix", category: "digital", title: "Lover Man", videoSrc: video2 },
   { src: drawing7, alt: "Charcoal hand study with plaster cast", category: "drawings", title: "Estudio de Mano" },
-  { src: video1, alt: "Ilustración sin título — process video", category: "video", title: "Ilustración sin título", type: "video" },
-  { src: video2, alt: "Lover Man — process video", category: "video", title: "Lover Man (Process)", type: "video" },
 ];
 
 const categories: { key: ArtworkCategory; label: string }[] = [
@@ -40,16 +38,26 @@ const categories: { key: ArtworkCategory; label: string }[] = [
   { key: "paintings", label: "Paintings" },
   { key: "drawings", label: "Drawings" },
   { key: "digital", label: "Digital" },
-  { key: "video", label: "Video" },
 ];
 
 const GallerySection = () => {
   const [activeCategory, setActiveCategory] = useState<ArtworkCategory>("all");
   const [lightboxImage, setLightboxImage] = useState<Artwork | null>(null);
+  const [showVideo, setShowVideo] = useState(false);
 
   const filtered = activeCategory === "all"
     ? artworks
     : artworks.filter((a) => a.category === activeCategory);
+
+  const openLightbox = (artwork: Artwork) => {
+    setLightboxImage(artwork);
+    setShowVideo(false);
+  };
+
+  const closeLightbox = () => {
+    setLightboxImage(null);
+    setShowVideo(false);
+  };
 
   return (
     <section id="work" className="relative py-32 md:py-44 px-8 md:px-16">
@@ -69,7 +77,7 @@ const GallerySection = () => {
           </h2>
         </motion.div>
 
-        {/* Category filters — centered */}
+        {/* Category filters */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -107,24 +115,19 @@ const GallerySection = () => {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
                 className={`group cursor-pointer relative overflow-hidden ${artwork.span || ""}`}
-                onClick={() => setLightboxImage(artwork)}
+                onClick={() => openLightbox(artwork)}
               >
-                {artwork.type === "video" ? (
-                  <video
-                    src={artwork.src}
-                    muted
-                    loop
-                    playsInline
-                    autoPlay
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  />
-                ) : (
-                  <img
-                    src={artwork.src}
-                    alt={artwork.alt}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  />
+                <img
+                  src={artwork.src}
+                  alt={artwork.alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                {/* Play badge for items with video */}
+                {artwork.videoSrc && (
+                  <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <Play size={14} className="text-foreground" />
+                  </div>
                 )}
                 <div className="absolute inset-0 bg-background/0 group-hover:bg-background/70 transition-all duration-500 flex items-end p-6">
                   <div className="translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
@@ -148,11 +151,11 @@ const GallerySection = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm flex items-center justify-center p-8"
-            onClick={() => setLightboxImage(null)}
+            onClick={closeLightbox}
           >
             <button
               className="absolute top-8 right-8 text-muted-foreground hover:text-foreground transition-colors"
-              onClick={() => setLightboxImage(null)}
+              onClick={closeLightbox}
               aria-label="Close lightbox"
             >
               <X size={20} />
@@ -165,9 +168,9 @@ const GallerySection = () => {
               className="max-w-4xl max-h-[85vh] relative"
               onClick={(e) => e.stopPropagation()}
             >
-              {lightboxImage.type === "video" ? (
+              {showVideo && lightboxImage.videoSrc ? (
                 <video
-                  src={lightboxImage.src}
+                  src={lightboxImage.videoSrc}
                   controls
                   autoPlay
                   playsInline
@@ -185,6 +188,25 @@ const GallerySection = () => {
                 <p className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-2">
                   {lightboxImage.category}
                 </p>
+                {/* Toggle between image and video */}
+                {lightboxImage.videoSrc && (
+                  <button
+                    onClick={() => setShowVideo(!showVideo)}
+                    className="mt-4 inline-flex items-center gap-2 font-body text-[10px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors border-b border-muted-foreground/30 hover:border-foreground pb-1"
+                  >
+                    {showVideo ? (
+                      <>
+                        <Image size={12} />
+                        View artwork
+                      </>
+                    ) : (
+                      <>
+                        <Play size={12} />
+                        Watch process
+                      </>
+                    )}
+                  </button>
+                )}
               </div>
             </motion.div>
           </motion.div>
