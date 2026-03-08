@@ -70,10 +70,10 @@ const GallerySection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <span className="font-body text-[11px] tracking-[0.4em] uppercase text-accent-foreground/70 mb-6 block">
+          <span className="font-body text-[11px] tracking-[0.4em] uppercase text-muted-foreground mb-6 block">
             {t.gallery.label}
           </span>
-          <h2 className="font-display text-4xl md:text-6xl font-medium text-accent-foreground">
+          <h2 className="font-display text-4xl md:text-6xl font-medium text-card-foreground">
             {t.gallery.heading} <span className="italic">{t.gallery.headingAccent}</span>
           </h2>
         </motion.div>
