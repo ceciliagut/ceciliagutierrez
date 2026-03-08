@@ -48,7 +48,7 @@ const WritingSection = () => {
               className="group block p-8 md:p-10 border border-border rounded-sm bg-elevated
                          hover:border-primary/40 transition-all duration-500 relative overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent 
+              <div className="absolute inset-0 bg-primary/5 
                             opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative">
                 <div className="flex items-center justify-between mb-6">

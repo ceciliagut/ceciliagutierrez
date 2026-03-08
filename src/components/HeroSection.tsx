@@ -92,7 +92,7 @@ const HeroSection = () => {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="w-px h-8 bg-gradient-to-b from-primary/50 to-transparent"
+          className="w-px h-8 bg-primary/40"
         />
       </motion.div>
     </section>

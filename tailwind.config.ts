@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Playfair Display", "serif"],
-        mono: ["Space Mono", "monospace"],
+        display: ["Cormorant Garamond", "serif"],
+        mono: ["JetBrains Mono", "monospace"],
         body: ["DM Sans", "sans-serif"],
       },
       colors: {

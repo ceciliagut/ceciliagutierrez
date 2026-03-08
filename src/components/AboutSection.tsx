@@ -67,7 +67,7 @@ const AboutSection = () => {
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 1 }}
-          className="mt-16 h-px bg-gradient-to-r from-transparent via-border to-transparent origin-center"
+          className="mt-16 h-px bg-border origin-center"
         />
       </div>
     </section>
