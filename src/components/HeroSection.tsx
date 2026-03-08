@@ -12,7 +12,7 @@ const HeroSection = () => {
           className="w-full h-full object-cover opacity-40"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/30" />
+        <div className="absolute inset-0 bg-background/60" />
       </div>
 
       {/* Navigation */}
