@@ -91,7 +91,7 @@ export const translations = {
       label: "Escritos",
       heading: "Palabras,",
       headingAccent: "también",
-      medium: "Reflexiones largas sobre ingeniería, construir para la web, y el espacio donde la tecnología se encuentra con la creatividad.",
+      medium: "Un archivo de escritos anteriores sobre ingeniería, construir para la web, y el espacio donde la tecnología se encuentra con la creatividad.",
     },
     connect: {
       label: "Contacto",
