@@ -117,7 +117,7 @@ export const translations = {
       heading: "Palabras,",
       headingAccent: "también",
       medium: "Un archivo de escritos sobre ingeniería y vida en los que estaba pensando en ese momento.",
-      substack: "Nuevos escritos.",
+      substack: "Nuevos escritos. Solo en español.",
     },
     connect: {
       label: "Contacto",
