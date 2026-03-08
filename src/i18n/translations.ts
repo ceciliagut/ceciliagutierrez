@@ -41,7 +41,7 @@ export const translations = {
       label: "Writing",
       heading: "Words,",
       headingAccent: "too",
-      medium: "Long-form thoughts on engineering, building for the web, and the space where technology meets creativity.",
+      medium: "An archive of past writings on engineering, building for the web, and the space where technology meets creativity.",
     },
     connect: {
       label: "Connect",
@@ -91,7 +91,7 @@ export const translations = {
       label: "Escritos",
       heading: "Palabras,",
       headingAccent: "también",
-      medium: "Reflexiones largas sobre ingeniería, construir para la web, y el espacio donde la tecnología se encuentra con la creatividad.",
+      medium: "Un archivo de escritos anteriores sobre ingeniería, construir para la web, y el espacio donde la tecnología se encuentra con la creatividad.",
     },
     connect: {
       label: "Contacto",
