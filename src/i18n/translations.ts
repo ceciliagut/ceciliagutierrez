@@ -23,7 +23,7 @@ export const translations = {
       p1Company: "N26",
       p1End: `since 2022, now as a Senior Web Engineer. Software Engineer graduated from UdelaR, Montevideo, Uruguay. I paint. I write. I draw.`,
       p2: ``,
-      p3: `This site is where both halves live.`,
+      p3: ``,
     },
     gallery: {
       label: "Art",
