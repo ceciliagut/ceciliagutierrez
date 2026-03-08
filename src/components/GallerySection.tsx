@@ -18,7 +18,8 @@ import oilFallenAngel from "@/assets/artwork/oil-fallen-angel.jpg";
 import videoTigersProcess from "@/assets/artwork/video-tigers-process.mp4";
 import videoHendrixProcess from "@/assets/artwork/video-hendrix-process.mp4";
 
-type ArtworkCategory = "all" | "charcoal" | "pastel" | "digital" | "oil";
+const CATEGORIES = ["all", "oil", "digital", "charcoal", "pastel"] as const;
+type ArtworkCategory = (typeof CATEGORIES)[number];
 
 interface Artwork {
   src: string;
@@ -44,7 +45,7 @@ const artworks: Artwork[] = [
   { src: oilFallenAngel, alt: "Oil painting study on easel in art studio", category: "oil", titleKey: "nome" },
 ];
 
-const categoryKeys: ArtworkCategory[] = ["all", "oil", "digital", "charcoal", "pastel"];
+
 
 const GallerySection = () => {
   const { t } = useLanguage();
@@ -92,7 +93,7 @@ const GallerySection = () => {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="flex justify-center gap-8 mb-16 font-body text-[11px] tracking-[0.2em] uppercase"
         >
-          {categoryKeys.map((key) => (
+          {CATEGORIES.map((key) => (
             <button
               key={key}
               onClick={() => setActiveCategory(key)}
