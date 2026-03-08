@@ -41,7 +41,7 @@ export const translations = {
       label: "Writing",
       heading: "Words,",
       headingAccent: "too",
-      medium: "An archive of past writings on engineering, building for the web, and the space where technology meets creativity.",
+      medium: "An archive of reflections on tech and life that I was thinking about at the time.",
       substack: "New writings — starting with how I built this website in less than 24 hours.",
     },
     connect: {
