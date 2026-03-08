@@ -36,6 +36,7 @@ export const translations = {
         charcoal: "Charcoal",
         pastel: "Pastel",
         digital: "Digital",
+        oil: "Oil",
       },
       viewArtwork: "View artwork",
       watchProcess: "Watch process",
