@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroTexture from "@/assets/hero-texture.jpg";
+import heroPhoto from "@/assets/hero-photo.jpg";
 import ThemeToggle from "./ThemeToggle";
 
 const HeroSection = () => {
@@ -8,7 +8,7 @@ const HeroSection = () => {
       {/* Background texture — full bleed, atmospheric */}
       <div className="absolute inset-0">
         <img
-          src={heroTexture}
+          src={heroPhoto}
           alt=""
           className="w-full h-full object-cover opacity-30 dark:opacity-20"
           loading="eager"
