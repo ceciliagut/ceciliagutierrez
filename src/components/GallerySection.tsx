@@ -45,8 +45,6 @@ const artworks: Artwork[] = [
   { src: oilFallenAngel, alt: "Oil painting study on easel in art studio", category: "oil", titleKey: "nome" },
 ];
 
-
-
 const GallerySection = () => {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<ArtworkCategory>("all");
