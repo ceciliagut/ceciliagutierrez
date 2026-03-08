@@ -44,6 +44,7 @@ const categories: { key: ArtworkCategory; label: string }[] = [
   { key: "paintings", label: "Paintings" },
   { key: "drawings", label: "Drawings" },
   { key: "digital", label: "Digital" },
+  { key: "video", label: "Video" },
 ];
 
 const GallerySection = () => {
