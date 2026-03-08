@@ -4,7 +4,7 @@ export const translations = {
   en: {
     nav: {
       about: "About",
-      work: "Work",
+      work: "Art",
       writing: "Writing",
       connect: "Connect",
     },
@@ -25,9 +25,9 @@ export const translations = {
       p3: `This site is where both halves live — the person who debugs distributed systems and the one who gets paint under her nails. They're the same person. Always have been.`,
     },
     gallery: {
-      label: "Work",
-      heading: "The other",
-      headingAccent: "language",
+      label: "Art",
+      heading: "",
+      headingAccent: "Studies",
       categories: {
         all: "Everything",
         charcoal: "Charcoal",
@@ -55,7 +55,7 @@ export const translations = {
   es: {
     nav: {
       about: "Sobre mí",
-      work: "Obra",
+      work: "Arte",
       writing: "Escritos",
       connect: "Contacto",
     },
@@ -76,9 +76,9 @@ export const translations = {
       p3: `Este sitio es donde viven las dos mitades — la persona que depura sistemas distribuidos y la que se mancha las uñas de pintura. Son la misma persona. Siempre lo fueron.`,
     },
     gallery: {
-      label: "Obra",
-      heading: "El otro",
-      headingAccent: "lenguaje",
+      label: "Arte",
+      heading: "",
+      headingAccent: "Estudios",
       categories: {
         all: "Todo",
         charcoal: "Carboncillo",
