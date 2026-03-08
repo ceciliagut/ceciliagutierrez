@@ -73,7 +73,7 @@ export const translations = {
       headingAccent: "de mi parte",
       p1: `Uruguaya, viviendo en Barcelona. Trabajo en`,
       p1Company: "N26",
-      p1End: `desde 2022 como Senior Web Engineer. Ingeniera de Software graduada de UdelaR, Montevideo, Uruguay. Pinto. Escribo. Dibujo.`,
+      p1End: `desde 2022, ahora como Senior Web Engineer. Ingeniera de Software graduada de UdelaR, Montevideo, Uruguay. Pinto. Escribo. Dibujo.`,
       p2: ``,
       p3: `Este sitio es donde viven las dos mitades.`,
     },
