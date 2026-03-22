@@ -1,12 +1,8 @@
 # Hi / Hola! 🌻
 
-## Project info
+**URL**: [www.ceciliagutierrez.me/](https://www.ceciliagutierrez.me/)
 
-**URL**: ceciliagutierrez.me
-
-## What technologies are used for this project?
-
-This project is built with:
+## Tech Stack
 
 - Vite
 - TypeScript
