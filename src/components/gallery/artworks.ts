@@ -158,10 +158,10 @@ export const artworks: Artwork[] = [
     videoSrc: videoGirassois,
   },
   {
-    id: "sinTitulo",
+    id: "cameo",
     images: [{ src: digitalGreenPortrait, alt: "Digital illustration of a woman with green hair" }],
     category: "digital",
-    titleKey: "sinTitulo",
+    titleKey: "cameo",
     videoSrc: videoGreenPortrait,
   },
   {
