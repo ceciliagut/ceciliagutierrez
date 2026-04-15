@@ -40,6 +40,9 @@ import oilFallenAngelStudio from "@/assets/artwork/oil/fallen-angel/studio.jpg";
 import oilCandlelight from "@/assets/artwork/oil/candlelight/1.jpg";
 import oilMarbleBust from "@/assets/artwork/oil/marble-bust/1.jpg";
 import oilMotherDaughter from "@/assets/artwork/oil/mother-daughter/1.jpg";
+import oilPeligrosClean from "@/assets/artwork/oil/peligros-de-fumar/1.jpg";
+import oilPeligrosBook from "@/assets/artwork/oil/peligros-de-fumar/2.jpg";
+import oilPeligrosStudio from "@/assets/artwork/oil/peligros-de-fumar/3.jpg";
 
 // Pastel
 import pastelPortraitClean from "@/assets/artwork/pastel/portrait/clean.jpg";
@@ -47,7 +50,6 @@ import pastelPortraitStudio from "@/assets/artwork/pastel/portrait/studio.png";
 import pastelPortraitStudy from "@/assets/artwork/pastel/portrait-study/1.png";
 import pastelVividPortrait from "@/assets/artwork/pastel/vivid-portrait/1.jpg";
 import pastelYoungGirl from "@/assets/artwork/pastel/young-girl/1.jpg";
-import pastelYoungGirlCloseup from "@/assets/artwork/pastel/young-girl/2.jpg";
 import pastelBoldLight from "@/assets/artwork/pastel/bold-light/1.jpg";
 import pastelSeatedFigure from "@/assets/artwork/pastel/seated-figure/1.jpg";
 
@@ -216,6 +218,16 @@ export const artworks: Artwork[] = [
     titleKey: "madreHija",
     span: "md:row-span-2",
   },
+  {
+    id: "peligrosDeFumar",
+    images: [
+      { src: oilPeligrosClean, alt: "Oil painting of a woman with a burning crown, after the cover of Los peligros de fumar en la cama" },
+      { src: oilPeligrosBook, alt: "Oil painting alongside the book Los peligros de fumar en la cama by Mariana Enriquez" },
+      { src: oilPeligrosStudio, alt: "Oil painting of a woman with a burning crown on easel in studio" },
+    ],
+    category: "oil",
+    titleKey: "peligrosDeFumar",
+  },
 
   // Pastel
   {
@@ -241,10 +253,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: "nina",
-    images: [
-      { src: pastelYoungGirl, alt: "Pastel portrait of a young girl with green eyes" },
-      { src: pastelYoungGirlCloseup, alt: "Pastel close-up portrait of a young girl with green eyes" },
-    ],
+    images: [{ src: pastelYoungGirl, alt: "Pastel portrait of a young girl with green eyes" }],
     category: "pastel",
     titleKey: "nina",
   },
