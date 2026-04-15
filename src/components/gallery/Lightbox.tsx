@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Play, Image } from "lucide-react";
+import { X, Play, Image, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { Artwork } from "./types";
 
@@ -12,11 +12,55 @@ interface LightboxProps {
 const Lightbox = ({ artwork, onClose }: LightboxProps) => {
   const { t } = useLanguage();
   const [showVideo, setShowVideo] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
 
-  const handleClose = () => {
+  const hasMultipleImages = artwork ? artwork.images.length > 1 : false;
+
+  const handleClose = useCallback(() => {
     setShowVideo(false);
+    setImageIndex(0);
     onClose();
-  };
+  }, [onClose]);
+
+  const goPrev = useCallback(() => {
+    setImageIndex((i) => Math.max(i - 1, 0));
+  }, []);
+
+  const goNext = useCallback(() => {
+    if (!artwork) return;
+    setImageIndex((i) => Math.min(i + 1, artwork.images.length - 1));
+  }, [artwork]);
+
+  // Reset state when artwork changes
+  useEffect(() => {
+    setImageIndex(0);
+    setShowVideo(false);
+  }, [artwork?.id]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (!artwork) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleClose();
+      if (e.key === "ArrowLeft" && !showVideo) goPrev();
+      if (e.key === "ArrowRight" && !showVideo) goNext();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [artwork, showVideo, handleClose, goPrev, goNext]);
+
+  // Preload other images
+  useEffect(() => {
+    if (!artwork) return;
+    artwork.images.forEach((img, i) => {
+      if (i !== 0) {
+        const preload = new window.Image();
+        preload.src = img.src;
+      }
+    });
+  }, [artwork]);
 
   return (
     <AnimatePresence>
@@ -43,26 +87,59 @@ const Lightbox = ({ artwork, onClose }: LightboxProps) => {
             className="max-w-4xl max-h-[85vh] relative"
             onClick={(e) => e.stopPropagation()}
           >
-            {showVideo && artwork.videoSrc ? (
-              <video
-                src={artwork.videoSrc}
-                controls
-                autoPlay
-                playsInline
-                className="max-w-full max-h-[80vh] object-contain"
-              />
-            ) : (
-              <img
-                src={artwork.src}
-                alt={artwork.alt}
-                className="max-w-full max-h-[80vh] object-contain"
-              />
-            )}
+            <div className="relative flex items-center">
+              {/* Left arrow */}
+              {hasMultipleImages && !showVideo && (
+                <button
+                  onClick={goPrev}
+                  disabled={imageIndex === 0}
+                  className="absolute -left-14 text-muted-foreground hover:text-foreground transition-colors disabled:opacity-20 disabled:cursor-default"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft size={28} />
+                </button>
+              )}
+
+              {showVideo && artwork.videoSrc ? (
+                <video
+                  src={artwork.videoSrc}
+                  controls
+                  autoPlay
+                  playsInline
+                  className="max-w-full max-h-[80vh] object-contain"
+                />
+              ) : (
+                <img
+                  key={imageIndex}
+                  src={artwork.images[imageIndex].src}
+                  alt={artwork.images[imageIndex].alt}
+                  className="max-w-full max-h-[80vh] object-contain"
+                />
+              )}
+
+              {/* Right arrow */}
+              {hasMultipleImages && !showVideo && (
+                <button
+                  onClick={goNext}
+                  disabled={imageIndex === artwork.images.length - 1}
+                  className="absolute -right-14 text-muted-foreground hover:text-foreground transition-colors disabled:opacity-20 disabled:cursor-default"
+                  aria-label="Next image"
+                >
+                  <ChevronRight size={28} />
+                </button>
+              )}
+            </div>
+
             <div className="mt-6 text-center">
               <p className="font-display text-2xl text-foreground">{t.gallery.titles[artwork.titleKey]}</p>
               <p className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-2">
                 {t.gallery.categories[artwork.category]}
               </p>
+              {hasMultipleImages && !showVideo && (
+                <p className="font-body text-[10px] tracking-[0.2em] text-muted-foreground mt-2">
+                  {imageIndex + 1} / {artwork.images.length}
+                </p>
+              )}
               {artwork.videoSrc && (
                 <button
                   onClick={() => setShowVideo(!showVideo)}
