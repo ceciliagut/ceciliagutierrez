@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
+import Divider from "@/components/ui/divider";
 
 const AboutSection = () => {
   const { t } = useLanguage();
@@ -53,13 +54,9 @@ const AboutSection = () => {
           </motion.p>
         </div>
 
-        <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 1 }}
-          className="mt-24 h-px bg-border origin-center max-w-xs mx-auto"
-        />
+        <div className="mt-24">
+          <Divider />
+        </div>
       </div>
     </section>
   );

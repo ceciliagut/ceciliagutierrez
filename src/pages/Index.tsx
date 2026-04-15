@@ -3,6 +3,7 @@ import AboutSection from "@/components/sections/About";
 import GallerySection from "@/components/sections/Gallery";
 import WritingSection from "@/components/sections/Writing";
 import ConnectSection from "@/components/sections/Connect";
+import Divider from "@/components/ui/divider";
 
 const Index = () => {
   return (
@@ -10,7 +11,7 @@ const Index = () => {
       <HeroSection />
       <AboutSection />
       <GallerySection />
-      <div className="max-w-3xl mx-auto px-8 md:px-16 pt-12 md:pt-16"><hr className="border-border" /></div>
+      <Divider />
       <WritingSection />
       <ConnectSection />
     </main>

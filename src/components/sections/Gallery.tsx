@@ -17,7 +17,7 @@ const GallerySection = () => {
     : artworks.filter((a) => a.category === activeCategory);
 
   return (
-    <section id="work" className="relative py-10 md:py-16 px-8 md:px-16">
+    <section id="work" className="relative pt-10 pb-20 md:pt-16 md:pb-28 px-8 md:px-16">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

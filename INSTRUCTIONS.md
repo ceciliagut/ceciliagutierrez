@@ -1,7 +1,7 @@
 # Cecilia Gutierrez — Personal Website Design Instructions
 
 > This file defines the design system and creative direction for the site.
-> All future edits (by Claude, Lovable, or any AI assistant) MUST follow these rules.
+> All future edits MUST follow these rules.
 
 ## Aesthetic Direction
 
