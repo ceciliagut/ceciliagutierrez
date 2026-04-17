@@ -21,6 +21,7 @@ import videoTigers from "@/assets/artwork/digital/tigers/process.mp4";
 import digitalHendrix from "@/assets/artwork/digital/hendrix/1.png";
 import videoHendrix from "@/assets/artwork/digital/hendrix/process.mp4";
 import digitalRubel from "@/assets/artwork/digital/rubel/1.png";
+import videoRubel from "@/assets/artwork/digital/rubel/process.mov";
 import digitalChrysalis from "@/assets/artwork/digital/chrysalis/1.png";
 import videoChrysalis from "@/assets/artwork/digital/chrysalis/process.mp4";
 import digitalGirassois from "@/assets/artwork/digital/girassois/1.png";
@@ -144,6 +145,7 @@ export const artworks: Artwork[] = [
     images: [{ src: digitalRubel, alt: "Digital painting of a man with a dog and blue figure" }],
     category: "digital",
     titleKey: "rubel",
+    videoSrc: videoRubel,
   },
   {
     id: "chrysalis",
