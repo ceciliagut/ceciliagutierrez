@@ -6,6 +6,7 @@ export const translations = {
       about: "About",
       work: "Art",
       writing: "Writing",
+      mentoring: "Mentoring",
       connect: "Connect",
     },
     hero: {
@@ -21,7 +22,7 @@ export const translations = {
       headingAccent: "from me",
       p1: `Uruguayan, living in Barcelona. I've been at`,
       p1Company: "N26",
-      p1End: `since 2022, now as a Senior Web Engineer. Software Engineer graduated from`,
+      p1End: `since 2022, now as a Senior Fullstack Engineer. Software Engineer graduated from`,
       p1University: "UdelaR",
       p1End2: `, Montevideo, Uruguay. I paint. I write. I draw.`,
       p2: ``,
@@ -79,6 +80,16 @@ export const translations = {
       medium: "An archive of writings on engineering and life that I was thinking about at the time.",
       substack: "New writings. Only in Spanish.",
     },
+    mentoring: {
+      label: "Mentoring",
+      heading: "Ready to grow together?",
+      headingAccent: "",
+      description: "I mentor through",
+      org: "Mujeres IT",
+      descriptionEnd: ", the largest Women in Tech community born in Uruguay.",
+      book: "Book a session",
+      bookDescription: "Schedule a free mentoring session directly.",
+    },
     connect: {
       label: "Connect",
       heading: "Say",
@@ -92,6 +103,7 @@ export const translations = {
       about: "Sobre mí",
       work: "Arte",
       writing: "Escritos",
+      mentoring: "Mentorías",
       connect: "Contacto",
     },
     hero: {
@@ -107,7 +119,7 @@ export const translations = {
       headingAccent: "de mi parte",
       p1: `Uruguaya, viviendo en Barcelona. Trabajo en`,
       p1Company: "N26",
-      p1End: `desde 2022, ahora como Senior Web Engineer. Ingeniera de Software graduada de`,
+      p1End: `desde 2022, ahora como Senior Fullstack Engineer. Ingeniera de Software graduada de`,
       p1University: "UdelaR",
       p1End2: `, Montevideo, Uruguay. Pinto. Escribo. Dibujo.`,
       p2: ``,
@@ -165,6 +177,16 @@ export const translations = {
       medium: "Un archivo de escritos sobre ingeniería y vida en los que estaba pensando en ese momento.",
       substack: "Nuevos escritos. Solo en español.",
     },
+    mentoring: {
+      label: "Mentorías",
+      heading: "Crezcamos en equipo",
+      headingAccent: "",
+      description: "Soy mentora a través de",
+      org: "Mujeres IT",
+      descriptionEnd: ", la comunidad de Women in Tech más grande nacida en Uruguay.",
+      book: "Agendar sesión",
+      bookDescription: "Agendá una sesión de mentoría gratuita directamente.",
+    },
     connect: {
       label: "Contacto",
       heading: "Decí",
@@ -177,10 +199,11 @@ export const translations = {
 
 // Use a structural type so both locales are assignable
 export type Translations = {
-  nav: { about: string; work: string; writing: string; connect: string };
+  nav: { about: string; work: string; writing: string; mentoring: string; connect: string };
   hero: { location: string; greeting: string; tagline: string; taglineItalic: string; scroll: string };
   about: { label: string; heading: string; headingAccent: string; p1: string; p1Company: string; p1End: string; p1University: string; p1End2: string; p2: string; p3: string };
   gallery: { label: string; heading: string; headingAccent: string; categories: { all: string; charcoal: string; pastel: string; digital: string; oil: string }; viewArtwork: string; watchProcess: string; titles: Record<string, string> };
   writing: { label: string; heading: string; headingAccent: string; medium: string; substack: string };
+  mentoring: { label: string; heading: string; headingAccent: string; description: string; org: string; descriptionEnd: string; book: string; bookDescription: string };
   connect: { label: string; heading: string; headingAccent: string; description: string; footer: string };
 };

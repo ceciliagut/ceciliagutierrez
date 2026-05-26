@@ -22,6 +22,7 @@ const HeroSection = () => {
           <a href="#about" className="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.about}</a>
           <a href="#work" className="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.work}</a>
           <a href="#writing" className="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.writing}</a>
+          <a href="#mentoring" className="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.mentoring}</a>
           <a href="#connect" className="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.connect}</a>
           <LanguageSwitcher />
           <ThemeToggle />
