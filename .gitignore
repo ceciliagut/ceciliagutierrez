@@ -12,6 +12,7 @@ dist
 dist-ssr
 .astro
 *.local
+.env
 
 src/assets/
 public/hero-photo-bw.jpg

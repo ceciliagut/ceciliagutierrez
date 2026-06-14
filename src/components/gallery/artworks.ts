@@ -1,6 +1,6 @@
 import type { Artwork } from "./types";
 
-const R2 = "https://pub-b2687d885eb148ad8c4cb04ca92a78ad.r2.dev";
+const R2 = import.meta.env.PUBLIC_R2_URL;
 
 export const artworks: Artwork[] = [
   // Charcoal
