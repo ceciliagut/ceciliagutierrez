@@ -18,13 +18,14 @@ const ArtworkGrid = ({ artworks, onSelect, titles, categoryLabels }: ArtworkGrid
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className={`group cursor-pointer relative overflow-hidden ${artwork.span || ""}`}
+          className="group cursor-pointer relative overflow-hidden aspect-[3/4]"
           onClick={() => onSelect(artwork)}
         >
           <img
             src={artwork.images[0].src}
             alt={artwork.images[0].alt}
             loading="lazy"
+            fetchPriority="low"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
           />
           <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
