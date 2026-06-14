@@ -1,18 +1,26 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const isSpanish = Astro.url.pathname.startsWith("/es");
+const locale = isSpanish ? "es" : "en";
+const title = isSpanish ? "404 — Página no encontrada" : "404 — Page Not Found";
+const description = isSpanish ? "Esta página no existe." : "This page does not exist.";
+const message = isSpanish ? "Página no encontrada" : "Page not found";
+const linkText = isSpanish ? "Volver al inicio" : "Return home";
+const linkHref = isSpanish ? "/es/" : "/";
 ---
 
 <BaseLayout
-  title="404 — Page Not Found"
-  description="This page does not exist."
-  locale="en"
+  title={title}
+  description={description}
+  locale={locale}
 >
   <div class="flex min-h-screen items-center justify-center bg-background">
     <div class="text-center">
       <h1 class="mb-4 font-display text-6xl font-medium">404</h1>
-      <p class="mb-8 font-body text-lg text-muted-foreground">Page not found</p>
-      <a href="/" class="font-body text-sm text-primary underline underline-offset-4 hover:text-primary/80 transition-colors">
-        Return home
+      <p class="mb-8 font-body text-lg text-muted-foreground">{message}</p>
+      <a href={linkHref} class="font-body text-sm text-primary underline underline-offset-4 hover:text-primary/80 transition-colors">
+        {linkText}
       </a>
     </div>
   </div>
