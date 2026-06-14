@@ -13,8 +13,11 @@ dist-ssr
 .astro
 *.local
 
-# Source artwork images (stored privately, not in git)
+# Artwork and media assets (stored privately, not in git)
 src/assets/
+public/artwork/
+public/videos/
+public/posters/
 
 # Editor directories and files
 .vscode/*
