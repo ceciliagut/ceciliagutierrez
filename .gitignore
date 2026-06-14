@@ -13,11 +13,9 @@ dist-ssr
 .astro
 *.local
 
-# Artwork and media assets (stored privately, not in git)
 src/assets/
-public/artwork/
-public/videos/
-public/posters/
+public/hero-photo-bw.jpg
+public/footer-sunflower.jpg
 
 # Editor directories and files
 .vscode/*
@@ -29,3 +27,4 @@ public/posters/
 *.njsproj
 *.sln
 *.sw?
+.wrangler/
