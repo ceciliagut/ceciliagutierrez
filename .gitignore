@@ -10,7 +10,13 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.astro
 *.local
+.env
+
+src/assets/
+public/hero-photo-bw.jpg
+public/footer-sunflower.jpg
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +28,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.wrangler/

@@ -1,0 +1,40 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
+
+const isSpanish = Astro.url.pathname.startsWith("/es");
+const locale = isSpanish ? "es" : "en";
+const title = isSpanish ? "404 — Página no encontrada" : "404 — Page Not Found";
+const description = isSpanish ? "Esta página no existe." : "This page does not exist.";
+const message = isSpanish ? "Página no encontrada" : "Page not found";
+const linkText = isSpanish ? "Volver al inicio" : "Return home";
+const linkHref = isSpanish ? "/es/" : "/";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  locale={locale}
+>
+  <div class="flex min-h-screen flex-col bg-background">
+    <nav class="flex justify-end items-center px-8 md:px-16 py-8">
+      <ThemeToggle />
+    </nav>
+
+    <div class="flex flex-1 items-center justify-center">
+      <div class="text-center px-8">
+        <p class="font-body text-[11px] tracking-[0.4em] uppercase text-muted-foreground mb-6">404</p>
+        <h1 class="font-display text-4xl md:text-6xl font-medium text-card-foreground mb-4">
+          {isSpanish ? "Nada " : "Nothing "}<span class="italic">{isSpanish ? "por aquí" : "here"}</span>
+        </h1>
+        <p class="font-body text-muted-foreground mb-12">{message}</p>
+        <a
+          href={linkHref}
+          class="font-body text-[11px] tracking-[0.3em] uppercase text-muted-foreground border border-muted-foreground/30 px-8 py-3 hover:text-foreground hover:border-foreground transition-colors duration-300"
+        >
+          {linkText}
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

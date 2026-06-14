@@ -11,6 +11,5 @@ export interface Artwork {
   images: ArtworkImage[];
   category: Exclude<ArtworkCategory, "all">;
   titleKey: string;
-  span?: string;
   videoSrc?: string;
 }

@@ -1,0 +1,32 @@
+{
+  "rewrites": [
+    {
+      "source": "/hero-photo-bw.jpg",
+      "destination": "https://pub-b2687d885eb148ad8c4cb04ca92a78ad.r2.dev/hero-photo-bw.jpg"
+    },
+    {
+      "source": "/footer-sunflower.jpg",
+      "destination": "https://pub-b2687d885eb148ad8c4cb04ca92a78ad.r2.dev/footer-sunflower.jpg"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/_astro/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/hero-photo-bw.jpg",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/footer-sunflower.jpg",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}

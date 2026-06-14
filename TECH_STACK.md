@@ -1,57 +1,56 @@
-# Tech Stack & Architecture -- Roadmap Reference
+# Tech Stack & Architecture
 
-> Decision log and rationale for the current stack. Use this for future planning.
+> Decision log and rationale for the current stack.
 
 ## Current Stack
 
 | Layer | Technology | Why |
 |-------|-----------|-----|
-| **Framework** | React 18 + Vite 5 | Fast builds, instant HMR, zero-config. Ideal for a single-page portfolio site. |
+| **Framework** | Astro 6 (SSG) | Static site generation -- HTML at build time. Hero image is in the markup from the start, solving the LCP problem structurally. |
+| **Interactive islands** | React 18 via `@astrojs/react` | Gallery section loads React + Framer Motion only when scrolled into view (`client:visible`). All other sections are zero-JS Astro components. |
 | **Language** | TypeScript | Type safety across components, translations, and props. |
-| **Styling** | Tailwind CSS + semantic design tokens | Consistent theming via CSS custom properties (HSL). No raw colors in components. |
-| **Animations** | Framer Motion | Scroll-triggered reveals, layout transitions, hover states. Declarative and composable. |
-| **UI primitives** | Radix UI + shadcn/ui | Accessible, unstyled primitives. Customized with Tailwind to match the editorial aesthetic. |
-| **Routing** | React Router v6 | Client-side routing (currently single-page, but ready to expand). |
-| **i18n** | Custom context + translations file | Lightweight EN/ES switching without heavy libraries. Type-safe keys. |
-| **Theme** | next-themes | Dark/light mode toggle with system preference detection. |
-| **Icons** | Lucide React | Clean, consistent icon set. |
-| **Backend (planned)** | Supabase | Auth, database, storage, and edge functions. Not yet integrated -- will be added when we need contact forms, a CMS for artwork, or user auth. |
-| **E-commerce (planned)** | Shopify | For selling prints, commissions, or merch. Revisit when ready to sell. |
+| **Styling** | Tailwind CSS 3 + semantic design tokens | Consistent theming via CSS custom properties (HSL). Dark mode via `class` strategy. |
+| **Animations** | CSS keyframes + IntersectionObserver | Static sections use CSS `animation-delay` for entry effects and `data-animate` for scroll-triggered reveals. No JS framework needed. |
+| **Gallery animations** | Framer Motion | Inside the React island only -- filter transitions, lightbox open/close, image carousel. |
+| **i18n** | Astro file-based routing + translations file | `/` = English, `/es/` = Spanish. Translations passed as props, no React context. |
+| **Theme** | `localStorage` + inline `<script>` | Dark/light toggle with FOUC prevention. No dependencies. |
+| **Icons** | Inline SVG (static) + Lucide React (gallery) | Static sections use hand-inlined SVGs. Gallery island uses Lucide since it already loads React. |
+| **SEO** | Built-in: hreflang, canonical, OG/Twitter, sitemap | `@astrojs/sitemap` generates sitemap. Per-page meta tags with correct locale. |
 
-## Why Not Next.js?
+## Why Astro over Vite SPA?
 
-1. **No server-side needs (yet)** -- This is a static portfolio. There's no database, no auth, no API routes. Vite builds a fast static bundle that can be deployed anywhere.
-2. **Simpler mental model** -- No file-based routing, no server/client component boundaries, no hydration gotchas. Just React.
-3. **Faster dev experience** -- Vite's HMR is near-instant. Next.js adds overhead we don't need.
+The previous Vite SPA had a 3.19s LCP because the hero image couldn't paint until a 471KB JS bundle parsed and React rendered the DOM. This is a fundamental SPA limitation for content sites.
 
-### When to reconsider Next.js
-- If we add a **blog with dynamic content** (MDX, CMS integration)
-- If we need **SEO beyond static meta tags** (SSR/ISR for dynamic pages)
-- If we add **API routes** (contact form backend, analytics)
-- If we move to **image optimization at scale** (Next/Image is hard to beat)
+Astro SSG generates HTML at build time. The hero `<img>` exists in the markup from the start. Only the gallery section ships JavaScript (React + Framer Motion, loaded lazily via `client:visible`).
 
-For now, Vite + static deploy is the right call. Revisit when the site outgrows a single-page architecture.
+## Architecture
+
+```
+Static (zero JS)          React island (client:visible)
+-----------------         ----------------------------
+Hero                      Gallery
+About                       - CategoryFilters
+Writing                     - ArtworkGrid
+Mentoring                   - Lightbox
+Connect                     - Show more
+404
+```
+
+## Image Strategy
+
+Artwork source images are stored privately (not in the git repo). They're referenced from `public/artwork/` as static paths. Videos live in `public/videos/` with poster frames in `public/posters/`.
+
+Future: Astro's built-in `<Picture>` component will handle responsive AVIF/WebP generation once source images are set up on Cloudflare R2 and pulled locally for builds.
 
 ## Deployment
 
-- **Recommended**: Vercel, Netlify, or Cloudflare Pages (all handle Vite static builds natively)
-- **Custom domain**: Point DNS + deploy from GitHub
+- **Host**: Vercel (static output)
+- **Cache**: `/_astro/` assets cached immutably (1 year). Artwork and video assets cached immutably.
+- **Domain**: www.ceciliagutierrez.me
 
-## Future Roadmap Considerations
+## Future Considerations
 
-### Short-term
-- [ ] Add OG/meta tags per section for social sharing
-- [ ] Optimize images (WebP/AVIF conversion, lazy loading)
-- [ ] Add a contact form (Supabase or external service)
-
-### Medium-term
-- [ ] CMS integration for artwork (avoid hardcoding gallery items)
-- [ ] Analytics
-
-### Long-term (may trigger migration)
-- [ ] E-commerce for prints/commissions
-- [ ] Multi-page architecture with individual artwork pages
-
-## Dependencies to Watch
-
-Some installed packages are **shadcn defaults not currently used** (recharts, react-hook-form, react-day-picker, etc.). Consider pruning unused deps to keep the bundle lean.
+- Astro `<Picture>` for responsive image optimization (requires source images in `src/assets/`)
+- CMS integration for artwork management
+- E-commerce for prints/commissions
+- Contact form

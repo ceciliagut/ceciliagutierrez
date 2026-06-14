@@ -1,0 +1,31 @@
+---
+import GalleryIsland from "@/components/gallery/GalleryIsland";
+import type { Translations } from "@/i18n/translations";
+
+interface Props {
+  t: Translations;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="work" class="relative pt-10 pb-20 md:pt-16 md:pb-28 px-8 md:px-16">
+  <div class="max-w-6xl mx-auto">
+    <div data-animate class="text-center mb-16">
+      <span class="font-body text-[11px] tracking-[0.4em] uppercase text-muted-foreground mb-6 block">
+        {t.gallery.label}
+      </span>
+      <h2 class="font-display text-4xl md:text-6xl font-medium text-card-foreground">
+        {t.gallery.heading} <span class="italic">{t.gallery.headingAccent}</span>
+      </h2>
+    </div>
+
+    <GalleryIsland
+      client:visible
+      titles={t.gallery.titles}
+      categoryLabels={t.gallery.categories}
+      viewArtworkLabel={t.gallery.viewArtwork}
+      watchProcessLabel={t.gallery.watchProcess}
+    />
+  </div>
+</section>

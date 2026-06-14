@@ -1,16 +1,18 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Play, Image, ChevronLeft, ChevronRight } from "lucide-react";
-import { useLanguage } from "@/i18n/LanguageContext";
 import type { Artwork } from "./types";
 
 interface LightboxProps {
   artwork: Artwork | null;
   onClose: () => void;
+  titles: Record<string, string>;
+  categoryLabels: Record<string, string>;
+  viewArtworkLabel: string;
+  watchProcessLabel: string;
 }
 
-const Lightbox = ({ artwork, onClose }: LightboxProps) => {
-  const { t } = useLanguage();
+const Lightbox = ({ artwork, onClose, titles, categoryLabels, viewArtworkLabel, watchProcessLabel }: LightboxProps) => {
   const [showVideo, setShowVideo] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -31,13 +33,11 @@ const Lightbox = ({ artwork, onClose }: LightboxProps) => {
     setImageIndex((i) => Math.min(i + 1, artwork.images.length - 1));
   }, [artwork]);
 
-  // Reset state when artwork changes
   useEffect(() => {
     setImageIndex(0);
     setShowVideo(false);
   }, [artwork?.id]);
 
-  // Keyboard navigation
   useEffect(() => {
     if (!artwork) return;
 
@@ -51,7 +51,6 @@ const Lightbox = ({ artwork, onClose }: LightboxProps) => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [artwork, showVideo, handleClose, goPrev, goNext]);
 
-  // Preload other images
   useEffect(() => {
     if (!artwork) return;
     artwork.images.forEach((img, i) => {
@@ -88,7 +87,6 @@ const Lightbox = ({ artwork, onClose }: LightboxProps) => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative flex items-center">
-              {/* Left arrow */}
               {hasMultipleImages && !showVideo && (
                 <button
                   onClick={goPrev}
@@ -117,7 +115,6 @@ const Lightbox = ({ artwork, onClose }: LightboxProps) => {
                 />
               )}
 
-              {/* Right arrow */}
               {hasMultipleImages && !showVideo && (
                 <button
                   onClick={goNext}
@@ -131,9 +128,9 @@ const Lightbox = ({ artwork, onClose }: LightboxProps) => {
             </div>
 
             <div className="mt-6 text-center">
-              <p className="font-display text-2xl text-foreground">{t.gallery.titles[artwork.titleKey]}</p>
+              <p className="font-display text-2xl text-foreground">{titles[artwork.titleKey]}</p>
               <p className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-2">
-                {t.gallery.categories[artwork.category]}
+                {categoryLabels[artwork.category]}
               </p>
               {hasMultipleImages && !showVideo && (
                 <p className="font-body text-[10px] tracking-[0.2em] text-muted-foreground mt-2">
@@ -148,12 +145,12 @@ const Lightbox = ({ artwork, onClose }: LightboxProps) => {
                   {showVideo ? (
                     <>
                       <Image size={12} />
-                      {t.gallery.viewArtwork}
+                      {viewArtworkLabel}
                     </>
                   ) : (
                     <>
                       <Play size={12} />
-                      {t.gallery.watchProcess}
+                      {watchProcessLabel}
                     </>
                   )}
                 </button>

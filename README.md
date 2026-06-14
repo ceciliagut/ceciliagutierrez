@@ -1,27 +1,27 @@
-# Hi / Hola! 🌻
+# ceciliagutierrez.me
 
-Personal website - engineering portfolio and creative showcase.
+Personal website -- engineering portfolio and creative showcase.
 
 **URL**: [www.ceciliagutierrez.me](https://www.ceciliagutierrez.me)
 
 ## Stack
 
-- React 18 + Vite 5 + TypeScript
-- Tailwind CSS + shadcn/ui (Radix UI)
-- Framer Motion
-- React Router v6
-- Custom i18n (EN/ES)
+- Astro 6 (SSG) + TypeScript
+- React 18 (gallery island only)
+- Tailwind CSS 3
+- Framer Motion (gallery)
+- i18n: EN (/) + ES (/es/)
 
 ## Development
 
 ```bash
-bun install
-bun run dev       # http://localhost:8080
-bun run build     # production build
-bun run test      # run tests
+npm install
+npm run dev       # http://localhost:4321
+npm run build     # production build
+npm run preview   # preview production build
 ```
 
 ## Structure
 
 See [INSTRUCTIONS.md](./INSTRUCTIONS.md) for design system and creative direction.
-See [TECH_STACK.md](./TECH_STACK.md) for architecture decisions and roadmap.
+See [TECH_STACK.md](./TECH_STACK.md) for architecture decisions.
