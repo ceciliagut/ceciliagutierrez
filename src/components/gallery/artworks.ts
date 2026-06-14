@@ -21,7 +21,7 @@ export const artworks: Artwork[] = [
     ],
     category: "charcoal",
     titleKey: "busto",
-    span: "md:row-span-2",
+
   },
   {
     id: "anatomicos",
@@ -40,7 +40,7 @@ export const artworks: Artwork[] = [
     ],
     category: "charcoal",
     titleKey: "velo",
-    span: "md:row-span-2",
+
   },
   {
     id: "mano",
@@ -159,14 +159,14 @@ export const artworks: Artwork[] = [
     images: [{ src: `${R2}/artwork/oil/marble-bust/01.jpg`, alt: "Oil grisaille study of a classical marble bust" }],
     category: "oil",
     titleKey: "bustoMarmol",
-    span: "md:row-span-2",
+
   },
   {
     id: "madreHija",
     images: [{ src: `${R2}/artwork/oil/mother-daughter/01.jpg`, alt: "Oil portrait of a mother and daughter" }],
     category: "oil",
     titleKey: "madreHija",
-    span: "md:row-span-2",
+
   },
   {
     id: "peligrosDeFumar",
