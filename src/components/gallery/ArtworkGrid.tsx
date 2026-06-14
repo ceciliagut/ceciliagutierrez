@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Play, Layers } from "lucide-react";
 import type { Artwork } from "./types";
 
@@ -13,12 +12,9 @@ const ArtworkGrid = ({ artworks, onSelect, titles, categoryLabels }: ArtworkGrid
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
       {artworks.map((artwork) => (
-        <motion.div
+        <div
           key={artwork.id}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          className="group cursor-pointer relative overflow-hidden aspect-[3/4]"
+          className="group cursor-pointer relative overflow-hidden aspect-[3/4] shimmer"
           onClick={() => onSelect(artwork)}
         >
           <img
@@ -48,7 +44,7 @@ const ArtworkGrid = ({ artworks, onSelect, titles, categoryLabels }: ArtworkGrid
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
       ))}
     </div>
   );
