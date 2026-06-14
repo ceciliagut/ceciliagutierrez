@@ -1,0 +1,60 @@
+---
+import "@/styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  locale: "en" | "es";
+}
+
+const { title, description, locale } = Astro.props;
+const otherLocale = locale === "en" ? "es" : "en";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const alternateEN = new URL("/", Astro.site);
+const alternateES = new URL("/es/", Astro.site);
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Cecilia Gutierrez" />
+
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="en" href={alternateEN} />
+    <link rel="alternate" hreflang="es" href={alternateES} />
+    <link rel="alternate" hreflang="x-default" href={alternateEN} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    />
+
+    <!-- Prevent FOUC: apply dark class before paint -->
+    <script is:inline>
+      (function () {
+        var theme = localStorage.getItem("theme");
+        if (theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

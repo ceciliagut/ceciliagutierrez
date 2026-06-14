@@ -1,0 +1,40 @@
+---
+import Divider from "@/components/ui/Divider.astro";
+import type { Translations } from "@/i18n/translations";
+
+interface Props {
+  t: Translations;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="about" class="relative py-16 md:py-24 px-8 md:px-16">
+  <div class="max-w-3xl mx-auto">
+    <div data-animate class="text-center mb-16">
+      <span class="font-body text-[11px] tracking-[0.4em] uppercase text-muted-foreground mb-6 block">
+        {t.about.label}
+      </span>
+    </div>
+
+    <div class="space-y-8 font-body text-base md:text-lg leading-[1.8] text-muted-foreground text-center max-w-2xl mx-auto">
+      <p data-animate>
+        {t.about.p1}{" "}
+        <a href="https://n26.com/" target="_blank" rel="noopener noreferrer" class="text-foreground font-medium underline underline-offset-4 hover:text-primary transition-colors duration-300">{t.about.p1Company}</a> {t.about.p1End}{" "}
+        <a href="https://udelar.edu.uy/" target="_blank" rel="noopener noreferrer" class="text-foreground font-medium underline underline-offset-4 hover:text-primary transition-colors duration-300">{t.about.p1University}</a>{t.about.p1End2}
+      </p>
+
+      {t.about.p2 && (
+        <p data-animate>{t.about.p2}</p>
+      )}
+
+      {t.about.p3 && (
+        <p data-animate class="text-foreground/60">{t.about.p3}</p>
+      )}
+    </div>
+
+    <div class="mt-24">
+      <Divider />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/sections/Hero.astro";
+import About from "@/components/sections/About.astro";
+import Gallery from "@/components/sections/Gallery.astro";
+import Writing from "@/components/sections/Writing.astro";
+import Mentoring from "@/components/sections/Mentoring.astro";
+import Connect from "@/components/sections/Connect.astro";
+import Divider from "@/components/ui/Divider.astro";
+import { getTranslations } from "@/i18n/utils";
+
+const locale = "es";
+const t = getTranslations(locale);
+---
+
+<BaseLayout
+  title="Cecilia Gutierrez — Sitio Personal"
+  description="Cecilia Gutierrez — Senior Fullstack Engineer en N26, artista y escritora. Vive en Barcelona, de Uruguay."
+  locale={locale}
+>
+  <main class="min-h-screen bg-background">
+    <Hero t={t} locale={locale} />
+    <About t={t} />
+    <Gallery t={t} />
+    <Divider />
+    <Writing t={t} />
+    <Divider />
+    <Mentoring t={t} />
+    <Connect t={t} />
+  </main>
+  <script src="@/scripts/scroll-reveal.ts"></script>
+</BaseLayout>

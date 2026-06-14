@@ -1,0 +1,80 @@
+---
+import ArrowUpRight from "@/components/icons/ArrowUpRight.astro";
+import type { Translations } from "@/i18n/translations";
+
+interface Props {
+  t: Translations;
+}
+
+const { t } = Astro.props;
+const year = new Date().getFullYear();
+
+const links = [
+  {
+    label: "Email",
+    href: "mailto:ceciliainesgutierrez@gmail.com",
+    display: "ceciliainesgutierrez@gmail.com",
+    external: false,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/gutierrez-cecilia/",
+    display: "linkedin.com/in/gutierrez-cecilia",
+    external: true,
+  },
+];
+---
+
+<section id="connect" class="relative h-[70vh] max-h-[700px] md:max-h-[800px] px-4 md:px-16 overflow-hidden flex items-center justify-center">
+  <!-- Sunflower background -->
+  <img
+    src="/sunflower-1.jpg"
+    alt="Sunflower photograph"
+    loading="lazy"
+    class="absolute inset-0 w-full h-full object-cover"
+  />
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <div class="relative z-10 max-w-3xl mx-auto">
+    <div data-animate class="text-center mb-10">
+      <span class="font-body text-[11px] tracking-[0.4em] uppercase text-white/60 mb-6 block">
+        {t.connect.label}
+      </span>
+      <h2 class="font-display text-4xl md:text-6xl font-medium mb-6 text-white">
+        {t.connect.heading} <span class="italic">{t.connect.headingAccent}</span>
+      </h2>
+    </div>
+
+    <div class="space-y-0 max-w-lg mx-auto">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          target={link.external ? "_blank" : undefined}
+          rel={link.external ? "noopener noreferrer" : undefined}
+          data-animate
+          class="group flex items-center justify-between py-8 border-b border-white/20 hover:border-white/50 transition-colors duration-300"
+        >
+          <div>
+            <span class="font-body text-[10px] tracking-[0.4em] uppercase text-white/50 block mb-2">
+              {link.label}
+            </span>
+            <span class="font-body text-base md:text-lg text-white hover:text-white transition-colors duration-300">
+              {link.display}
+            </span>
+          </div>
+          <ArrowUpRight
+            size={16}
+            class="text-white/50 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
+          />
+        </a>
+      ))}
+    </div>
+
+    <!-- Footer -->
+    <footer data-animate="fade-in" class="mt-16 text-center">
+      <p class="font-body text-[10px] tracking-[0.3em] uppercase text-white/70">
+        {t.connect.footer.replace("{year}", String(year))}
+      </p>
+    </footer>
+  </div>
+</section>

@@ -1,23 +1,14 @@
-import { motion } from "framer-motion";
-import { useLanguage } from "@/i18n/LanguageContext";
 import { CATEGORIES, type ArtworkCategory } from "./types";
 
 interface CategoryFiltersProps {
   active: ArtworkCategory;
   onChange: (category: ArtworkCategory) => void;
+  categoryLabels: Record<string, string>;
 }
 
-const CategoryFilters = ({ active, onChange }: CategoryFiltersProps) => {
-  const { t } = useLanguage();
-
+const CategoryFilters = ({ active, onChange, categoryLabels }: CategoryFiltersProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ delay: 0.3, duration: 0.6 }}
-      className="flex justify-center gap-8 mb-16 font-body text-[11px] tracking-[0.2em] uppercase"
-    >
+    <div className="flex justify-center gap-8 mb-16 font-body text-[11px] tracking-[0.2em] uppercase">
       {CATEGORIES.map((key) => (
         <button
           key={key}
@@ -28,10 +19,10 @@ const CategoryFilters = ({ active, onChange }: CategoryFiltersProps) => {
               : "text-muted-foreground border-transparent hover:text-foreground"
           }`}
         >
-          {t.gallery.categories[key]}
+          {categoryLabels[key]}
         </button>
       ))}
-    </motion.div>
+    </div>
   );
 };
 

@@ -10,7 +10,11 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.astro
 *.local
+
+# Source artwork images (stored privately, not in git)
+src/assets/
 
 # Editor directories and files
 .vscode/*

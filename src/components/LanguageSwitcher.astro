@@ -1,0 +1,21 @@
+---
+import { getOtherLocale, getOtherLocalePath } from "@/i18n/utils";
+
+interface Props {
+  locale: "en" | "es";
+}
+
+const { locale } = Astro.props;
+const otherLocale = getOtherLocale(locale);
+const otherLocalePath = getOtherLocalePath(locale);
+const linkTitle = otherLocale === "es" ? "Cambiar a español" : "Switch to English";
+const linkText = locale === "en" ? "ES" : "EN";
+---
+
+<a
+  href={otherLocalePath}
+  class="font-body text-[11px] tracking-[0.15em] uppercase hover:text-foreground transition-colors duration-300"
+  title={linkTitle}
+>
+  {linkText}
+</a>
