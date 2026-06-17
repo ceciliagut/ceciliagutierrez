@@ -11,6 +11,8 @@
   "dependencies": {
     "@astrojs/react": "^5.0.7",
     "@astrojs/sitemap": "^3.7.3",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "astro": "^6.4.6",
     "framer-motion": "^12.35.1",
     "lucide-react": "^0.462.0",
