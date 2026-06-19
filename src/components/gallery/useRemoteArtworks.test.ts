@@ -1,0 +1,206 @@
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { renderHook, waitFor } from "@testing-library/react";
+import { useRemoteArtworks } from "./useRemoteArtworks";
+
+const R2_URL = "https://test.r2.dev";
+
+vi.stubEnv("PUBLIC_R2_URL", R2_URL);
+
+function mockFetch(manifest: Record<string, unknown[]> | null, ok = true) {
+  return vi.spyOn(globalThis, "fetch").mockResolvedValue({
+    ok,
+    json: () => Promise.resolve(manifest),
+  } as Response);
+}
+
+const sampleManifest = {
+  oil: [
+    {
+      slug: "fallen-angel",
+      title: { en: "The Fallen Angel", es: "El Ángel Caído" },
+      images: 2,
+    },
+    {
+      slug: "marble-bust",
+      title: { en: "Marble Bust", es: "Busto de Mármol" },
+    },
+  ],
+  digital: [
+    {
+      slug: "tigers",
+      title: { en: "Me Chama de Gato", es: "Me Chama de Gato" },
+      video: "01.mp4",
+    },
+  ],
+};
+
+describe("useRemoteArtworks", () => {
+  beforeEach(() => {
+    Object.defineProperty(window, "location", {
+      value: { pathname: "/" },
+      writable: true,
+    });
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it("returns empty artworks initially before fetch resolves", () => {
+    mockFetch(sampleManifest);
+    const { result } = renderHook(() => useRemoteArtworks());
+
+    expect(result.current.artworks).toEqual([]);
+    expect(result.current.titles).toEqual({});
+    expect(result.current.subtitles).toEqual({});
+  });
+
+  it("fetches gallery.json and resolves artworks", async () => {
+    mockFetch(sampleManifest);
+    const { result } = renderHook(() => useRemoteArtworks());
+
+    await waitFor(() => {
+      expect(result.current.artworks).toHaveLength(3);
+    });
+
+    const ids = result.current.artworks.map((artwork) => artwork.id);
+    expect(ids).toEqual(["fallen-angel", "marble-bust", "tigers"]);
+  });
+
+  it("assigns correct categories from manifest keys", async () => {
+    mockFetch(sampleManifest);
+    const { result } = renderHook(() => useRemoteArtworks());
+
+    await waitFor(() => {
+      expect(result.current.artworks).toHaveLength(3);
+    });
+
+    expect(result.current.artworks[0].category).toBe("oil");
+    expect(result.current.artworks[1].category).toBe("oil");
+    expect(result.current.artworks[2].category).toBe("digital");
+  });
+
+  it("generates correct image paths based on count", async () => {
+    mockFetch(sampleManifest);
+    const { result } = renderHook(() => useRemoteArtworks());
+
+    await waitFor(() => {
+      expect(result.current.artworks).toHaveLength(3);
+    });
+
+    const fallenAngel = result.current.artworks[0];
+    expect(fallenAngel.images).toHaveLength(2);
+    expect(fallenAngel.images[0].src).toBe(`${R2_URL}/artwork/oil/fallen-angel/01.jpg`);
+    expect(fallenAngel.images[1].src).toBe(`${R2_URL}/artwork/oil/fallen-angel/02.jpg`);
+
+    const marbleBust = result.current.artworks[1];
+    expect(marbleBust.images).toHaveLength(1);
+    expect(marbleBust.images[0].src).toBe(`${R2_URL}/artwork/oil/marble-bust/01.jpg`);
+  });
+
+  it("builds video src when video is specified", async () => {
+    mockFetch(sampleManifest);
+    const { result } = renderHook(() => useRemoteArtworks());
+
+    await waitFor(() => {
+      expect(result.current.artworks).toHaveLength(3);
+    });
+
+    const tigers = result.current.artworks[2];
+    expect(tigers.videoSrc).toBe(`${R2_URL}/artwork/digital/tigers/01.mp4`);
+
+    const fallenAngel = result.current.artworks[0];
+    expect(fallenAngel.videoSrc).toBeUndefined();
+  });
+
+  it("resolves English titles when on root path", async () => {
+    mockFetch(sampleManifest);
+    const { result } = renderHook(() => useRemoteArtworks());
+
+    await waitFor(() => {
+      expect(result.current.titles["fallen-angel"]).toBe("The Fallen Angel");
+    });
+
+    expect(result.current.titles["marble-bust"]).toBe("Marble Bust");
+    expect(result.current.titles["tigers"]).toBe("Me Chama de Gato");
+  });
+
+  it("resolves Spanish titles when on /es path", async () => {
+    Object.defineProperty(window, "location", {
+      value: { pathname: "/es/" },
+      writable: true,
+    });
+
+    mockFetch(sampleManifest);
+    const { result } = renderHook(() => useRemoteArtworks());
+
+    await waitFor(() => {
+      expect(result.current.titles["fallen-angel"]).toBe("El Ángel Caído");
+    });
+
+    expect(result.current.titles["marble-bust"]).toBe("Busto de Mármol");
+  });
+
+  it("uses title as alt text for images", async () => {
+    mockFetch(sampleManifest);
+    const { result } = renderHook(() => useRemoteArtworks());
+
+    await waitFor(() => {
+      expect(result.current.artworks).toHaveLength(3);
+    });
+
+    expect(result.current.artworks[0].images[0].alt).toBe("The Fallen Angel");
+  });
+
+  it("humanizes slug as alt text when title is missing", async () => {
+    const manifest = {
+      oil: [{ slug: "my-new-painting" }],
+    };
+
+    mockFetch(manifest);
+    const { result } = renderHook(() => useRemoteArtworks());
+
+    await waitFor(() => {
+      expect(result.current.artworks).toHaveLength(1);
+    });
+
+    expect(result.current.artworks[0].images[0].alt).toBe("My New Painting");
+  });
+
+  it("resolves subtitles when provided", async () => {
+    const manifest = {
+      oil: [
+        {
+          slug: "test-piece",
+          title: { en: "Test", es: "Prueba" },
+          subtitle: { en: "Oil on canvas", es: "Óleo sobre lienzo" },
+        },
+      ],
+    };
+
+    mockFetch(manifest);
+    const { result } = renderHook(() => useRemoteArtworks());
+
+    await waitFor(() => {
+      expect(result.current.subtitles["test-piece"]).toBe("Oil on canvas");
+    });
+  });
+
+  it("keeps fallback artworks when fetch fails", async () => {
+    vi.spyOn(globalThis, "fetch").mockRejectedValue(new Error("Network error"));
+    const { result } = renderHook(() => useRemoteArtworks());
+
+    await waitFor(() => {
+      expect(result.current.artworks).toEqual([]);
+    });
+  });
+
+  it("keeps fallback artworks when response is not ok", async () => {
+    mockFetch(null, false);
+    const { result } = renderHook(() => useRemoteArtworks());
+
+    await waitFor(() => {
+      expect(result.current.artworks).toEqual([]);
+    });
+  });
+});
