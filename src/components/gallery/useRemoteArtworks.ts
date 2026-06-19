@@ -61,19 +61,20 @@ export function useRemoteArtworks(): RemoteGallery {
 
         const resolved = Object.entries(manifest).flatMap(([category, entries]) =>
           entries.map(({ slug, title, subtitle, images, video }): Artwork => {
+            const artworkId = `${category}-${slug}`;
             const basePath = `${R2}/artwork/${category}/${slug}`;
 
-            if (title?.[locale]) titles[slug] = title[locale];
-            if (subtitle?.[locale]) subtitles[slug] = subtitle[locale];
+            if (title?.[locale]) titles[artworkId] = title[locale];
+            if (subtitle?.[locale]) subtitles[artworkId] = subtitle[locale];
 
             return {
-              id: slug,
+              id: artworkId,
               images: imageFilenames(images ?? 1).map((file) => ({
                 src: `${basePath}/${file}`,
                 alt: title?.[locale] || humanize(slug),
               })),
               category: category as Exclude<ArtworkCategory, "all">,
-              titleKey: slug,
+              titleKey: artworkId,
               ...(video ? { videoSrc: `${basePath}/${video}` } : {}),
             };
           })

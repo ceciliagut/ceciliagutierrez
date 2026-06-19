@@ -64,7 +64,7 @@ describe("useRemoteArtworks", () => {
     });
 
     const ids = result.current.artworks.map((artwork) => artwork.id);
-    expect(ids).toEqual(["fallen-angel", "marble-bust", "tigers"]);
+    expect(ids).toEqual(["oil-fallen-angel", "oil-marble-bust", "digital-tigers"]);
   });
 
   it("assigns correct categories from manifest keys", async () => {
@@ -118,11 +118,11 @@ describe("useRemoteArtworks", () => {
     const { result } = renderHook(() => useRemoteArtworks());
 
     await waitFor(() => {
-      expect(result.current.titles["fallen-angel"]).toBe("The Fallen Angel");
+      expect(result.current.titles["oil-fallen-angel"]).toBe("The Fallen Angel");
     });
 
-    expect(result.current.titles["marble-bust"]).toBe("Marble Bust");
-    expect(result.current.titles["tigers"]).toBe("Me Chama de Gato");
+    expect(result.current.titles["oil-marble-bust"]).toBe("Marble Bust");
+    expect(result.current.titles["digital-tigers"]).toBe("Me Chama de Gato");
   });
 
   it("resolves Spanish titles when on /es path", async () => {
@@ -135,10 +135,10 @@ describe("useRemoteArtworks", () => {
     const { result } = renderHook(() => useRemoteArtworks());
 
     await waitFor(() => {
-      expect(result.current.titles["fallen-angel"]).toBe("El Ángel Caído");
+      expect(result.current.titles["oil-fallen-angel"]).toBe("El Ángel Caído");
     });
 
-    expect(result.current.titles["marble-bust"]).toBe("Busto de Mármol");
+    expect(result.current.titles["oil-marble-bust"]).toBe("Busto de Mármol");
   });
 
   it("uses title as alt text for images", async () => {
@@ -182,8 +182,25 @@ describe("useRemoteArtworks", () => {
     const { result } = renderHook(() => useRemoteArtworks());
 
     await waitFor(() => {
-      expect(result.current.subtitles["test-piece"]).toBe("Oil on canvas");
+      expect(result.current.subtitles["oil-test-piece"]).toBe("Oil on canvas");
     });
+  });
+
+  it("generates unique IDs for same slug across categories", async () => {
+    const manifest = {
+      charcoal: [{ slug: "portrait-study", title: { en: "Portrait Study", es: "Estudio" } }],
+      pastel: [{ slug: "portrait-study", title: { en: "Portrait Study", es: "Estudio" } }],
+    };
+
+    mockFetch(manifest);
+    const { result } = renderHook(() => useRemoteArtworks());
+
+    await waitFor(() => {
+      expect(result.current.artworks).toHaveLength(2);
+    });
+
+    const ids = result.current.artworks.map((artwork) => artwork.id);
+    expect(ids).toEqual(["charcoal-portrait-study", "pastel-portrait-study"]);
   });
 
   it("keeps fallback artworks when fetch fails", async () => {
