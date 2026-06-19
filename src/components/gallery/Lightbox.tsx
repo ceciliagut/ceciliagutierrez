@@ -7,12 +7,13 @@ interface LightboxProps {
   artwork: Artwork | null;
   onClose: () => void;
   titles: Record<string, string>;
+  subtitles: Record<string, string>;
   categoryLabels: Record<string, string>;
   viewArtworkLabel: string;
   watchProcessLabel: string;
 }
 
-const Lightbox = ({ artwork, onClose, titles, categoryLabels, viewArtworkLabel, watchProcessLabel }: LightboxProps) => {
+const Lightbox = ({ artwork, onClose, titles, subtitles, categoryLabels, viewArtworkLabel, watchProcessLabel }: LightboxProps) => {
   const [showVideo, setShowVideo] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -128,7 +129,10 @@ const Lightbox = ({ artwork, onClose, titles, categoryLabels, viewArtworkLabel, 
             </div>
 
             <div className="mt-6 text-center">
-              <p className="font-display text-2xl text-foreground">{titles[artwork.titleKey]}</p>
+              <p className="font-display text-2xl text-foreground">{titles[artwork.titleKey] || artwork.titleKey.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}</p>
+              {subtitles[artwork.titleKey] && (
+                <p className="font-body text-sm text-muted-foreground mt-1">{subtitles[artwork.titleKey]}</p>
+              )}
               <p className="font-body text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-2">
                 {categoryLabels[artwork.category]}
               </p>
