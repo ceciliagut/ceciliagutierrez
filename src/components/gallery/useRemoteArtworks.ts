@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import type { Artwork, ArtworkCategory } from "./types";
-import { artworks } from "./artworks";
 
 const R2 = import.meta.env.PUBLIC_R2_URL;
 
@@ -43,7 +42,7 @@ function imageFilenames(count: number): string[] {
 
 export function useRemoteArtworks(): RemoteGallery {
   const [gallery, setGallery] = useState<RemoteGallery>({
-    artworks,
+    artworks: [],
     titles: {},
     subtitles: {},
   });
