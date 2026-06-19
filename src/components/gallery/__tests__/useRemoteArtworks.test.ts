@@ -1,45 +1,14 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { renderHook, waitFor } from "@testing-library/react";
-import { useRemoteArtworks } from "./useRemoteArtworks";
-
-const R2_URL = "https://test.r2.dev";
+import { useRemoteArtworks } from "../useRemoteArtworks";
+import { R2_URL, sampleManifest, noTitleManifest, subtitleManifest, duplicateSlugManifest } from "./fixtures";
+import { mockFetch, mockFetchError, setLocale } from "./helpers";
 
 vi.stubEnv("PUBLIC_R2_URL", R2_URL);
 
-function mockFetch(manifest: Record<string, unknown[]> | null, ok = true) {
-  return vi.spyOn(globalThis, "fetch").mockResolvedValue({
-    ok,
-    json: () => Promise.resolve(manifest),
-  } as Response);
-}
-
-const sampleManifest = {
-  oil: [
-    {
-      slug: "fallen-angel",
-      title: { en: "The Fallen Angel", es: "El Ángel Caído" },
-      images: 2,
-    },
-    {
-      slug: "marble-bust",
-      title: { en: "Marble Bust", es: "Busto de Mármol" },
-    },
-  ],
-  digital: [
-    {
-      slug: "tigers",
-      title: { en: "Me Chama de Gato", es: "Me Chama de Gato" },
-      video: "01.mp4",
-    },
-  ],
-};
-
 describe("useRemoteArtworks", () => {
   beforeEach(() => {
-    Object.defineProperty(window, "location", {
-      value: { pathname: "/" },
-      writable: true,
-    });
+    setLocale("/");
   });
 
   afterEach(() => {
@@ -126,10 +95,7 @@ describe("useRemoteArtworks", () => {
   });
 
   it("resolves Spanish titles when on /es path", async () => {
-    Object.defineProperty(window, "location", {
-      value: { pathname: "/es/" },
-      writable: true,
-    });
+    setLocale("/es/");
 
     mockFetch(sampleManifest);
     const { result } = renderHook(() => useRemoteArtworks());
@@ -153,11 +119,7 @@ describe("useRemoteArtworks", () => {
   });
 
   it("humanizes slug as alt text when title is missing", async () => {
-    const manifest = {
-      oil: [{ slug: "my-new-painting" }],
-    };
-
-    mockFetch(manifest);
+    mockFetch(noTitleManifest);
     const { result } = renderHook(() => useRemoteArtworks());
 
     await waitFor(() => {
@@ -168,17 +130,7 @@ describe("useRemoteArtworks", () => {
   });
 
   it("resolves subtitles when provided", async () => {
-    const manifest = {
-      oil: [
-        {
-          slug: "test-piece",
-          title: { en: "Test", es: "Prueba" },
-          subtitle: { en: "Oil on canvas", es: "Óleo sobre lienzo" },
-        },
-      ],
-    };
-
-    mockFetch(manifest);
+    mockFetch(subtitleManifest);
     const { result } = renderHook(() => useRemoteArtworks());
 
     await waitFor(() => {
@@ -187,12 +139,7 @@ describe("useRemoteArtworks", () => {
   });
 
   it("generates unique IDs for same slug across categories", async () => {
-    const manifest = {
-      charcoal: [{ slug: "portrait-study", title: { en: "Portrait Study", es: "Estudio" } }],
-      pastel: [{ slug: "portrait-study", title: { en: "Portrait Study", es: "Estudio" } }],
-    };
-
-    mockFetch(manifest);
+    mockFetch(duplicateSlugManifest);
     const { result } = renderHook(() => useRemoteArtworks());
 
     await waitFor(() => {
@@ -203,8 +150,8 @@ describe("useRemoteArtworks", () => {
     expect(ids).toEqual(["charcoal-portrait-study", "pastel-portrait-study"]);
   });
 
-  it("keeps fallback artworks when fetch fails", async () => {
-    vi.spyOn(globalThis, "fetch").mockRejectedValue(new Error("Network error"));
+  it("keeps empty state when fetch fails", async () => {
+    mockFetchError();
     const { result } = renderHook(() => useRemoteArtworks());
 
     await waitFor(() => {
@@ -212,7 +159,7 @@ describe("useRemoteArtworks", () => {
     });
   });
 
-  it("keeps fallback artworks when response is not ok", async () => {
+  it("keeps empty state when response is not ok", async () => {
     mockFetch(null, false);
     const { result } = renderHook(() => useRemoteArtworks());
 
