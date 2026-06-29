@@ -1,4 +1,4 @@
-export const CATEGORIES = ["all", "oil", "digital", "charcoal", "pastel"] as const;
+export const CATEGORIES = ["oil", "digital", "charcoal", "pastel", "all"] as const;
 export type ArtworkCategory = (typeof CATEGORIES)[number];
 
 export interface ArtworkImage {
@@ -12,4 +12,5 @@ export interface Artwork {
   category: Exclude<ArtworkCategory, "all">;
   titleKey: string;
   videoSrc?: string;
+  year?: number;
 }
