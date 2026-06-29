@@ -19,7 +19,7 @@ const { t, locale } = Astro.props;
     style="animation-delay: 0.5s"
   >
     <a href="#about" class="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.about}</a>
-    <a href="#work" class="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.work}</a>
+    <a href="#gallery" class="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.work}</a>
     <a href="#writing" class="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.writing}</a>
     <a href="#mentoring" class="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.mentoring}</a>
     <a href="#connect" class="hover:text-foreground transition-colors duration-300 hidden md:block">{t.nav.connect}</a>
@@ -84,20 +84,4 @@ const { t, locale } = Astro.props;
     )}
   </div>
 
-  <div
-    class="relative z-10 flex flex-col items-center pb-12 opacity-0 animate-fade-in"
-    style="animation-delay: 2s"
-  >
-    <div class="w-px h-8 bg-white/30 animate-scroll-bounce"></div>
-  </div>
 </section>
-
-<style>
-  @keyframes scroll-bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
-  }
-  .animate-scroll-bounce {
-    animation: scroll-bounce 2s ease-in-out infinite;
-  }
-</style>
