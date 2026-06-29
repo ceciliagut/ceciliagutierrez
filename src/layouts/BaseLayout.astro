@@ -27,11 +27,7 @@ const alternateES = new URL("/es/", Astro.site);
     <meta name="author" content="Cecilia Gutierrez" />
 
     <link rel="preconnect" href={import.meta.env.PUBLIC_R2_URL} />
-    {preloadImage ? (
-      <link rel="preload" as="image" href={preloadImage} />
-    ) : (
-      <link rel="preload" as="image" href="/hero-photo-bw.jpg" />
-    )}
+    <link rel="preload" as="image" href={preloadImage || "/hero-photo-bw.jpg"} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" hreflang="en" href={alternateEN} />
     <link rel="alternate" hreflang="es" href={alternateES} />

@@ -34,6 +34,15 @@ export interface ArtworkPageData {
   videoSrc?: string;
 }
 
+export function getStaticPaths() {
+  return fetchArtworks().then((artworks) =>
+    artworks.map((artwork) => ({
+      params: { slug: artwork.slug },
+      props: { artwork },
+    }))
+  );
+}
+
 export async function fetchArtworks(): Promise<ArtworkPageData[]> {
   const res = await fetch(`${R2}/gallery.json`);
   if (!res.ok) return [];
