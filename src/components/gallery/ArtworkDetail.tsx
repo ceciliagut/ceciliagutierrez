@@ -44,7 +44,7 @@ const ArtworkDetail = ({
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  });
+  }, [showVideo]);
 
   return (
     <div className="min-h-screen px-8 md:px-16 py-12 md:flex md:items-center">

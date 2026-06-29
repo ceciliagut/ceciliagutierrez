@@ -34,6 +34,7 @@ const ZoomableImage = ({ images, activeIndex }: ZoomableImageProps) => {
           } ${index === activeIndex ? "opacity-100" : "opacity-0"}`}
           draggable={false}
           fetchPriority={index === 0 ? "high" : "low"}
+          loading={index === 0 ? "eager" : "lazy"}
         />
       ))}
       {zoom && (

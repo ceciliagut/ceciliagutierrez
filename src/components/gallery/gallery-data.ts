@@ -45,7 +45,7 @@ export function getStaticPaths() {
 
 export async function fetchArtworks(): Promise<ArtworkPageData[]> {
   const res = await fetch(`${R2}/gallery.json`);
-  if (!res.ok) return [];
+  if (!res.ok) throw new Error(`Failed to fetch gallery manifest: ${res.status}`);
   const manifest: GalleryManifest = await res.json();
 
   return Object.entries(manifest).flatMap(([category, entries]) =>

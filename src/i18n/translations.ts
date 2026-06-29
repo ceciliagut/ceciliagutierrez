@@ -108,7 +108,7 @@ export const translations = {
       },
       viewArtwork: "Ver obra",
       watchProcess: "Ver proceso",
-      backToGallery: "Volver a la galeria",
+      backToGallery: "Volver a la galería",
     },
     writing: {
       label: "Escritos",
