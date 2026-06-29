@@ -41,6 +41,7 @@ export const translations = {
       },
       viewArtwork: "View artwork",
       watchProcess: "Watch process",
+      backToGallery: "Back to gallery",
     },
     writing: {
       label: "Writing",
@@ -107,6 +108,7 @@ export const translations = {
       },
       viewArtwork: "Ver obra",
       watchProcess: "Ver proceso",
+      backToGallery: "Volver a la galería",
     },
     writing: {
       label: "Escritos",
@@ -140,7 +142,7 @@ export type Translations = {
   nav: { about: string; work: string; writing: string; mentoring: string; connect: string };
   hero: { location: string; greeting: string; tagline: string; taglineItalic: string; scroll: string };
   about: { label: string; heading: string; headingAccent: string; p1: string; p1Company: string; p1End: string; p1University: string; p1End2: string; p2: string; p3: string };
-  gallery: { label: string; heading: string; headingAccent: string; categories: { all: string; charcoal: string; pastel: string; digital: string; oil: string }; viewArtwork: string; watchProcess: string };
+  gallery: { label: string; heading: string; headingAccent: string; categories: { all: string; charcoal: string; pastel: string; digital: string; oil: string }; viewArtwork: string; watchProcess: string; backToGallery: string };
   writing: { label: string; heading: string; headingAccent: string; medium: string; substack: string };
   mentoring: { label: string; heading: string; headingAccent: string; description: string; org: string; descriptionEnd: string; book: string; bookDescription: string };
   connect: { label: string; heading: string; headingAccent: string; description: string; footer: string };

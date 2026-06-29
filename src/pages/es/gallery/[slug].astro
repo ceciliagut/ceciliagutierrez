@@ -1,0 +1,41 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ArtworkDetail from "@/components/gallery/ArtworkDetail";
+import { getStaticPaths } from "@/components/gallery/gallery-data";
+import { getTranslations } from "@/i18n/utils";
+import type { ArtworkPageData } from "@/components/gallery/gallery-data";
+
+export { getStaticPaths };
+
+interface Props {
+  artwork: ArtworkPageData;
+}
+
+const { artwork } = Astro.props;
+const locale = "es";
+const t = getTranslations(locale);
+const categoryLabel = t.gallery.categories[artwork.category as keyof typeof t.gallery.categories] || artwork.category;
+---
+
+<BaseLayout
+  title={`${artwork.title.es} — Cecilia Gutierrez`}
+  description={`${artwork.title.es} — ${categoryLabel}`}
+  locale={locale}
+  preloadImage={artwork.images[0].src}
+>
+  <main class="min-h-screen bg-background">
+    <ArtworkDetail
+      client:load
+      images={artwork.images}
+      videoSrc={artwork.videoSrc}
+      title={artwork.title.es}
+      subtitle={artwork.subtitle.es}
+      year={artwork.year}
+      categoryLabel={categoryLabel}
+      viewArtworkLabel={t.gallery.viewArtwork}
+      watchProcessLabel={t.gallery.watchProcess}
+      backLabel={t.gallery.backToGallery}
+      backHref="/es/#gallery"
+    />
+  </main>
+</BaseLayout>

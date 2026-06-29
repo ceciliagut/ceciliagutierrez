@@ -4,12 +4,13 @@ import type { Translations } from "@/i18n/translations";
 
 interface Props {
   t: Translations;
+  locale: string;
 }
 
-const { t } = Astro.props;
+const { t, locale } = Astro.props;
 ---
 
-<section id="work" class="relative pt-10 pb-20 md:pt-16 md:pb-28 px-8 md:px-16">
+<section id="gallery" class="relative pt-10 pb-20 md:pt-16 md:pb-28 px-8 md:px-16">
   <div class="max-w-6xl mx-auto">
     <div data-animate class="text-center mb-16">
       <span class="font-body text-[11px] tracking-[0.4em] uppercase text-muted-foreground mb-6 block">
@@ -23,8 +24,7 @@ const { t } = Astro.props;
     <GalleryIsland
       client:visible
       categoryLabels={t.gallery.categories}
-      viewArtworkLabel={t.gallery.viewArtwork}
-      watchProcessLabel={t.gallery.watchProcess}
+      locale={locale}
     />
   </div>
 </section>
