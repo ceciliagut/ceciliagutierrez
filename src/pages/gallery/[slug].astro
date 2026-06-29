@@ -1,0 +1,47 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ArtworkDetail from "@/components/gallery/ArtworkDetail";
+import { fetchArtworks } from "@/components/gallery/manifest";
+import { getTranslations } from "@/i18n/utils";
+import type { ArtworkPageData } from "@/components/gallery/manifest";
+
+export async function getStaticPaths() {
+  const artworks = await fetchArtworks();
+  return artworks.map((artwork) => ({
+    params: { slug: artwork.slug },
+    props: { artwork },
+  }));
+}
+
+interface Props {
+  artwork: ArtworkPageData;
+}
+
+const { artwork } = Astro.props;
+const locale = "en";
+const t = getTranslations(locale);
+const categoryLabel = t.gallery.categories[artwork.category as keyof typeof t.gallery.categories] || artwork.category;
+---
+
+<BaseLayout
+  title={`${artwork.title.en} — Cecilia Gutierrez`}
+  description={`${artwork.title.en} — ${categoryLabel} artwork by Cecilia Gutierrez`}
+  locale={locale}
+  preloadImage={artwork.images[0].src}
+>
+  <main class="min-h-screen bg-background">
+    <ArtworkDetail
+      client:load
+      images={artwork.images}
+      videoSrc={artwork.videoSrc}
+      title={artwork.title.en}
+      subtitle={artwork.subtitle.en || undefined}
+      year={artwork.year}
+      categoryLabel={categoryLabel}
+      viewArtworkLabel={t.gallery.viewArtwork}
+      watchProcessLabel={t.gallery.watchProcess}
+      backLabel={t.gallery.backToGallery}
+      backHref="/#gallery"
+    />
+  </main>
+</BaseLayout>

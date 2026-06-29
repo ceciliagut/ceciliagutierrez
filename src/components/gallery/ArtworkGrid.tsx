@@ -3,20 +3,22 @@ import type { Artwork } from "./types";
 
 interface ArtworkGridProps {
   artworks: Artwork[];
-  onSelect: (artwork: Artwork) => void;
   titles: Record<string, string>;
   subtitles: Record<string, string>;
   categoryLabels: Record<string, string>;
+  locale: string;
 }
 
-const ArtworkGrid = ({ artworks, onSelect, titles, subtitles, categoryLabels }: ArtworkGridProps) => {
+const ArtworkGrid = ({ artworks, titles, subtitles, categoryLabels, locale }: ArtworkGridProps) => {
+  const pathPrefix = locale === "es" ? "/es" : "";
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
       {artworks.map((artwork) => (
-        <div
+        <a
           key={artwork.id}
-          className="group cursor-pointer relative overflow-hidden aspect-[3/4] shimmer"
-          onClick={() => onSelect(artwork)}
+          href={`${pathPrefix}/gallery/${artwork.id}`}
+          className="group cursor-pointer relative overflow-hidden aspect-[3/4] shimmer block"
         >
           <img
             src={artwork.images[0].src}
@@ -48,11 +50,11 @@ const ArtworkGrid = ({ artworks, onSelect, titles, subtitles, categoryLabels }: 
                 <p className="font-body text-xs text-white/80 mt-1">{subtitles[artwork.titleKey]}</p>
               )}
               <p className="font-body text-[10px] tracking-[0.3em] uppercase text-white/70 mt-1">
-                {categoryLabels[artwork.category]}
+                {categoryLabels[artwork.category]}{artwork.year ? ` — ${artwork.year}` : ""}
               </p>
             </div>
           </div>
-        </div>
+        </a>
       ))}
     </div>
   );

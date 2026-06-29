@@ -7,9 +7,10 @@ interface Props {
   title: string;
   description: string;
   locale: "en" | "es";
+  preloadImage?: string;
 }
 
-const { title, description, locale } = Astro.props;
+const { title, description, locale, preloadImage } = Astro.props;
 const otherLocale = locale === "en" ? "es" : "en";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const alternateEN = new URL("/", Astro.site);
@@ -26,7 +27,11 @@ const alternateES = new URL("/es/", Astro.site);
     <meta name="author" content="Cecilia Gutierrez" />
 
     <link rel="preconnect" href={import.meta.env.PUBLIC_R2_URL} />
-    <link rel="preload" as="image" href="/hero-photo-bw.jpg" />
+    {preloadImage ? (
+      <link rel="preload" as="image" href={preloadImage} />
+    ) : (
+      <link rel="preload" as="image" href="/hero-photo-bw.jpg" />
+    )}
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" hreflang="en" href={alternateEN} />
     <link rel="alternate" hreflang="es" href={alternateES} />
