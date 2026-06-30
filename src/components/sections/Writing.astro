@@ -1,12 +1,14 @@
 ---
 import ArrowUpRight from "@/components/icons/ArrowUpRight.astro";
-import type { Translations } from "@/i18n/translations";
+import SubstackFeed from "@/components/sections/SubstackFeed.astro";
+import type { Translations, Locale } from "@/i18n/translations";
 
 interface Props {
   t: Translations;
+  locale: Locale;
 }
 
-const { t } = Astro.props;
+const { t, locale } = Astro.props;
 
 const writings = [
   {
@@ -57,5 +59,7 @@ const writings = [
         </a>
       ))}
     </div>
+
+    <SubstackFeed t={t} locale={locale} />
   </div>
 </section>

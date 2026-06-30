@@ -1,0 +1,29 @@
+---
+import Hero from "@/components/sections/Hero.astro";
+import About from "@/components/sections/About.astro";
+import Gallery from "@/components/sections/Gallery.astro";
+import Writing from "@/components/sections/Writing.astro";
+import Mentoring from "@/components/sections/Mentoring.astro";
+import Connect from "@/components/sections/Connect.astro";
+import Divider from "@/components/ui/Divider.astro";
+import type { Translations, Locale } from "@/i18n/translations";
+
+interface Props {
+  t: Translations;
+  locale: Locale;
+}
+
+const { t, locale } = Astro.props;
+---
+
+<main class="min-h-screen bg-background">
+  <Hero t={t} locale={locale} />
+  <About t={t} />
+  <Gallery t={t} locale={locale} />
+  <Divider />
+  <Writing t={t} locale={locale} />
+  <Divider />
+  <Mentoring t={t} />
+  <Connect t={t} />
+</main>
+<script src="@/scripts/scroll-reveal.ts"></script>
