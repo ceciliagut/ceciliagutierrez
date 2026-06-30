@@ -1,13 +1,14 @@
 ---
 import ArrowUpRight from "@/components/icons/ArrowUpRight.astro";
 import { getLatestPosts } from "@/lib/substack";
-import type { Translations } from "@/i18n/translations";
+import type { Translations, Locale } from "@/i18n/translations";
 
 interface Props {
   t: Translations;
+  locale: Locale;
 }
 
-const { t } = Astro.props;
+const { t, locale } = Astro.props;
 
 const writings = [
   {
@@ -27,7 +28,7 @@ const latestPosts = await getLatestPosts(3);
 function formatDate(dateStr: string): string {
   try {
     const date = new Date(dateStr);
-    return date.toLocaleDateString("en-US", {
+    return date.toLocaleDateString(locale === "es" ? "es-ES" : "en-US", {
       year: "numeric",
       month: "short",
       day: "numeric",
