@@ -1,6 +1,6 @@
 ---
 import ArrowUpRight from "@/components/icons/ArrowUpRight.astro";
-import { getLatestPosts } from "@/lib/substack";
+import SubstackFeed from "@/components/sections/SubstackFeed.astro";
 import type { Translations, Locale } from "@/i18n/translations";
 
 interface Props {
@@ -22,21 +22,6 @@ const writings = [
     description: t.writing.medium,
   },
 ];
-
-const latestPosts = await getLatestPosts(3);
-
-function formatDate(dateStr: string): string {
-  try {
-    const date = new Date(dateStr);
-    return date.toLocaleDateString(locale === "es" ? "es-ES" : "en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-  } catch {
-    return "";
-  }
-}
 ---
 
 <section id="writing" class="relative py-16 md:py-24 px-8 md:px-16">
@@ -75,69 +60,6 @@ function formatDate(dateStr: string): string {
       ))}
     </div>
 
-    {latestPosts.length > 0 && (
-      <div class="mt-20">
-        <h3 data-animate class="font-display text-xl md:text-2xl font-medium text-center mb-10">
-          {t.writing.latestPosts}
-        </h3>
-        <div class="space-y-6">
-          {latestPosts.map((post) => (
-            <a
-              href={post.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-animate
-              class="group flex border border-border hover:border-foreground/20 transition-all duration-500 overflow-hidden"
-            >
-              {post.image && (
-                <div class="w-36 md:w-52 flex-shrink-0">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    loading="lazy"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-              )}
-              <div class="flex-1 min-w-0 p-6 md:p-8 flex items-start justify-between gap-4">
-                <div class="flex-1 min-w-0">
-                  <h4 class="font-display text-lg md:text-xl font-medium text-foreground group-hover:text-foreground/80 transition-colors duration-300">
-                    {post.title}
-                  </h4>
-                  {post.pubDate && (
-                    <time class="font-body text-xs tracking-wide text-muted-foreground/60 mt-2 block">
-                      {formatDate(post.pubDate)}
-                    </time>
-                  )}
-                  {post.description && (
-                    <p class="font-body text-sm leading-[1.8] text-muted-foreground mt-3 line-clamp-2">
-                      {post.description}
-                    </p>
-                  )}
-                </div>
-                <ArrowUpRight
-                  size={16}
-                  class="text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 mt-1 flex-shrink-0"
-                />
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    )}
-
-    <div data-animate class="mt-16 text-center dark:hidden">
-      <p class="font-body text-sm text-muted-foreground mb-2">
-        {t.writing.subscribeDescription}
-      </p>
-      <iframe
-        src="https://ceciliagutierrez.substack.com/embed"
-        width="100%"
-        height="150"
-        style="background: transparent;"
-        frameborder="0"
-        scrolling="no"
-      ></iframe>
-    </div>
+    <SubstackFeed t={t} locale={locale} />
   </div>
 </section>
