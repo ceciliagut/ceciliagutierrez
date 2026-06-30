@@ -49,6 +49,10 @@ export const translations = {
       headingAccent: "too",
       medium: "An archive of writings on engineering and life that I was thinking about at the time.",
       substack: "New writings. Only in Spanish.",
+      latestPosts: "Latest posts",
+      readMore: "Read post",
+      subscribe: "Subscribe",
+      subscribeDescription: "Get new posts delivered to your inbox.",
     },
     mentoring: {
       label: "Mentoring",
@@ -116,6 +120,10 @@ export const translations = {
       headingAccent: "también",
       medium: "Un archivo de escritos sobre ingeniería y vida en los que estaba pensando en ese momento.",
       substack: "Nuevos escritos. Solo en español.",
+      latestPosts: "Publicaciones recientes",
+      readMore: "Leer publicacion",
+      subscribe: "Suscribirse",
+      subscribeDescription: "Recibe nuevas publicaciones en tu correo.",
     },
     mentoring: {
       label: "Mentorías",
@@ -143,7 +151,7 @@ export type Translations = {
   hero: { location: string; greeting: string; tagline: string; taglineItalic: string; scroll: string };
   about: { label: string; heading: string; headingAccent: string; p1: string; p1Company: string; p1End: string; p1University: string; p1End2: string; p2: string; p3: string };
   gallery: { label: string; heading: string; headingAccent: string; categories: { all: string; charcoal: string; pastel: string; digital: string; oil: string }; viewArtwork: string; watchProcess: string; backToGallery: string };
-  writing: { label: string; heading: string; headingAccent: string; medium: string; substack: string };
+  writing: { label: string; heading: string; headingAccent: string; medium: string; substack: string; latestPosts: string; readMore: string; subscribe: string; subscribeDescription: string };
   mentoring: { label: string; heading: string; headingAccent: string; description: string; org: string; descriptionEnd: string; book: string; bookDescription: string };
   connect: { label: string; heading: string; headingAccent: string; description: string; footer: string };
 };
