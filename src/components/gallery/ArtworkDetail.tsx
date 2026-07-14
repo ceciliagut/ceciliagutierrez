@@ -10,6 +10,8 @@ interface ArtworkDetailProps {
   title: string;
   subtitle?: string;
   year?: number;
+  dimensions?: string;
+  description?: string;
   categoryLabel: string;
   viewArtworkLabel: string;
   watchProcessLabel: string;
@@ -23,6 +25,8 @@ const ArtworkDetail = ({
   title,
   subtitle,
   year,
+  dimensions,
+  description,
   categoryLabel,
   viewArtworkLabel,
   watchProcessLabel,
@@ -73,6 +77,8 @@ const ArtworkDetail = ({
               title={title}
               subtitle={subtitle}
               year={year}
+              dimensions={dimensions}
+              description={description}
               categoryLabel={categoryLabel}
               imageIndex={imageIndex}
               imageCount={images.length}
