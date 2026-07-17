@@ -18,12 +18,13 @@ const { t, locale } = Astro.props;
 
 <main class="min-h-screen bg-background">
   <Hero t={t} locale={locale} />
-  <About t={t} />
   <Gallery t={t} locale={locale} />
   <Divider />
   <Writing t={t} locale={locale} />
   <Divider />
   <Mentoring t={t} />
+  <Divider />
+  <About t={t} />
   <Connect t={t} />
 </main>
 <script src="@/scripts/scroll-reveal.ts"></script>
