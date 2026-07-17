@@ -5,6 +5,8 @@ interface ArtworkInfoProps {
   title: string;
   subtitle?: string;
   year?: number;
+  dimensions?: string;
+  description?: string;
   categoryLabel: string;
   imageIndex: number;
   imageCount: number;
@@ -22,6 +24,8 @@ const ArtworkInfo = ({
   title,
   subtitle,
   year,
+  dimensions,
+  description,
   categoryLabel,
   imageIndex,
   imageCount,
@@ -48,8 +52,12 @@ const ArtworkInfo = ({
     )}
 
     <p className="font-body text-[11px] tracking-[0.3em] uppercase text-muted-foreground mt-6">
-      {categoryLabel}{year ? ` — ${year}` : ""}
+      {categoryLabel}{year ? ` — ${year}` : ""}{dimensions ? ` — ${dimensions}` : ""}
     </p>
+
+    {description && (
+      <p className="font-body text-sm text-muted-foreground mt-4 leading-relaxed">{description}</p>
+    )}
 
     {hasMultipleImages && !showVideo && (
       <p className="font-body text-[10px] tracking-[0.2em] text-muted-foreground mt-6 hidden md:block">

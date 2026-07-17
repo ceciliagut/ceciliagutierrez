@@ -10,6 +10,8 @@ interface GalleryEntry {
   title?: LocalizedText;
   subtitle?: LocalizedText;
   year?: number;
+  dimensions?: string;
+  description?: LocalizedText;
   images?: number;
   video?: string;
 }
@@ -31,6 +33,8 @@ export interface ArtworkPageData {
   title: { en: string; es: string };
   subtitle: { en: string; es: string };
   year?: number;
+  dimensions?: string;
+  description?: { en: string; es: string };
   videoSrc?: string;
 }
 
@@ -49,7 +53,7 @@ export async function fetchArtworks(): Promise<ArtworkPageData[]> {
   const manifest: GalleryManifest = await res.json();
 
   return Object.entries(manifest).flatMap(([category, entries]) =>
-    entries.map(({ slug, title, subtitle, year, images, video }) => {
+    entries.map(({ slug, title, subtitle, year, dimensions, description, images, video }) => {
       const basePath = `${R2}/artwork/${category}/${slug}`;
       const fallbackTitle = humanize(slug);
 
@@ -69,6 +73,8 @@ export async function fetchArtworks(): Promise<ArtworkPageData[]> {
           es: subtitle?.es || "",
         },
         ...(year ? { year } : {}),
+        ...(dimensions ? { dimensions } : {}),
+        ...(description ? { description: { en: description.en || "", es: description.es || "" } } : {}),
         ...(video ? { videoSrc: `${basePath}/${video}` } : {}),
       };
     })
