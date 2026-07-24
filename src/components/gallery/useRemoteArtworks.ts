@@ -13,7 +13,9 @@ interface GalleryEntry {
   title?: LocalizedText;
   subtitle?: LocalizedText;
   year?: number;
+  dimensions?: string;
   images?: number;
+  thumbnail?: string;
   video?: string;
 }
 
@@ -60,7 +62,7 @@ export function useRemoteArtworks(): RemoteGallery {
         const subtitles: Record<string, string> = {};
 
         const resolved = Object.entries(manifest).flatMap(([category, entries]) =>
-          entries.map(({ slug, title, subtitle, year, images, video }): Artwork => {
+          entries.map(({ slug, title, subtitle, year, images, thumbnail, video }): Artwork => {
             const artworkId = `${category}-${slug}`;
             const basePath = `${R2}/artwork/${category}/${slug}`;
 
@@ -76,6 +78,7 @@ export function useRemoteArtworks(): RemoteGallery {
               category: category as Exclude<ArtworkCategory, "all">,
               titleKey: artworkId,
               ...(year ? { year } : {}),
+              ...(thumbnail ? { thumbnailSrc: `${basePath}/${thumbnail}` } : {}),
               ...(video ? { videoSrc: `${basePath}/${video}` } : {}),
             };
           })

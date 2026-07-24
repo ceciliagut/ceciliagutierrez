@@ -21,7 +21,7 @@ const ArtworkGrid = ({ artworks, titles, subtitles, categoryLabels, locale }: Ar
           className="group cursor-pointer relative overflow-hidden aspect-[3/4] shimmer block"
         >
           <img
-            src={artwork.images[0].src}
+            src={artwork.thumbnailSrc ?? artwork.images[0].src}
             alt={artwork.images[0].alt}
             loading="lazy"
             fetchPriority="low"
