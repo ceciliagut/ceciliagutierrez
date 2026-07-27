@@ -29,9 +29,11 @@ const ZoomableImage = ({ images, activeIndex }: ZoomableImageProps) => {
           key={index}
           src={image.src}
           alt={image.alt}
-          className={`w-full max-h-[80vh] md:h-full object-contain pointer-events-none ${
-            index === 0 ? "" : "absolute inset-0 transition-opacity duration-500"
-          } ${index === activeIndex ? "opacity-100" : "opacity-0"}`}
+          className={`w-full max-h-[80vh] md:h-full object-contain pointer-events-none transition-opacity duration-500 ${
+            index === activeIndex
+              ? "relative z-10 opacity-100"
+              : "absolute inset-0 opacity-0"
+          }`}
           draggable={false}
           fetchPriority={index === 0 ? "high" : "low"}
           loading={index === 0 ? "eager" : "lazy"}
