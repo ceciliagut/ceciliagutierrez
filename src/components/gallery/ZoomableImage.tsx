@@ -41,7 +41,7 @@ const ZoomableImage = ({ images, activeIndex }: ZoomableImageProps) => {
       ))}
       {zoom && (
         <div
-          className="absolute inset-0 hidden md:block"
+          className="absolute inset-0 z-20 hidden md:block"
           style={{
             backgroundImage: `url(${images[activeIndex].src})`,
             backgroundSize: "200%",
