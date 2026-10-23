@@ -5,7 +5,10 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://www.ceciliagutierrez.me",
   output: "static",
-  integrations: [react(), sitemap()],
+  integrations: [
+    react(),
+    sitemap({ filter: (page) => !page.includes("/design-system") }),
+  ],
   i18n: {
     defaultLocale: "en",
     locales: ["en", "es"],
