@@ -3,6 +3,7 @@ import Hero from "@/components/sections/Hero.astro";
 import About from "@/components/sections/About.astro";
 import Gallery from "@/components/sections/Gallery.astro";
 import Writing from "@/components/sections/Writing.astro";
+import Podcast from "@/components/sections/Podcast.astro";
 import Mentoring from "@/components/sections/Mentoring.astro";
 import Connect from "@/components/sections/Connect.astro";
 import Divider from "@/components/ui/Divider.astro";
@@ -21,6 +22,8 @@ const { t, locale } = Astro.props;
   <Gallery t={t} locale={locale} />
   <Divider />
   <Writing t={t} locale={locale} />
+  <Divider />
+  <Podcast t={t} />
   <Divider />
   <Mentoring t={t} />
   <Divider />

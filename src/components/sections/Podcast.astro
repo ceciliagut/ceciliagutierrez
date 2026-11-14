@@ -1,0 +1,37 @@
+---
+import type { Translations } from "@/i18n/translations";
+
+interface Props {
+  t: Translations;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="podcast" class="relative py-16 md:py-24 px-8 md:px-16">
+  <div class="max-w-3xl mx-auto">
+    <div data-animate class="text-center mb-16">
+      <span class="font-body text-[11px] tracking-[0.4em] uppercase text-muted-foreground mb-6 block">
+        {t.podcast.label}
+      </span>
+    </div>
+
+    <p data-animate class="font-body text-base md:text-lg leading-[1.8] text-muted-foreground text-center max-w-2xl mx-auto mb-12">
+      {t.podcast.description}{" "}
+      <a href="https://www.instagram.com/raicesnomades_/" target="_blank" rel="noopener noreferrer" class="text-foreground font-medium underline underline-offset-4 hover:text-primary transition-colors duration-300">Raices Nomades</a>{t.podcast.descriptionEnd}
+    </p>
+
+    <div data-animate class="max-w-2xl mx-auto">
+      <iframe
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/episode/7ovyfaASdm9duGMze1juNp?utm_source=generator&theme=0"
+        width="100%"
+        height="352"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+</section>

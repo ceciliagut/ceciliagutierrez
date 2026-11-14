@@ -54,6 +54,11 @@ export const translations = {
       subscribe: "Subscribe",
       subscribeDescription: "Get new posts delivered to your inbox.",
     },
+    podcast: {
+      label: "Podcast",
+      description: "I had the pleasure of being the first guest on",
+      descriptionEnd: ", by Lucila De Vido. Only in Spanish.",
+    },
     mentoring: {
       label: "Mentoring",
       heading: "Ready to grow together?",
@@ -125,6 +130,11 @@ export const translations = {
       subscribe: "Suscribirse",
       subscribeDescription: "Recibe nuevas publicaciones en tu correo.",
     },
+    podcast: {
+      label: "Podcast",
+      description: "Tuve el placer de ser la primera invitada del podcast",
+      descriptionEnd: ", de Lucila De Vido. Solo en español.",
+    },
     mentoring: {
       label: "Mentorías",
       heading: "Crezcamos en equipo",
@@ -152,6 +162,7 @@ export type Translations = {
   about: { label: string; heading: string; headingAccent: string; p1: string; p1Company: string; p1End: string; p1University: string; p1End2: string; p2: string; p3: string };
   gallery: { label: string; heading: string; headingAccent: string; categories: { all: string; charcoal: string; pastel: string; digital: string; oil: string }; viewArtwork: string; watchProcess: string; backToGallery: string };
   writing: { label: string; heading: string; headingAccent: string; medium: string; substack: string; latestPosts: string; readMore: string; subscribe: string; subscribeDescription: string };
+  podcast: { label: string; description: string; descriptionEnd: string };
   mentoring: { label: string; heading: string; headingAccent: string; description: string; org: string; descriptionEnd: string; book: string; bookDescription: string };
   connect: { label: string; heading: string; headingAccent: string; description: string; footer: string };
 };
