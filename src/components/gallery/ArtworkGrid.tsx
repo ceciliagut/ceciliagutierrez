@@ -26,7 +26,8 @@ const ArtworkGrid = ({ artworks, titles, subtitles, categoryLabels, locale }: Ar
             alt={artwork.images[0].alt}
             loading="lazy"
             fetchPriority="low"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            className="w-full h-full object-cover opacity-0 transition-all duration-700 group-hover:scale-[1.03]"
+            onLoad={(e) => { (e.currentTarget as HTMLElement).style.opacity = '1'; }}
             onError={(e) => {
               const img = e.currentTarget as HTMLImageElement;
               const fallback = getFallbackSrc(img.src);
