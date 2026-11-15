@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { getFallbackSrc } from "./image-fallback";
 
 interface ZoomableImageProps {
   images: { src: string; alt: string }[];
@@ -8,6 +9,7 @@ interface ZoomableImageProps {
 const ZoomableImage = ({ images, activeIndex }: ZoomableImageProps) => {
   const [zoom, setZoom] = useState(false);
   const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
+  const [resolvedSrcs, setResolvedSrcs] = useState<Record<number, string>>({});
 
   const handleMouseMove = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -16,6 +18,8 @@ const ZoomableImage = ({ images, activeIndex }: ZoomableImageProps) => {
       y: ((event.clientY - rect.top) / rect.height) * 100,
     });
   }, []);
+
+  const getResolvedSrc = (index: number) => resolvedSrcs[index] ?? images[index].src;
 
   return (
     <div
@@ -27,7 +31,7 @@ const ZoomableImage = ({ images, activeIndex }: ZoomableImageProps) => {
       {images.map((image, index) => (
         <img
           key={index}
-          src={image.src}
+          src={getResolvedSrc(index)}
           alt={image.alt}
           className={`w-full max-h-[80vh] md:h-full object-contain pointer-events-none transition-opacity duration-500 ${
             index === activeIndex
@@ -37,13 +41,19 @@ const ZoomableImage = ({ images, activeIndex }: ZoomableImageProps) => {
           draggable={false}
           fetchPriority={index === 0 ? "high" : "low"}
           loading={index === 0 ? "eager" : "lazy"}
+          onError={() => {
+            const fallback = getFallbackSrc(image.src);
+            if (fallback) {
+              setResolvedSrcs((prev) => ({ ...prev, [index]: fallback }));
+            }
+          }}
         />
       ))}
       {zoom && (
         <div
           className="absolute inset-0 z-20 hidden md:block"
           style={{
-            backgroundImage: `url(${images[activeIndex].src})`,
+            backgroundImage: `url(${getResolvedSrc(activeIndex)})`,
             backgroundSize: "200%",
             backgroundPosition: `${zoomPos.x}% ${zoomPos.y}%`,
             backgroundRepeat: "no-repeat",
