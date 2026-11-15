@@ -59,6 +59,23 @@ describe("ZoomableImage", () => {
     expect(imgs[0].className).toContain("opacity-0");
   });
 
+  it("shows image immediately if already loaded at mount (hydration)", () => {
+    // Simulate an image that loaded before React hydration
+    const originalComplete = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, "complete");
+    const originalNaturalWidth = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, "naturalWidth");
+    Object.defineProperty(HTMLImageElement.prototype, "complete", { get: () => true, configurable: true });
+    Object.defineProperty(HTMLImageElement.prototype, "naturalWidth", { get: () => 800, configurable: true });
+
+    render(<ZoomableImage images={images} activeIndex={0} />);
+
+    const imgs = screen.getAllByRole("img");
+    expect(imgs[0].className).toContain("opacity-100");
+
+    // Restore
+    if (originalComplete) Object.defineProperty(HTMLImageElement.prototype, "complete", originalComplete);
+    if (originalNaturalWidth) Object.defineProperty(HTMLImageElement.prototype, "naturalWidth", originalNaturalWidth);
+  });
+
   it("retries with uppercase .JPG on error", () => {
     render(<ZoomableImage images={images} activeIndex={0} />);
 

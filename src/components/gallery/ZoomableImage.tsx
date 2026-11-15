@@ -42,6 +42,11 @@ const ZoomableImage = ({ images, activeIndex }: ZoomableImageProps) => {
           draggable={false}
           fetchPriority={index === 0 ? "high" : "low"}
           loading={index === 0 ? "eager" : "lazy"}
+          ref={(img: HTMLImageElement | null) => {
+            if (img?.complete && img.naturalWidth > 0) {
+              setLoadedImages((prev) => prev[index] ? prev : { ...prev, [index]: true });
+            }
+          }}
           onLoad={() => { setLoadedImages((prev) => ({ ...prev, [index]: true })); }}
           onError={() => {
             const fallback = getFallbackSrc(image.src);
