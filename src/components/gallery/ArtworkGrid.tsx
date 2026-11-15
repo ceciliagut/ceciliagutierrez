@@ -27,7 +27,12 @@ const ArtworkGrid = ({ artworks, titles, subtitles, categoryLabels, locale }: Ar
             fetchPriority="low"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             onError={(e) => {
-              const card = (e.currentTarget as HTMLElement).closest('.group');
+              const img = e.currentTarget as HTMLImageElement;
+              if (img.src.endsWith('.jpg')) {
+                img.src = img.src.replace(/\.jpg$/, '.JPG');
+                return;
+              }
+              const card = img.closest('.group');
               if (card) (card as HTMLElement).style.display = 'none';
             }}
           />
