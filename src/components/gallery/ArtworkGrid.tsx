@@ -31,21 +31,22 @@ const ArtworkGrid = ({ artworks, titles, subtitles, categoryLabels, locale }: Ar
               if (card) (card as HTMLElement).style.display = 'none';
             }}
           />
-          <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div className="absolute top-4 right-4 flex gap-2">
             {artwork.images.length > 1 && (
-              <div className="bg-background/80 backdrop-blur-sm rounded-full p-2">
-                <Layers size={14} className="text-foreground" />
+              <div className="bg-black/50 backdrop-blur-sm rounded-full px-2.5 py-1.5 flex items-center gap-1.5">
+                <Layers size={12} className="text-white/90" />
+                <span className="text-white/90 text-[11px] font-body">{artwork.images.length}</span>
               </div>
             )}
             {artwork.videoSrc && (
-              <div className="bg-background/80 backdrop-blur-sm rounded-full p-2">
-                <Play size={14} className="text-foreground" />
+              <div className="bg-black/50 backdrop-blur-sm rounded-full p-1.5">
+                <Play size={12} className="text-white/90" />
               </div>
             )}
           </div>
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-500 flex items-end p-6">
-            <div className="translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-              <p className="font-display text-xl text-white">{titles[artwork.titleKey] || artwork.titleKey.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}</p>
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent pt-16 pb-5 px-5 group-hover:from-black/80 group-hover:via-black/50 transition-all duration-500">
+            <p className="font-display text-lg text-white drop-shadow-sm">{titles[artwork.titleKey] || artwork.titleKey.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}</p>
+            <div className="max-h-0 overflow-hidden opacity-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-500">
               {subtitles[artwork.titleKey] && (
                 <p className="font-body text-xs text-white/80 mt-1">{subtitles[artwork.titleKey]}</p>
               )}
