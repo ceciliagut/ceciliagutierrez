@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import ZoomableImage from "../ZoomableImage";
 
 const images = [
@@ -33,12 +33,15 @@ describe("ZoomableImage", () => {
     expect(imgs[1]).toHaveAttribute("fetchPriority", "low");
   });
 
-  it("applies opacity-100 to active image and opacity-0 to others", () => {
+  it("keeps active image hidden until loaded, then shows opacity-100", () => {
     render(<ZoomableImage images={images} activeIndex={1} />);
 
     const imgs = screen.getAllByRole("img");
-    expect(imgs[0].className).toContain("opacity-0");
+    expect(imgs[1].className).toContain("opacity-0");
+
+    fireEvent.load(imgs[1]);
     expect(imgs[1].className).toContain("opacity-100");
+    expect(imgs[0].className).toContain("opacity-0");
     expect(imgs[2].className).toContain("opacity-0");
   });
 });

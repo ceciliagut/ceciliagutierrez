@@ -10,6 +10,7 @@ const ZoomableImage = ({ images, activeIndex }: ZoomableImageProps) => {
   const [zoom, setZoom] = useState(false);
   const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
   const [resolvedSrcs, setResolvedSrcs] = useState<Record<number, string>>({});
+  const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
 
   const handleMouseMove = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -34,13 +35,14 @@ const ZoomableImage = ({ images, activeIndex }: ZoomableImageProps) => {
           src={getResolvedSrc(index)}
           alt={image.alt}
           className={`w-full max-h-[80vh] md:h-full object-contain pointer-events-none transition-opacity duration-500 ${
-            index === activeIndex
+            index === activeIndex && loadedImages[index]
               ? "relative z-10 opacity-100"
               : "absolute inset-0 opacity-0"
           }`}
           draggable={false}
           fetchPriority={index === 0 ? "high" : "low"}
           loading={index === 0 ? "eager" : "lazy"}
+          onLoad={() => { setLoadedImages((prev) => ({ ...prev, [index]: true })); }}
           onError={() => {
             const fallback = getFallbackSrc(image.src);
             if (fallback) {
