@@ -35,8 +35,8 @@ const ZoomableImage = ({ images, activeIndex }: ZoomableImageProps) => {
           src={getResolvedSrc(index)}
           alt={image.alt}
           className={`w-full max-h-[80vh] md:h-full object-contain pointer-events-none transition-opacity duration-500 ${
-            index === activeIndex && loadedImages[index]
-              ? "relative z-10 opacity-100"
+            index === activeIndex
+              ? `relative z-10 ${loadedImages[index] ? "opacity-100" : "opacity-0"}`
               : "absolute inset-0 opacity-0"
           }`}
           draggable={false}
