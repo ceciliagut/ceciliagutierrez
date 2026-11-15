@@ -15,6 +15,7 @@
     --muted: 1 30% 93%;
     --muted-foreground: 25 25% 40%;
 
+    --surface: 30 10% 97%;
     --border: 1 20% 88%;
 
     --radius: 0.25rem;
@@ -36,6 +37,7 @@
     --muted: 25 25% 18%;
     --muted-foreground: 0 0% 70%;
 
+    --surface: 25 30% 16%;
     --border: 25 25% 22%;
   }
 }

@@ -20,6 +20,7 @@ export default {
       colors: {
         border: "hsl(var(--border))",
         background: "hsl(var(--background))",
+        surface: "hsl(var(--surface))",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
