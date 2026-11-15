@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { getFallbackSrc } from "./image-fallback";
 
 interface ZoomableImageProps {
   images: { src: string; alt: string }[];
@@ -40,11 +41,10 @@ const ZoomableImage = ({ images, activeIndex }: ZoomableImageProps) => {
           draggable={false}
           fetchPriority={index === 0 ? "high" : "low"}
           loading={index === 0 ? "eager" : "lazy"}
-          onError={(e) => {
-            const img = e.currentTarget as HTMLImageElement;
-            if (img.src.endsWith('.jpg')) {
-              const uppercaseSrc = image.src.replace(/\.jpg$/, '.JPG');
-              setResolvedSrcs((prev) => ({ ...prev, [index]: uppercaseSrc }));
+          onError={() => {
+            const fallback = getFallbackSrc(image.src);
+            if (fallback) {
+              setResolvedSrcs((prev) => ({ ...prev, [index]: fallback }));
             }
           }}
         />

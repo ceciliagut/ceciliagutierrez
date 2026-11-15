@@ -1,5 +1,6 @@
 import { Play, Layers } from "lucide-react";
 import type { Artwork } from "./types";
+import { getFallbackSrc } from "./image-fallback";
 
 interface ArtworkGridProps {
   artworks: Artwork[];
@@ -28,8 +29,9 @@ const ArtworkGrid = ({ artworks, titles, subtitles, categoryLabels, locale }: Ar
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             onError={(e) => {
               const img = e.currentTarget as HTMLImageElement;
-              if (img.src.endsWith('.jpg')) {
-                img.src = img.src.replace(/\.jpg$/, '.JPG');
+              const fallback = getFallbackSrc(img.src);
+              if (fallback) {
+                img.src = fallback;
                 return;
               }
               const card = img.closest('.group');
