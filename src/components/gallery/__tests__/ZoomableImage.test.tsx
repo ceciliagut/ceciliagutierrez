@@ -33,30 +33,16 @@ describe("ZoomableImage", () => {
     expect(imgs[1]).toHaveAttribute("fetchPriority", "low");
   });
 
-  it("active image is relative (for layout) but invisible before load", () => {
+  it("active image is visible and relative, others are hidden and absolute", () => {
     render(<ZoomableImage images={images} activeIndex={1} />);
 
     const imgs = screen.getAllByRole("img");
-    expect(imgs[1].className).toContain("relative");
-    expect(imgs[1].className).toContain("opacity-0");
-  });
-
-  it("active image becomes visible after load", () => {
-    render(<ZoomableImage images={images} activeIndex={1} />);
-
-    const imgs = screen.getAllByRole("img");
-    fireEvent.load(imgs[1]);
-    expect(imgs[1].className).toContain("relative");
-    expect(imgs[1].className).toContain("opacity-100");
-  });
-
-  it("inactive images stay absolute and hidden even after load", () => {
-    render(<ZoomableImage images={images} activeIndex={1} />);
-
-    const imgs = screen.getAllByRole("img");
-    fireEvent.load(imgs[0]);
     expect(imgs[0].className).toContain("absolute");
     expect(imgs[0].className).toContain("opacity-0");
+    expect(imgs[1].className).toContain("relative");
+    expect(imgs[1].className).toContain("opacity-100");
+    expect(imgs[2].className).toContain("absolute");
+    expect(imgs[2].className).toContain("opacity-0");
   });
 
   it("retries with uppercase .JPG on error", () => {
